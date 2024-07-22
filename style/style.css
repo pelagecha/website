@@ -1,0 +1,157 @@
+/* Reset some default styles */
+body, h1, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+    font-family: 'Courier New', Courier, monospace; /* Typeset font */
+    color: #fff;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+.header {
+    position: fixed;
+    width: 95%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.header:hover {
+    background-color: rgba(0, 0, 0, 1); /* Darker background on hover */
+}
+
+/* Style for the logo container */
+.logo {
+    display: inline-block; /* Ensure it only takes up as much space as needed */
+}
+
+/* Style for the logo image */
+.logo img {
+    display: block; /* Remove bottom space below the image */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Ensure the height matches the width for a perfect circle */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    transition: transform 0.3s ease; /* Optional: add transition for scaling effects */
+}
+
+/* Optional: hover effect for the logo image */
+.logo img:hover {
+    transform: scale(1); /* Slightly enlarge the image on hover */
+    padding: 1;
+}
+
+
+.navbar a {
+    position: relative; /* Needed for positioning the pseudo-element */
+    color: #fff;
+    text-decoration: none; /* Remove default underline */
+    margin-left: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Animate color and transform */
+}
+
+.navbar a::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning for the underline */
+    left: 0; /* Align it to the left edge */
+    bottom: -2px; /* Position it slightly below the text */
+    width: 100%; /* Full width of the link */
+    height: 3px; /* Thicker underline */
+    background-color: #ffa500; /* Color of the underline */
+    border-radius: 2px; /* Rounded corners for the underline */
+    transform: scaleX(0); /* Initially not visible */
+    transform-origin: bottom center; /* Animation starts from right */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animation */
+}
+
+.navbar a:hover {
+    color: #ffa500; /* Change link color on hover */
+    transform: scale(1.1); /* Slightly enlarge the link on hover */
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+
+
+/* Hero section styles */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('path/to/your/background-image.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+#typing {
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #fff; /* Cursor effect */
+    padding-right: 5px;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #fff;
+    }
+}
+
+/* Parallax effect for background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+/* Sticky text styles */
+.sticky-text {
+    position: absolute;
+    top: 50%; /* Center text vertically in the hero section */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #fff;
+    transition: font-size 0.3s ease, top 0.3s ease;
+    white-space: nowrap;
+}
+
+.sticky-text.fixed {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+}
