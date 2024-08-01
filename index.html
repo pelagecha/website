@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!--------------------------- Google tag (gtag.js) --------------------------->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR8YZB5NC2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -10,18 +10,28 @@
 
         gtag('config', 'G-QR8YZB5NC2');
     </script>
+    
+    <!-------------------------------- Page setup -------------------------------->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor Example</title>
+
+    <!----------------------------------- CSS ------------------------------------>
     <link rel="stylesheet" href="style/style.css">
-    <script src="js/script.js" defer></script>
-    <title>About Me</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/cursor.css">
+
+    <!-------------------------------- JavaScript -------------------------------->
+    <script src="src/cursor.js"></script>
+
 </head>
 <body>
+
+    <div class="cursor-dot" data-cursor-dot></div>
+
     <header class="header">
         <a href="#" class="logo">
-            <img src="images/bears.jpeg" alt="Logo">
-            <div class="particle-effect"></div>
+            <img src="images/code_sign.png" alt="Logo">
         </a>
              
         <nav class="navbar">
@@ -30,18 +40,10 @@
             <a href="mailto:nikitapelagecha@gmail.com">
                 <img src="images/email.png" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
             </a>
-        </nav>
-        
+        </nav>    
     </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h1 id="typing"></h1>
-        </div>
-    </section>
 
-    <script src="src/typing-effect.js"></script> <!-- Typing Effect for logo-->
-    <script src="scroll-effect.js"></script>
+    <h3> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci, optio voluptatibus, itaque nisi reprehenderit atque quibusdam quidem impedit ea, nam culpa harum odio dolorem temporibus voluptas voluptatem. Quos, consequatur.</h3>
 
 </body>
 </html>

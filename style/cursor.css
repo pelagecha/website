@@ -1,0 +1,15 @@
+/* Cursor Dot */
+.cursor-dot {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(227, 217, 217);
+    opacity: 0.7; /* Use 0.7 for 70% opacity */
+    position: fixed; /* Fixed position to follow mouse movements */
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%); /* Center the dot */
+    border-radius: 50%; /* Make it a circle */
+    z-index: 1001; /* Ensure it's above the header */
+    pointer-events: none; /* Prevent it from interfering with clicks */
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.2s ease; /* Animate only these properties */
+}

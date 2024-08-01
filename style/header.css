@@ -1,0 +1,78 @@
+/* Header styles */
+.header {
+    position: fixed;
+    margin: 0;
+    width: 100%; /* Set to full width */
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    z-index: 1000; /* Set z-index */
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.header:hover {
+    background-color: rgba(0, 0, 0, 1); /* Darker background on hover */
+}
+
+/* Style for the logo container */
+.logo {
+    display: inline-block;
+}
+
+/* Style for the logo image */
+.logo img {
+    display: block;
+    width: 90px;
+    height: 50px; 
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: hover effect for the logo image */
+.logo img:hover {
+    transform: scale(1); /* Slightly enlarge the image on hover */
+    background-color: white;
+}
+
+.navbar {
+    display: flex; /* Make the navbar a flex container */
+    align-items: center; /* Align items vertically */
+}
+
+.navbar a {
+    position: relative; /* Needed for positioning the pseudo-element */
+    color: #fff;
+    text-decoration: none; /* Remove default underline */
+    margin-left: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Animate color and transform */
+}
+
+.navbar a:hover { /* Change link color on hover */
+    color: #ffa500; 
+}
+
+.navbar a::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning for the underline */
+    left: 0; /* Align it to the left edge */
+    bottom: -2px; /* Position it slightly below the text */
+    width: 100%; /* Full width of the link */
+    height: 3px; /* Thicker underline */
+    background-color: #ffa500; /* Color of the underline */
+    border-radius: 2px; /* Rounded corners for the underline */
+    transform: scaleX(0); /* Initially not visible */
+    transform-origin: bottom center; /* Animation starts from right */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animation */
+}
+
+.navbar a:hover::after { /* Orange underline for links */
+    transform: scaleX(1); 
+}
+
+h3 {
+    margin: 20px; /* Margin for the h3 tag */
+}
