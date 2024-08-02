@@ -5,13 +5,16 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace; /* Typeset font */
+    font-family: "Courier New", Courier, monospace; /* Typeset font */
     color: #fff;
-    background-color: #781d1d;
+    /* background-color: #781d1d; */
+    background-color: rgb(77, 122, 167);
     overflow-x: hidden;
     padding-top: 70px; /* Add padding equal to the header height */
 }
 
 h3 {
+    /* color: black; */
     color: black;
 }
+

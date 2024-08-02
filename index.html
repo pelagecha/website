@@ -1,50 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!--------------------------- Google tag (gtag.js) --------------------------->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR8YZB5NC2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <head>
+        <!--------------------------- Google tag (gtag.js) --------------------------->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-QR8YZB5NC2"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-        gtag('config', 'G-QR8YZB5NC2');
-    </script>
-    
-    <!-------------------------------- Page setup -------------------------------->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+            gtag("config", "G-QR8YZB5NC2");
+        </script>
 
-    <!----------------------------------- CSS ------------------------------------>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/header.css">
-    <link rel="stylesheet" href="style/cursor.css">
+        <!-------------------------------- Page setup -------------------------------->
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio</title>
 
-    <!-------------------------------- JavaScript -------------------------------->
-    <script src="src/cursor.js"></script>
+        <!----------------------------------- CSS ------------------------------------>
+        <link rel="stylesheet" href="style/style.css" />
+        <link rel="stylesheet" href="style/header.css" />
+        <link rel="stylesheet" href="style/cursor.css" />
+        <link rel="stylesheet" href="style/stories.css" />
 
-</head>
-<body>
+        <!-------------------------------- JavaScript -------------------------------->
+        <script src="src/cursor.js"></script>
+        <script src="src/stories.js"></script>
+    </head>
+    <body>
+        <div class="cursor-dot" data-cursor-dot></div>
 
-    <div class="cursor-dot" data-cursor-dot></div>
+        <header class="header">
+            <div class="my-name">
+                <h2>Nikita Pelagecha</h2>
+            </div>
 
-    <header class="header">
-        <a href="#" class="logo">
-            <img src="images/code_sign.png" alt="Logo">
-        </a>
-             
-        <nav class="navbar">
-            <a href="https://www.linkedin.com/in/pelagecha/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/pelagecha" target="_blank">GitHub</a>
-            <a href="mailto:nikitapelagecha@gmail.com">
-                <img src="images/email.png" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
-            </a>
-        </nav>    
-    </header>
+            <nav class="navbar">
+                <a href="https://www.linkedin.com/in/pelagecha/" target="_blank"
+                    >LinkedIn</a
+                >
+                <a href="https://github.com/pelagecha" target="_blank"
+                    >GitHub</a
+                >
+                <a href="images/cv_aug_2024.pdf" download class="cv-download"
+                    >Download CV</a
+                >
+                <a href="mailto:nikitapelagecha@gmail.com">
+                    <img
+                        src="images/email.png"
+                        style="
+                            width: 20px;
+                            height: 20px;
+                            display: inline-block;
+                            vertical-align: middle;
+                        "
+                    />
+                </a>
+            </nav>
+        </header>
 
-    <h3> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci, optio voluptatibus, itaque nisi reprehenderit atque quibusdam quidem impedit ea, nam culpa harum odio dolorem temporibus voluptas voluptatem. Quos, consequatur.</h3>
+        <img
+            draggable="false"
+            src="images/pfp.png"
+            alt="pfp"
+            class="pfp"
+            unselectable="on"
+        />
 
-</body>
+        <!-- <div class="scrollable-stories"></div>
+        <div class="story-content">
+            <button class="close-story">Close</button>
+            <div class="story-text"></div>
+        </div> -->
+        <!-- <script src="src/stories.js"></script> -->
+    </body>
 </html>
