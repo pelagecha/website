@@ -1,46 +1,59 @@
 // app/data/projectsData.ts
+
 export interface Project {
+    slug: string;
     name: string;
     summary: string;
-    details: string;
+    description: string;
     image: string;
-    points: string[];
+    date: string; // Use ISO 8601 format
+    technologies: string[];
 }
 
-const projectsData: Project[] = [
+export const projectsData: Project[] = [
     {
+        slug: "ai-powered-chatbot",
         name: "AI-Powered Chatbot",
-        summary: "A chatbot that uses AI to simulate human conversation.",
-        details: `In this project, I developed an AI-powered chatbot using Natural Language Processing (NLP) techniques. The chatbot can understand user intent and provide relevant responses, making interactions more natural and engaging.`,
-        image: "/images/chatbot.png", // Placeholder image path
-        points: [
-            "Implemented NLP algorithms for intent recognition.",
-            "Integrated with popular messaging platforms.",
-            "Achieved 90% accuracy in understanding user queries.",
-        ],
+        summary: "An AI chatbot simulating human conversation.",
+        description: `
+  ### Overview
+  Developed an AI-powered chatbot using Natural Language Processing (NLP) techniques.
+  
+  ### Features
+  - Implemented NLP algorithms for intent recognition.
+  - Integrated with popular messaging platforms.
+  - Achieved 90% accuracy in understanding user queries.
+  
+  ### Technologies Used
+  - Python
+  - TensorFlow
+  - Node.js
+      `,
+        image: "/images/chatbot.png",
+        date: "2023-10-15",
+        technologies: ["Python", "TensorFlow", "Node.js"],
     },
     {
+        slug: "ml-stock-predictor",
         name: "Machine Learning Stock Predictor",
-        summary: "Predicting stock prices using machine learning algorithms.",
-        details: `This project involved creating a machine learning model to predict stock market trends. I used historical stock data to train the model and implemented various algorithms to improve prediction accuracy.`,
+        summary: "Predicting stock prices using machine learning.",
+        description: `
+  ### Overview
+  Created a machine learning model to predict stock market trends.
+  
+  ### Features
+  - Collected and preprocessed large datasets of stock prices.
+  - Explored different ML models like LSTM and ARIMA.
+  - Increased prediction accuracy by 15% over baseline models.
+  
+  ### Technologies Used
+  - Python
+  - scikit-learn
+  - Pandas
+      `,
         image: "/images/stock-predictor.png",
-        points: [
-            "Collected and preprocessed large datasets of stock prices.",
-            "Explored different ML models like LSTM and ARIMA.",
-            "Increased prediction accuracy by 15% over baseline models.",
-        ],
+        date: "2023-09-20",
+        technologies: ["Python", "scikit-learn", "Pandas"],
     },
-    {
-        name: "Personal Portfolio Website",
-        summary: "A responsive website to showcase my projects and skills.",
-        details: `I designed and developed a personal portfolio website using Next.js and Tailwind CSS. The site is fully responsive and highlights my projects, skills, and contact information.`,
-        image: "/images/portfolio.png",
-        points: [
-            "Implemented responsive design with Tailwind CSS.",
-            "Optimized for SEO and performance.",
-            "Integrated a contact form with email notifications.",
-        ],
-    },
+    // Add more projects as needed
 ];
-
-export default projectsData;

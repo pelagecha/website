@@ -8,7 +8,13 @@ module.exports = {
         // Include other directories if needed
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                primary: "#1D4ED8", // Blue 700
+                secondary: "#FBBF24", // Amber 400
+            },
+        },
     },
+    darkMode: "class", // Enable class-based dark mode
     plugins: [require("@tailwindcss/typography")],
 };

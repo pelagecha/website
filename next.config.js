@@ -2,9 +2,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["yourdomain.com"], // Adjust as needed
+        domains: ["picsum.photos"],
     },
-    // Other configurations...
 };
 
 module.exports = nextConfig;

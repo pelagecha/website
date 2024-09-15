@@ -1,6 +1,8 @@
 // app/layout.tsx
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata = {
     title: "My Portfolio",
@@ -15,10 +17,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <Navbar />
-                {children}
-                {/* Optional div for modal portal */}
-                <div id="modal-root"></div>
+                <ThemeProvider>
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );
