@@ -1,85 +1,72 @@
 // app/[slug]/page.tsx
 
 import React from "react";
-import { projectsData } from "../data/projectsData";
+import { blogsData } from "../data/blogsData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import type { Project } from "../data/projectsData";
+import type { Blog } from "../data/blogsData";
 
-interface ProjectPageProps {
+interface BlogPageProps {
     params: {
         slug: string;
     };
 }
 
 export function generateStaticParams() {
-    return projectsData.map((project: Project) => ({ slug: project.slug }));
+    return blogsData.map((blog: Blog) => ({ slug: blog.slug }));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps) {
+export async function generateMetadata({ params }: BlogPageProps) {
     const { slug } = params;
-    const project = projectsData.find((p) => p.slug === slug);
+    const blog = blogsData.find((b) => b.slug === slug);
 
-    if (!project) {
+    if (!blog) {
         return {
-            title: "Project Not Found",
-            description: "The project you're looking for doesn't exist.",
+            title: "Blog Not Found",
+            description: "The blog post you are looking for does not exist.",
         };
     }
 
     return {
-        title: project.name,
-        description: project.summary,
+        title: blog.title,
+        description: blog.summary,
     };
 }
 
-const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
+const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
     const { slug } = params;
-    const project = projectsData.find((p) => p.slug === slug);
+    const blog = blogsData.find((b) => b.slug === slug);
 
-    if (!project) {
+    if (!blog) {
         notFound();
     }
 
     return (
         <div className="container mx-auto my-16 p-4">
             <Link
-                href="/#projects"
+                href="/"
                 className="text-blue-500 hover:underline mb-4 inline-block"
             >
-                &larr; Back to Projects
+                &larr; Back to Home
             </Link>
-            <h1 className="text-4xl font-bold mb-4">{project.name}</h1>
-            <p className="text-gray-500 mb-4">{project.date}</p>
+            <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
+            <p className="text-gray-500 mb-4">
+                {blog.date} • {blog.readTime} • {blog.wordCount} words
+            </p>
             <Image
-                src={`https://picsum.photos/seed/${project.slug}/800/400`}
-                alt={project.name}
+                src={`https://picsum.photos/seed/${blog.slug}/800/400`}
+                alt={blog.title}
                 width={800}
                 height={400}
                 className="w-full h-auto object-cover rounded-md mb-4"
             />
             <div className="prose prose-lg dark:prose-dark">
-                <ReactMarkdown>{project.description}</ReactMarkdown>
-            </div>
-            <div className="mt-6">
-                <h2 className="text-2xl font-semibold mb-2">
-                    Technologies Used
-                </h2>
-                <ul className="list-disc list-inside">
-                    {project.technologies.map((tech, index) => (
-                        <li
-                            key={index}
-                            className="text-gray-700 dark:text-gray-300"
-                        >
-                            {tech}
-                        </li>
-                    ))}
-                </ul>
+                <ReactMarkdown>{blog.content}</ReactMarkdown>
             </div>
         </div>
     );
 };
 
-export default ProjectPage;
+export default BlogPage;

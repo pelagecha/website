@@ -13,6 +13,10 @@ module.exports = {
                 primary: "#1D4ED8", // Blue 700
                 secondary: "#FBBF24", // Amber 400
             },
+            transitionProperty: {
+                height: "height",
+                spacing: "margin, padding",
+            },
         },
     },
     darkMode: "class", // Enable class-based dark mode
