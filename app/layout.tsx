@@ -1,11 +1,10 @@
 // app/layout.tsx
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 export const metadata = {
-    title: "Nikita Pelagecha | Portfolio",
-    description: "Portfolio website of Nikita Pelagecha",
+    title: "My Portfolio",
+    description: "My personal portfolio website",
 };
 
 export default function RootLayout({
@@ -15,10 +14,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="bg-white text-black">
+            <body>
                 <Navbar />
-                <main>{children}</main>
-                <Footer />
+                {children}
+                {/* Optional div for modal portal */}
+                <div id="modal-root"></div>
             </body>
         </html>
     );

@@ -3,10 +3,12 @@
 module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
-        // Add paths to your components if needed
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+        // Include other directories if needed
     ],
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
 };

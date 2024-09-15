@@ -1,9 +1,10 @@
 // app/page.tsx
+import React from "react";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import Blogs from "./components/Blogs";
 
-export default function Home() {
+const HomePage: React.FC = () => {
     return (
         <>
             <AboutMe />
@@ -11,4 +12,6 @@ export default function Home() {
             <Blogs />
         </>
     );
-}
+};
+
+export default HomePage;

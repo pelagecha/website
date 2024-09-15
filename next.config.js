@@ -1,8 +1,10 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Remove the experimental.appDir option
-    // Add any other configurations if needed
+    images: {
+        domains: ["yourdomain.com"], // Adjust as needed
+    },
+    // Other configurations...
 };
 
 module.exports = nextConfig;
