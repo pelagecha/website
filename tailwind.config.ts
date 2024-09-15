@@ -20,5 +20,8 @@ module.exports = {
         },
     },
     darkMode: "class", // Enable class-based dark mode
-    plugins: [require("@tailwindcss/typography")],
+    plugins: [
+        require("@tailwindcss/typography"),
+        require("tailwind-scrollbar"),
+    ],
 };

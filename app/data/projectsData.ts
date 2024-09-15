@@ -5,7 +5,7 @@ export interface Project {
     name: string;
     summary: string;
     description: string;
-    image: string;
+    image: string; // Mandatory
     date: string; // Use ISO 8601 format
     technologies: string[];
 }
@@ -29,14 +29,14 @@ export const projectsData: Project[] = [
   - TensorFlow
   - Node.js
       `,
-        image: "/images/chatbot.png",
+        image: "/images/projects/test.jpg", // Ensure this image exists
         date: "2023-10-15",
         technologies: ["Python", "TensorFlow", "Node.js"],
     },
     {
         slug: "ml-stock-predictor",
         name: "Machine Learning Stock Predictor",
-        summary: "Predicting stock prices using machine learning.",
+        summary: "Predicting stock prices using ML.",
         description: `
   ### Overview
   Created a machine learning model to predict stock market trends.
@@ -51,9 +51,9 @@ export const projectsData: Project[] = [
   - scikit-learn
   - Pandas
       `,
-        image: "/images/stock-predictor.png",
+        image: "/images/projects/test.jpg", // Ensure this image exists
         date: "2023-09-20",
         technologies: ["Python", "scikit-learn", "Pandas"],
     },
-    // Add more projects as needed
+    // Add more projects...
 ];

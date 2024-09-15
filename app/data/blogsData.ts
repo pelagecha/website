@@ -5,7 +5,7 @@ export interface Blog {
     title: string;
     summary: string;
     content: string;
-    image: string;
+    image: string; // Mandatory
     date: string; // Use ISO 8601 format
     category: string;
     wordCount?: number;
@@ -29,10 +29,29 @@ export const blogsData: Blog[] = [
   
   AI continues to evolve and influence numerous sectors...
       `,
-        image: "/images/ai-world.png",
+        image: "/images/blogs/test.jpg", // Ensure this image exists
         date: "2023-10-15",
         category: "Artificial Intelligence",
-        // We'll calculate wordCount and readTime below
+    },
+    {
+        slug: "machine-learning-basics",
+        title: "Understanding the Basics of ML",
+        summary:
+            "A beginner's guide to machine learning concepts and applications.",
+        content: `
+  ### What is Machine Learning?
+  
+  Machine learning is a subset of AI focused on building systems that learn from data...
+  
+  *Include explanations of supervised, unsupervised learning, etc.*
+  
+  ### Practical Applications
+  
+  Machine learning is used in various fields such as healthcare, finance...
+      `,
+        image: "/images/blogs/test.jpg", // Ensure this image exists
+        date: "2023-09-10",
+        category: "Machine Learning",
     },
     // Add more blogs...
 ];

@@ -17,7 +17,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                 aria-label={`Read blog post: ${blog.title}`}
             >
                 <Image
-                    src={`https://picsum.photos/seed/${blog.slug}/400/160`}
+                    src={blog.image}
                     alt={blog.title}
                     width={400}
                     height={160}

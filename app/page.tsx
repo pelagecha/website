@@ -10,9 +10,9 @@ const HomePage: React.FC = () => {
     return (
         <>
             <AboutMe />
-            <Skills />
             <Projects />
             <Blogs />
+            <Skills />
         </>
     );
 };

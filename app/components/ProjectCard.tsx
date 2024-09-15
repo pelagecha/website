@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 aria-label={`View details about ${project.name}`}
             >
                 <Image
-                    src={`https://picsum.photos/seed/${project.slug}/400/160`}
+                    src={project.image}
                     alt={project.name}
                     width={400}
                     height={160}

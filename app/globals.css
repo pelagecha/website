@@ -20,3 +20,8 @@ body {
 body.overflow-hidden {
     overflow: hidden;
 }
+
+/* In globals.css or a component-specific CSS */
+.object-cover {
+    object-fit: cover;
+}
