@@ -11,7 +11,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     return (
-        <Link href={`/${blog.slug}`} passHref>
+        <Link href={`/blogs/${blog.slug}`} passHref>
             <div
                 className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer"
                 aria-label={`Read blog post: ${blog.title}`}
@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                 />
                 <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
                 <p className="text-gray-500 text-sm mb-2">
-                    {blog.date} • {blog.readTime}
+                    {blog.date} • {blog.readTime} • {blog.wordCount} words
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {blog.summary}

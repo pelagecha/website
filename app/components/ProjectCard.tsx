@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
-        <Link href={`/${project.slug}`} passHref>
+        <Link href={`/projects/${project.slug}`} passHref>
             <div
                 className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer"
                 aria-label={`View details about ${project.name}`}

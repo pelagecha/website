@@ -1,12 +1,12 @@
-// app/[slug]/page.tsx
+// app/blogs/[slug]/page.tsx
 
 import React from "react";
-import { blogsData } from "../data/blogsData";
+import { blogsData } from "../../data/blogsData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import type { Blog } from "../data/blogsData";
+import type { Blog } from "../../data/blogsData";
 
 interface BlogPageProps {
     params: {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: BlogPageProps) {
 
 const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
     const { slug } = params;
-    const blog = blogsData.find((b) => b.slug === slug);
+    const blog = blogsData.find((b: Blog) => b.slug === slug);
 
     if (!blog) {
         notFound();
@@ -46,10 +46,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
     return (
         <div className="container mx-auto my-16 p-4">
             <Link
-                href="/"
+                href="/#blogs"
                 className="text-blue-500 hover:underline mb-4 inline-block"
             >
-                &larr; Back to Home
+                &larr; Back to Blogs
             </Link>
             <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
             <p className="text-gray-500 mb-4">

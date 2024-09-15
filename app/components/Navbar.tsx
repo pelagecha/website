@@ -1,4 +1,5 @@
 // app/components/Navbar.tsx
+
 "use client";
 
 import React, { useContext } from "react";
@@ -26,13 +27,19 @@ const Navbar: React.FC = () => {
                         Home
                     </Link>
                     <Link
-                        href="/#projects"
+                        href="/blogs"
+                        className="hover:text-blue-500 dark:hover:text-blue-400"
+                    >
+                        Blogs
+                    </Link>
+                    <Link
+                        href="/projects"
                         className="hover:text-blue-500 dark:hover:text-blue-400"
                     >
                         Projects
                     </Link>
                     <Link
-                        href="/#about"
+                        href="/about"
                         className="hover:text-blue-500 dark:hover:text-blue-400"
                     >
                         About Me
