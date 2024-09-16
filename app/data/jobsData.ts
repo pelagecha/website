@@ -1,3 +1,5 @@
+// app/data/jobsData.ts
+
 export interface Job {
     title: string;
     company: string;

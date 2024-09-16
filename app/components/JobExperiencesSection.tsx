@@ -1,12 +1,57 @@
 "use client";
 
+import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { jobs } from "../data/jobsData";
 
 const JobExperiencesSection: React.FC = () => {
     const particlesInit = async (main: any) => {
-        await loadFull(main);
+        try {
+            await loadFull(main);
+        } catch (error) {
+            console.error("Error loading tsParticles:", error);
+        }
+    };
+
+    const particlesOptions = {
+        background: { color: { value: "#ffffff" } },
+        fpsLimit: 60,
+        interactivity: {
+            events: {
+                onClick: { enable: true, mode: "push" },
+                onHover: { enable: true, mode: "repulse" },
+                resize: true,
+            },
+            modes: {
+                push: { quantity: 4 },
+                repulse: { distance: 200, duration: 0.4 },
+            },
+        },
+        particles: {
+            color: { value: "#000000" },
+            links: {
+                color: "#000000",
+                distance: 150,
+                enable: true,
+                opacity: 0.2,
+                width: 1,
+            },
+            collisions: { enable: false },
+            move: {
+                directions: "none",
+                enable: true,
+                outModes: { default: "bounce" },
+                random: false,
+                speed: 1,
+                straight: false,
+            },
+            number: { density: { enable: true, area: 800 }, value: 20 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 5 } },
+        },
+        detectRetina: true,
     };
 
     return (
@@ -17,20 +62,7 @@ const JobExperiencesSection: React.FC = () => {
             <Particles
                 id="tsparticles"
                 init={particlesInit}
-                options={{
-                    background: { color: { value: "#ffffff" } },
-                    particles: {
-                        number: { value: 50 },
-                        size: { value: 3 },
-                        move: { enable: true, speed: 1 },
-                        links: {
-                            enable: true,
-                            distance: 150,
-                            color: "#000000",
-                            opacity: 0.2,
-                        },
-                    },
-                }}
+                options={particlesOptions}
                 className="absolute inset-0 z-0"
             />
             <div className="relative z-10">
@@ -44,7 +76,7 @@ const JobExperiencesSection: React.FC = () => {
                             className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-transform duration-300 animate-float"
                         >
                             <h3 className="text-xl font-semibold mb-2">
-                                {job.title}
+                                {job.title} at {job.company}
                             </h3>
                             <p className="text-gray-600">{job.company}</p>
                             <p className="mt-4">{job.description}</p>
