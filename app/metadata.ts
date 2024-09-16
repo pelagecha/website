@@ -1,4 +1,4 @@
 export const metadata = {
-    title: "My Portfolio",
+    title: "Nikita Pelagecha",
     description: "My personal portfolio website",
 };

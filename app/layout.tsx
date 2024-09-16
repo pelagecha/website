@@ -4,10 +4,10 @@ import Footer from "./components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "My Portfolio",
-    description: "My personal portfolio website",
-};
+// export const metadata: Metadata = {
+//     title: "Nikita Pelagecha",
+//     description: "My personal portfolio website",
+// };
 
 export default function RootLayout({
     children,

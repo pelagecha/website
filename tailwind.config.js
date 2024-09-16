@@ -25,6 +25,7 @@ module.exports = {
             },
             animation: {
                 float: "float 3s ease-in-out infinite",
+                "bounce-slow": "bounce 2s infinite",
             },
         },
     },

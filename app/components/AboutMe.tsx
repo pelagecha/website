@@ -1,24 +1,50 @@
-// app/components/AboutMe.tsx
 import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { ThemeProvider } from "../context/ThemeContext";
 
-const AboutMe: React.FC = () => {
+const AboutPage: React.FC = () => {
     return (
-        <section id="about" className="container mx-auto my-16 p-4">
-            <h2 className="text-3xl font-bold mb-4">About Me</h2>
-            <p>
-                Hi, I'm Nikita Pelagecha, a dedicated Computer Science student
-                at the University of Warwick with a strong passion for
-                Artificial Intelligence and Machine Learning. I've consistently
-                achieved top grades in my coursework and have been involved in
-                several AI research projects, where I applied machine learning
-                algorithms to real-world problems. My enthusiasm for technology
-                drives me to continually expand my skill set, and I'm proficient
-                in languages like Python, Java, and C++. I'm eager to bring my
-                problem-solving skills and innovative mindset to a dynamic team,
-                where I can contribute and grow professionally.
-            </p>
-        </section>
+        <ThemeProvider>
+            <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+                <Navbar />
+                <main className="container mx-auto px-4 py-24">
+                    <h1 className="text-4xl font-bold mb-6 text-gray-800 dark:text-white">
+                        About Me
+                    </h1>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                        Hello! I'm Nikita Pelagecha, a passionate software
+                        engineer with a strong background in computer science
+                        and a love for problem-solving. I graduated from the
+                        University of Warwick with a degree in Computer Science,
+                        which laid the foundation for my career in technology.
+                    </p>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                        With over 5 years of experience in Python development,
+                        I've had the opportunity to work on a wide range of
+                        projects, from web applications to data analysis tools.
+                        I'm particularly interested in machine learning and
+                        artificial intelligence, and I'm always eager to learn
+                        and apply new technologies.
+                    </p>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                        Outside of work, I enjoy participating in coding
+                        competitions, with notable experience as a NWERC
+                        (Northwestern Europe Regional Contest) contestant. These
+                        competitions have sharpened my problem-solving skills
+                        and ability to work under pressure.
+                    </p>
+                    <p className="text-lg text-gray-700 dark:text-gray-300">
+                        I'm constantly seeking new challenges and opportunities
+                        to grow as a developer. If you're interested in
+                        collaborating or just want to chat about technology,
+                        feel free to reach out!
+                    </p>
+                </main>
+                <Footer />
+            </div>
+        </ThemeProvider>
     );
 };
 
-export default AboutMe;
+export default AboutPage;
