@@ -16,19 +16,19 @@ export const projectsData: Project[] = [
         name: "AI-Powered Chatbot",
         summary: "An AI chatbot simulating human conversation.",
         description: `
-  ### Overview
-  Developed an AI-powered chatbot using Natural Language Processing (NLP) techniques.
-  
-  ### Features
-  - Implemented NLP algorithms for intent recognition.
-  - Integrated with popular messaging platforms.
-  - Achieved 90% accuracy in understanding user queries.
-  
-  ### Technologies Used
-  - Python
-  - TensorFlow
-  - Node.js
-      `,
+### Overview
+Developed an AI-powered chatbot using Natural Language Processing (NLP) techniques.
+
+### Features
+- Implemented NLP algorithms for intent recognition.
+- Integrated with popular messaging platforms.
+- Achieved 90% accuracy in understanding user queries.
+
+### Technologies Used
+- Python
+- TensorFlow
+- Node.js
+    `,
         image: "/images/projects/test.jpg", // Ensure this image exists
         date: "2023-10-15",
         technologies: ["Python", "TensorFlow", "Node.js"],
@@ -38,22 +38,24 @@ export const projectsData: Project[] = [
         name: "Machine Learning Stock Predictor",
         summary: "Predicting stock prices using ML.",
         description: `
-  ### Overview
-  Created a machine learning model to predict stock market trends.
-  
-  ### Features
-  - Collected and preprocessed large datasets of stock prices.
-  - Explored different ML models like LSTM and ARIMA.
-  - Increased prediction accuracy by 15% over baseline models.
-  
-  ### Technologies Used
-  - Python
-  - scikit-learn
-  - Pandas
-      `,
+### Overview
+Created a machine learning model to predict stock market trends.
+
+### Features
+- Collected and preprocessed large datasets of stock prices.
+- Explored different ML models like LSTM and ARIMA.
+- Increased prediction accuracy by 15% over baseline models.
+
+### Technologies Used
+- Python
+- scikit-learn
+- Pandas
+    `,
         image: "/images/projects/test.jpg", // Ensure this image exists
         date: "2023-09-20",
         technologies: ["Python", "scikit-learn", "Pandas"],
     },
     // Add more projects...
 ];
+
+// Ensure data integrity by validating image paths and other fields

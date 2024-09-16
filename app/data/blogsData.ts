@@ -19,16 +19,16 @@ export const blogsData: Blog[] = [
         summary:
             "Exploring how AI is reshaping industries and our daily lives.",
         content: `
-  ### Introduction
-  
-  Artificial Intelligence (AI) has become an integral part of our society...
-  
-  *Discuss various aspects, benefits, and challenges of AI.*
-  
-  ### Conclusion
-  
-  AI continues to evolve and influence numerous sectors...
-      `,
+### Introduction
+
+Artificial Intelligence (AI) has become an integral part of our society...
+
+*Discuss various aspects, benefits, and challenges of AI.*
+
+### Conclusion
+
+AI continues to evolve and influence numerous sectors...
+    `,
         image: "/images/blogs/test.jpg", // Ensure this image exists
         date: "2023-10-15",
         category: "Artificial Intelligence",
@@ -39,16 +39,16 @@ export const blogsData: Blog[] = [
         summary:
             "A beginner's guide to machine learning concepts and applications.",
         content: `
-  ### What is Machine Learning?
-  
-  Machine learning is a subset of AI focused on building systems that learn from data...
-  
-  *Include explanations of supervised, unsupervised learning, etc.*
-  
-  ### Practical Applications
-  
-  Machine learning is used in various fields such as healthcare, finance...
-      `,
+### What is Machine Learning?
+
+Machine learning is a subset of AI focused on building systems that learn from data...
+
+*Include explanations of supervised, unsupervised learning, etc.*
+
+### Practical Applications
+
+Machine learning is used in various fields such as healthcare, finance...
+    `,
         image: "/images/blogs/test.jpg", // Ensure this image exists
         date: "2023-09-10",
         category: "Machine Learning",

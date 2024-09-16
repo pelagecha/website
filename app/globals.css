@@ -3,25 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tailwind CSS Prose classes for styling Markdown content */
-/* @import "tailwindcss/typography"; */
+/* Enable Tailwind Typography */
 
-/* Ensure the `prose` class is included in your Tailwind CSS configuration */
-
-/* Add any custom global styles below */
+/* Custom Global Styles */
 
 /* Example custom style */
 body {
-    font-family: "Inter", sans-serif;
     @apply bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100;
+    font-family: "Inter", sans-serif;
 }
 
-/* globals.css */
 body.overflow-hidden {
     overflow: hidden;
 }
 
-/* In globals.css or a component-specific CSS */
 .object-cover {
     object-fit: cover;
+}
+
+html {
+    scroll-behavior: smooth;
 }

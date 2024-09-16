@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
             <div>
                 {/* General Information Block */}
                 <section className="relative h-screen flex items-center justify-center bg-gray-100">
-                    <div className="text-center">
+                    <div className="text-center z-10">
                         <h1 className="text-5xl font-bold mb-4">
                             Welcome to My Portfolio
                         </h1>
@@ -26,6 +26,7 @@ const HomePage: React.FC = () => {
                 </section>
 
                 {/* Prompt to Scroll Down */}
+                {/* You can add a scroll indicator here if desired */}
 
                 {/* Job Experiences with Animated Tiles */}
                 <JobExperiencesSection />

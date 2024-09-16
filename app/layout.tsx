@@ -19,7 +19,7 @@ export default function RootLayout({
             <body>
                 <ThemeProvider>
                     <Navbar />
-                    {children}
+                    <main className="pt-16">{children}</main>
                     <Footer />
                 </ThemeProvider>
             </body>
