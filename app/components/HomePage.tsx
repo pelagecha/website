@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
             >
                 {/* Hero Section */}
                 <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                    {/* <ParticlesBackground /> */}
+                    <ParticlesBackground />
                     <InfoSection />
                     <div
                         className="absolute bottom-20 md:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
                         }}
                     >
                         <FaChevronDown
-                            className="text-3xl md:text-4xl lg:text-5xl text-gray-700 dark:text-gray-300 animate-bounce"
+                            className="text-3xl md:text-4xl lg:text-3xl text-gray-700 dark:text-gray-300 animate-bounce"
                             aria-hidden="true"
                         />
                         <span className="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">

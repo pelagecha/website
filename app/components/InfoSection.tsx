@@ -18,7 +18,7 @@ const InfoSection: React.FC = () => {
             className={`${
                 theme === "dark"
                     ? "bg-gray-800 bg-opacity-50 text-white"
-                    : "bg-white bg-opacity-90 text-gray-800"
+                    : "bg-white-300    bg-opacity-90 text-gray-800"
             } p-8 rounded-2xl shadow-2xl max-w-6xl w-full mx-auto backdrop-blur-md`}
         >
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
