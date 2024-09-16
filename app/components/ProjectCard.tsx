@@ -28,7 +28,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {project.summary}
                 </p>
-                {/* Removed "Learn More" link */}
             </div>
         </Link>
     );

@@ -119,7 +119,7 @@ const ParticlesBackground: React.FC = () => {
                     enable: true,
                     speed: 1.5,
                     direction: "bottom",
-                    random: false,
+                    random: true,
                     straight: false,
                     out_mode: "out",
                     bounce: false,
@@ -140,7 +140,7 @@ const ParticlesBackground: React.FC = () => {
                 },
                 modes: {
                     grab: { distance: 200, line_linked: { opacity: 0.5 } },
-                    push: { quantity: 6 },
+                    push: { quantity: 2 },
                 },
             },
             detectRetina: true,

@@ -59,12 +59,12 @@ const MainSection: React.FC = () => {
     return (
         <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
             {/* Particle Background */}
-            <Particles
+            {/* <Particles
                 id="tsparticles"
                 init={particlesInit}
                 options={particlesOptions}
                 className="absolute top-0 left-0 w-full h-full"
-            />
+            /> */}
 
             {/* Content */}
             <div className="relative z-10 text-center text-white px-4">

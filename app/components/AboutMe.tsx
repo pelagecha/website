@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { ThemeProvider } from "../context/ThemeContext";
 
 const AboutPage: React.FC = () => {
@@ -41,7 +40,6 @@ const AboutPage: React.FC = () => {
                         feel free to reach out!
                     </p>
                 </main>
-                <Footer />
             </div>
         </ThemeProvider>
     );

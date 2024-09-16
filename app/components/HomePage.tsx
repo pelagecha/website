@@ -8,9 +8,9 @@ import Blogs from "./Blogs";
 import Projects from "./Projects";
 import JobTimeline from "./JobTimeline";
 import InfoSection from "./InfoSection";
-import Footer from "./Footer";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
+import JobExperiencesSection from "./JobExperiencesSection";
 
 const HomePage: React.FC = () => {
     const { theme } = useContext(ThemeContext);
@@ -31,10 +31,8 @@ const HomePage: React.FC = () => {
             >
                 {/* Hero Section */}
                 <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                    <ParticlesBackground />{" "}
-                    {/* Use the new Particles component */}
+                    {/* <ParticlesBackground /> */}
                     <InfoSection />
-                    {/* Bouncing Arrow and "Explore" Text */}
                     <div
                         className="absolute bottom-20 md:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
                         onClick={handleScroll}
@@ -57,13 +55,11 @@ const HomePage: React.FC = () => {
 
                 {/* Next Section with Ref */}
                 <div ref={nextSectionRef}>
-                    <Skills />{" "}
-                    {/* Use Skills component instead of JobExperiencesSection */}
+                    <JobExperiencesSection />
                 </div>
                 <Projects />
                 <Blogs />
                 <JobTimeline />
-                <Footer />
             </div>
         </ParallaxProvider>
     );

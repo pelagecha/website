@@ -11,19 +11,34 @@ export interface Job {
 export const jobs: Job[] = [
     {
         id: 1,
-        title: "Software Engineer",
-        company: "Tech Innovators Inc.",
-        duration: "Jan 2023 - Present",
+        title: "Research Intern",
+        company: "University of Warwick - DCS",
+        duration: "Jul 2024 - Sep 2024",
         description:
-            "Developing scalable web applications and leading a team of junior developers.",
+            "Engaged in research activities contributing to computer science projects. Applied analytical skills and technical knowledge to develop insights for the research team.",
     },
     {
         id: 2,
-        title: "Frontend Developer",
-        company: "Creative Solutions",
-        duration: "Jun 2021 - Dec 2022",
+        title: "Archery Specialist",
+        company: "Camp Kinder Ring",
+        duration: "Jun 2023 - Aug 2023",
         description:
-            "Built responsive user interfaces and optimized performance for client projects.",
+            "Managed the archery program, increasing participant engagement by 50%. Worked with a team of 200 to organize large-scale events for over 500 individuals.",
     },
-    // Add more jobs as needed
+    {
+        id: 3,
+        title: "Food and Beverage Assistant",
+        company: "The Rupert Brooke",
+        duration: "Mar 2022 - Sep 2022",
+        description:
+            "Provided exceptional service to guests daily, leveraging problem-solving and multitasking skills. Contributed to training new staff and improving team productivity.",
+    },
+    {
+        id: 4,
+        title: "Volunteer, Radio Electronics",
+        company: "Palace of Children’s and Youth Creativity",
+        duration: "Sep 2019 - Nov 2019",
+        description:
+            "Assembled and soldered circuit boards while gaining practical experience in embedded systems and programming with Arduino and C++.",
+    },
 ];

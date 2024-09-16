@@ -2,8 +2,10 @@
 
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
+import Image from "next/image"; // Ensure this import is present
+import ImageWithFallback from "./ImageWithFallback";
 
 const InfoSection: React.FC = () => {
     const { theme } = useContext(ThemeContext);
@@ -17,24 +19,50 @@ const InfoSection: React.FC = () => {
                 theme === "dark"
                     ? "bg-gray-800 bg-opacity-50 text-white"
                     : "bg-white bg-opacity-90 text-gray-800"
-            } p-8 rounded-3xl shadow-2xl max-w-4xl w-full mx-auto backdrop-blur-md`}
+            } p-8 rounded-2xl shadow-2xl max-w-6xl w-full mx-auto backdrop-blur-md`}
         >
-            <h1 className="text-4xl font-bold mb-6">Nikita Pelagecha</h1>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <InfoTile title="Experience" content="5+ years in Python" />
-                <InfoTile title="Competition" content="NWERC Contestant" />
-                <InfoTile title="Position" content="Software Engineer" />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ImageWithFallback
+                    src="/images/me.png"
+                    alt="Nikita Pelagecha"
+                    width={200}
+                    height={200}
+                    className="object-cover rounded-xl"
+                    style={{
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        marginTop: "auto",
+                        marginBottom: "auto",
+                    }}
+                />
                 <InfoTile
                     title="Education"
-                    content="CS at University of Warwick"
+                    content="University of Warwick - BSc Hons Computer Science"
+                />
+                <InfoTile
+                    title="Current Position"
+                    content="ML Research Intern at DCS Warwick"
+                />
+                <InfoTile
+                    title="Competitions"
+                    content="NWERC and UKIEPC 2024 Contestant"
+                />
+                <InfoTile
+                    title="Technical Skills"
+                    content="Proficient in Java, Python, Git, C++, C, SQL, JavaScript, TypeScript, React, Next.js, TailwindCSS, HTML, CSS"
                     size="large"
+                />
+                <InfoTile
+                    title="Languages"
+                    content="Fluent in English, Ukrainian and Russian"
                 />
                 <InfoTile
                     title="Social"
                     content={
                         <div className="flex space-x-4">
+                            {/* Github */}
                             <a
-                                href="https://github.com/yourusername"
+                                href="https://github.com/pelagecha"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -47,8 +75,9 @@ const InfoSection: React.FC = () => {
                                     }
                                 />
                             </a>
+                            {/* LinkedIn */}
                             <a
-                                href="https://linkedin.com/in/yourusername"
+                                href="https://linkedin.com/in/pelagecha"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -58,6 +87,38 @@ const InfoSection: React.FC = () => {
                                         theme === "dark"
                                             ? "text-white hover:text-blue-400 transition-colors"
                                             : "text-blue-700 hover:text-blue-500 transition-colors"
+                                    }
+                                />
+                            </a>
+
+                            {/* Instagram */}
+                            <a
+                                href="https://instagram.com/nikitapelagecha"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaInstagram
+                                    size={24}
+                                    className={
+                                        theme === "dark"
+                                            ? "text-white hover:text-gray-400 transition-colors"
+                                            : "text-gray-800 hover:text-gray-600 transition-colors"
+                                    }
+                                />
+                            </a>
+
+                            {/* Mail */}
+                            <a
+                                href="mailto:nikitapelagecha@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaEnvelope
+                                    size={24}
+                                    className={
+                                        theme === "dark"
+                                            ? "text-white hover:text-gray-400 transition-colors"
+                                            : "text-gray-800 hover:text-gray-600 transition-colors"
                                     }
                                 />
                             </a>
