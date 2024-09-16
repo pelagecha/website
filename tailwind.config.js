@@ -1,6 +1,7 @@
 // tailwind.config.ts
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: "class", // Enables class-based dark mode
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}",
@@ -27,7 +28,6 @@ module.exports = {
             },
         },
     },
-    darkMode: "class", // Enable class-based dark mode
     plugins: [
         require("@tailwindcss/typography"),
         require("tailwind-scrollbar"),
