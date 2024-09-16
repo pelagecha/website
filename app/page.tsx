@@ -1,20 +1,8 @@
-// app/page.tsx
-
 import React from "react";
-import AboutMe from "./components/AboutMe";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Blogs from "./components/Blogs";
+import HomePage from "./components/HomePage";
 
-const HomePage: React.FC = () => {
-    return (
-        <>
-            <AboutMe />
-            <Projects />
-            <Blogs />
-            <Skills />
-        </>
-    );
+const Page: React.FC = () => {
+    return <HomePage />;
 };
 
-export default HomePage;
+export default Page;
