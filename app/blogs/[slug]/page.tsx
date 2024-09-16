@@ -44,28 +44,32 @@ const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
     }
 
     return (
-        <div className="container mx-auto my-16 p-4">
+        <article className="container mx-auto my-16 p-4 max-w-4xl">
             <Link
                 href="/#blogs"
-                className="text-blue-500 hover:underline mb-4 inline-block"
+                className="text-blue-500 dark:text-blue-400 hover:underline mb-6 inline-block"
             >
                 &larr; Back to Blogs
             </Link>
-            <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-            <p className="text-gray-500 mb-4">
-                {blog.date} • {blog.readTime} • {blog.wordCount} words
-            </p>
+            <header className="mb-8">
+                <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                    {blog.title}
+                </h1>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {blog.date} • {blog.readTime} • {blog.wordCount} words
+                </p>
+            </header>
             <Image
-                src={`https://picsum.photos/seed/${blog.slug}/800/400`}
+                src={blog.image}
                 alt={blog.title}
                 width={800}
                 height={400}
-                className="w-full h-auto object-cover rounded-md mb-4"
+                className="w-full h-auto object-cover rounded-lg mb-8"
             />
-            <div className="prose prose-lg dark:prose-dark">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
                 <ReactMarkdown>{blog.content}</ReactMarkdown>
             </div>
-        </div>
+        </article>
     );
 };
 

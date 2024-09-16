@@ -55,9 +55,9 @@ const HomePage: React.FC = () => {
 
                 {/* Next Section with Ref */}
                 <div ref={nextSectionRef}>
-                    <JobExperiencesSection />
+                    {/* <JobExperiencesSection /> */}
+                    <Projects />
                 </div>
-                <Projects />
                 <Blogs />
                 <JobTimeline />
             </div>

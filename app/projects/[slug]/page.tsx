@@ -52,10 +52,12 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
             >
                 &larr; Back to Projects
             </Link>
-            <h1 className="text-4xl font-extrabold mb-6 text-gray-100">
+            <h1 className="text-4xl font-extrabold mb-6 text-gray-900 dark:text-white">
                 {project.name}
             </h1>
-            <p className="text-gray-300 mb-4">{project.date}</p>
+            <p className="text-gray-500 dark:text-gray-300 mb-4">
+                {project.date}
+            </p>
 
             <div className="flex justify-center mb-6">
                 <ImageWithFallback
@@ -71,11 +73,11 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
                 <ReactMarkdown>{project.description}</ReactMarkdown>
             </div>
 
-            <div className="bg-gray-700 p-6 rounded-lg">
-                <h2 className="text-2xl font-semibold mb-4 text-gray-100">
+            <div className="bg-gray-200 dark:bg-gray-700 p-6 rounded-lg">
+                <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
                     Technologies Used
                 </h2>
-                <ul className="list-disc list-inside text-blue-200">
+                <ul className="list-disc list-inside text-blue-600 dark:text-blue-200">
                     {project.technologies.map((tech, index) => (
                         <li key={index}>{tech}</li>
                     ))}
