@@ -31,11 +31,18 @@ const Navbar: React.FC = () => {
                     const rect = element.getBoundingClientRect();
                     if (rect.top <= 100) {
                         currentSection = section.toLowerCase();
-                    } else {
-                        break;
                     }
                 }
             }
+
+            // Check if the user has scrolled to the bottom of the page
+            if (
+                window.innerHeight + window.scrollY >=
+                document.body.scrollHeight
+            ) {
+                currentSection = "contact";
+            }
+
             setActiveSection(currentSection);
         };
 

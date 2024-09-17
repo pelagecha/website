@@ -25,3 +25,14 @@ body.overflow-hidden {
 html {
     scroll-behavior: smooth;
 }
+
+.grainy-gradient {
+    background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(0, 0, 0, 0.1)
+        ),
+        url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAiIHkyPSIwIiB4Mj0iMjUwIiB5Mj0iMjUwIj48c3RvcCBzdHlsZT0iZmlsbDpyZ2JhKDAsMCwwKTtzdHJva2U6cmdiYSgwLDAsMCk7c3Ryb2tlLXdpZHRoOjI7Ii8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgc3R5bGU9ImZpbGw6bm9uZTsiLz48L3N2Zz4=");
+    background-blend-mode: overlay;
+    background-size: cover, auto;
+}
