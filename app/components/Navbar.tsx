@@ -9,14 +9,14 @@ import { useParticles } from "../context/ParticlesContext";
 import { FaSnowflake } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["projects", "blogs", "job-timeline", "contact"];
+const sections = ["general", "projects", "blogs", "job-timeline", "contact"];
 
 const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const router = useRouter();
     const pathname = usePathname();
     const { particlesEnabled, toggleParticles } = useParticles();
-    const [activeSection, setActiveSection] = useState<string | null>(null);
+    const [activeSection, setActiveSection] = useState<string>("general");
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -26,46 +26,57 @@ const Navbar: React.FC = () => {
             const fullHeight = document.documentElement.scrollHeight;
             const scrollPercentage =
                 scrollPosition / (fullHeight - windowHeight);
-            setProgress(Math.min(scrollPercentage, 0.9999)); // Limit to 99.99% to avoid filling the last button completely
+            setProgress(Math.min(scrollPercentage, 0.9999));
+
+            // Update active section based on scroll position
+            const sectionElements = sections.map((section) =>
+                document.getElementById(section)
+            );
+            const activeIndex = sectionElements.findIndex((el, index) => {
+                if (!el) return false;
+                const rect = el.getBoundingClientRect();
+                const nextEl = sectionElements[index + 1];
+                const nextRect = nextEl
+                    ? nextEl.getBoundingClientRect()
+                    : { top: Infinity };
+                return rect.top <= 100 && nextRect.top > 100;
+            });
+            if (activeIndex !== -1) {
+                setActiveSection(sections[activeIndex]);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    useEffect(() => {
-        const observers: IntersectionObserver[] = [];
-
-        sections.forEach((section) => {
-            const element = document.getElementById(section);
-            if (element) {
-                const observer = new IntersectionObserver(
-                    ([entry]) => {
-                        if (entry.isIntersecting) {
-                            setActiveSection(section);
-                        }
-                    },
-                    { threshold: 0.5 }
-                );
-                observer.observe(element);
-                observers.push(observer);
-            }
-        });
-
-        return () => {
-            observers.forEach((observer) => observer.disconnect());
-        };
-    }, []);
-
     const scrollToSection = (sectionId: string) => {
-        if (pathname !== "/") {
+        if (sectionId === "general") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else if (pathname !== "/") {
             router.push(`/#${sectionId}`);
         } else {
             const section = document.getElementById(sectionId);
             if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
+                const navbarHeight = 64; // Adjust this value to match your navbar height
+                const offset = 20; // Additional offset to ensure the title is visible
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition =
+                    elementPosition +
+                    window.pageYOffset -
+                    navbarHeight -
+                    offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
             }
         }
+    };
+
+    const getProgressColor = () => {
+        return theme === "dark" ? "bg-emerald-600" : "bg-emerald-400";
     };
 
     return (
@@ -88,26 +99,23 @@ const Navbar: React.FC = () => {
                         transition={{ duration: 0.5, type: "spring" }}
                     >
                         <motion.div
-                            className={`absolute left-0 top-0 h-full ${
-                                theme === "dark" ? "bg-blue-600" : "bg-blue-400"
-                            } rounded-full`}
+                            className={`absolute left-0 top-0 h-full ${getProgressColor()} rounded-full`}
                             style={{ width: `${progress * 100}%` }}
                             initial={false}
                             animate={{ width: `${progress * 100}%` }}
                             transition={{
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 15,
+                                type: "tween",
+                                duration: 0.1,
                             }}
                         />
-                        {sections.map((section, index) => (
+                        {sections.map((section) => (
                             <motion.button
                                 key={section}
                                 className={`relative flex-1 h-8 rounded-full text-xs font-medium z-10 ${
                                     activeSection === section
                                         ? theme === "dark"
-                                            ? "text-white bg-blue-700"
-                                            : "text-white bg-blue-500"
+                                            ? "text-white bg-emerald-700"
+                                            : "text-white bg-emerald-500"
                                         : theme === "dark"
                                         ? "text-gray-300 hover:text-white"
                                         : "text-gray-600 hover:text-gray-800"
@@ -116,7 +124,9 @@ const Navbar: React.FC = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                {section.replace("-", " ")}
+                                {section === "general"
+                                    ? "Home"
+                                    : section.replace("-", " ")}
                             </motion.button>
                         ))}
                     </motion.div>

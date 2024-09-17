@@ -27,6 +27,7 @@ const HomePage: React.FC = () => {
     return (
         <ParallaxProvider>
             <div
+                id="general"
                 className={`min-h-screen relative ${
                     theme === "dark" ? "bg-gray-900" : "bg-gray-100"
                 }`}
@@ -58,7 +59,7 @@ const HomePage: React.FC = () => {
                         </div>
                     </section>
                     {/* Next Section with Ref */}
-                    <div ref={nextSectionRef}>
+                    <div ref={nextSectionRef} className="scroll-mt-16">
                         <Projects />
                     </div>
                     <Blogs />
