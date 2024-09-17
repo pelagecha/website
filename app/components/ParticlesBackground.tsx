@@ -5,6 +5,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { ISourceOptions } from "tsparticles-engine";
 import { ThemeContext } from "../context/ThemeContext";
+import { useParticles } from "../context/ParticlesContext";
 
 const ParticlesBackground: React.FC = () => {
     const particlesInit = useCallback(async (main: any) => {
@@ -12,6 +13,7 @@ const ParticlesBackground: React.FC = () => {
     }, []);
 
     const { theme } = useContext(ThemeContext);
+    const { particlesEnabled } = useParticles();
 
     const lightModeParticles: ISourceOptions = useMemo(
         () => ({
@@ -153,14 +155,14 @@ const ParticlesBackground: React.FC = () => {
         [theme, darkModeParticles, lightModeParticles]
     );
 
-    return (
+    return particlesEnabled ? (
         <Particles
             id="tsparticles"
             init={particlesInit}
             options={currentParticles}
             className="absolute top-0 left-0 w-full h-full z-0"
         />
-    );
+    ) : null;
 };
 
 export default ParticlesBackground;

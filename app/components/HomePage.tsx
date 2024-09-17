@@ -11,9 +11,11 @@ import InfoSection from "./InfoSection";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
 import JobExperiencesSection from "./JobExperiencesSection";
+import { useParticles } from "../context/ParticlesContext";
 
 const HomePage: React.FC = () => {
     const { theme } = useContext(ThemeContext);
+    const { particlesEnabled } = useParticles();
     const nextSectionRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = () => {
@@ -29,7 +31,7 @@ const HomePage: React.FC = () => {
                     theme === "dark" ? "bg-gray-900" : "bg-gray-100"
                 }`}
             >
-                <ParticlesBackground />
+                {particlesEnabled && <ParticlesBackground />}
                 <div className="relative z-10">
                     {" "}
                     {/* Wrapper for content */}
