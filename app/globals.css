@@ -9,7 +9,7 @@
 
 /* Example custom style */
 body {
-    @apply bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-lightBackground text-lightText dark:bg-gray-900 dark:text-gray-100;
     font-family: "Inter", sans-serif;
     transition: background-color 0.5s ease;
 }
@@ -35,4 +35,8 @@ html {
         url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAiIHkyPSIwIiB4Mj0iMjUwIiB5Mj0iMjUwIj48c3RvcCBzdHlsZT0iZmlsbDpyZ2JhKDAsMCwwKTtzdHJva2U6cmdiYSgwLDAsMCk7c3Ryb2tlLXdpZHRoOjI7Ii8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgc3R5bGU9ImZpbGw6bm9uZTsiLz48L3N2Zz4=");
     background-blend-mode: overlay;
     background-size: cover, auto;
+}
+
+section {
+    scroll-margin-top: 80px; /* Adjust this value based on your navbar height */
 }

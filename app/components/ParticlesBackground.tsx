@@ -18,7 +18,7 @@ const ParticlesBackground: React.FC = () => {
     const lightModeParticles: ISourceOptions = useMemo(
         () => ({
             background: {
-                color: "#f0f8ff",
+                color: "#e0e0e0",
             },
             particles: {
                 number: {

@@ -75,12 +75,16 @@ const Navbar: React.FC = () => {
             {/* Navbar */}
             <nav
                 className={`${
-                    theme === "dark" ? "bg-gray-900" : "bg-white"
+                    theme === "dark" ? "bg-gray-900" : "bg-lightNavbar"
                 } shadow-md fixed top-0 left-0 right-0 z-50 transition-colors duration-500`}
             >
                 <div className="container mx-auto p-4 flex justify-between items-center">
                     {/* Logo */}
-                    <div className="text-xl font-bold text-gray-800 dark:text-white">
+                    <div
+                        className={`text-xl font-bold ${
+                            theme === "dark" ? "text-white" : "text-gray-800"
+                        }`}
+                    >
                         <Link href="/">Nikita Pelagecha</Link>
                     </div>
 
@@ -94,7 +98,7 @@ const Navbar: React.FC = () => {
                                         ? "bg-blue-500 text-white border-blue-500"
                                         : theme === "dark"
                                         ? "bg-transparent text-gray-300 border-transparent hover:border-gray-500 hover:text-white"
-                                        : "bg-transparent text-gray-600 border-transparent hover:border-gray-300 hover:text-gray-800"
+                                        : "bg-transparent text-gray-600 border-transparent hover:border-gray-400 hover:text-gray-800"
                                 } transition-colors duration-300`}
                                 onClick={() => scrollToSection(section)}
                                 whileHover={{ scale: 1.05 }}
@@ -109,7 +113,13 @@ const Navbar: React.FC = () => {
                     <div className="flex items-center space-x-4">
                         {/* About Link */}
                         <Link href="/about" passHref>
-                            <span className="hidden md:block text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white cursor-pointer transition-colors duration-300">
+                            <span
+                                className={`hidden md:block ${
+                                    theme === "dark"
+                                        ? "text-gray-300 hover:text-white"
+                                        : "text-gray-600 hover:text-gray-800"
+                                } cursor-pointer transition-colors duration-300`}
+                            >
                                 About
                             </span>
                         </Link>
@@ -148,7 +158,13 @@ const Navbar: React.FC = () => {
                             onClick={() => setIsSidebarOpen(true)}
                             aria-label="Open menu"
                         >
-                            <FaBars className="text-gray-600 dark:text-gray-300" />
+                            <FaBars
+                                className={
+                                    theme === "dark"
+                                        ? "text-gray-300"
+                                        : "text-gray-600"
+                                }
+                            />
                         </button>
                     </div>
                 </div>
@@ -158,7 +174,7 @@ const Navbar: React.FC = () => {
             <div className="fixed bottom-0 left-0 right-0 z-40">
                 <motion.div
                     className={`h-2 ${
-                        theme === "dark" ? "bg-gray-700" : "bg-gray-300"
+                        theme === "dark" ? "bg-gray-700" : "bg-lightBorder"
                     }`}
                     initial={{ width: 0 }}
                     animate={{ width: `${progress * 100}%` }}

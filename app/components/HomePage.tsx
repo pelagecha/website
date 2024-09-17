@@ -12,6 +12,7 @@ import InfoSection from "./InfoSection";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
+import { motion } from "framer-motion";
 
 const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 
@@ -29,12 +30,13 @@ const HomePage: React.FC = () => {
     return (
         <ParallaxProvider>
             <div
-                className={`min-h-screen relative grainy-gradient ${
-                    theme === "dark" ? "bg-gray-900" : "bg-gray-100"
-                }`}
+                className={`min-h-screen relative ${
+                    particlesEnabled ? "" : "grainy-gradient"
+                } ${theme === "dark" ? "bg-gray-900" : "bg-lightBackground"}`}
             >
                 {particlesEnabled && <ParticlesBackground />}
                 <div className="relative z-10">
+                    {/* General Section */}
                     <section
                         id="general"
                         className="relative h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4 md:px-8"
@@ -49,36 +51,97 @@ const HomePage: React.FC = () => {
                             <FaChevronDown size={24} />
                         </button>
                     </section>
+
+                    {/* Projects Section */}
                     <section
                         id="projects"
                         ref={nextSectionRef}
-                        className="scroll-mt-16 px-4 md:px-8 py-16"
+                        className="scroll-mt-20 px-4 md:px-8 py-16"
                     >
-                        <Link href="#projects" passHref>
-                            <h2 className="text-3xl md:text-4xl font-bold text-center cursor-pointer hover:underline mb-8">
-                                Projects
-                            </h2>
-                        </Link>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-12 text-center"
+                        >
+                            <Link href="/projects" passHref>
+                                <h2 className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer hover:underline">
+                                    Projects
+                                </h2>
+                            </Link>
+                            <p className="mt-4 text-gray-600 dark:text-gray-300">
+                                A showcase of my recent work and
+                                accomplishments.
+                            </p>
+                        </motion.div>
                         <Projects />
                     </section>
-                    <section id="blogs" className="px-4 md:px-8 py-16">
-                        <Link href="#blogs" passHref>
-                            <h2 className="text-3xl md:text-4xl font-bold text-center cursor-pointer hover:underline mb-8">
-                                Blogs
-                            </h2>
-                        </Link>
+
+                    {/* Blogs Section */}
+                    <section
+                        id="blogs"
+                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-12 text-center"
+                        >
+                            <Link href="/blogs" passHref>
+                                <h2 className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer hover:underline">
+                                    Blogs
+                                </h2>
+                            </Link>
+                            <p className="mt-4 text-gray-600 dark:text-gray-300">
+                                Insights and articles on technology,
+                                programming, and more.
+                            </p>
+                        </motion.div>
                         <Blogs />
                     </section>
-                    <section id="experience" className="px-4 md:px-8 py-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-                            Experience
-                        </h2>
+
+                    {/* Experience Section */}
+                    <section
+                        id="experience"
+                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-12 text-center"
+                        >
+                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
+                                Experience
+                            </h2>
+                        </motion.div>
                         <JobTimeline />
                     </section>
-                    <section id="contact" className="px-4 md:px-8 py-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-                            Contact
-                        </h2>
+
+                    {/* Contact Section */}
+                    <section
+                        id="contact"
+                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-12 text-center"
+                        >
+                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
+                                Contact
+                            </h2>
+                            <p className="mt-4 text-gray-600 dark:text-gray-300">
+                                Get in touch with me for collaborations or
+                                inquiries.
+                            </p>
+                        </motion.div>
                         <div className="max-w-md mx-auto">
                             <form className="flex flex-col space-y-4">
                                 <input

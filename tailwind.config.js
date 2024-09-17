@@ -1,5 +1,3 @@
-// tailwind.config.ts
-/** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: "class", // Enables class-based dark mode
     content: [
@@ -12,6 +10,10 @@ module.exports = {
             colors: {
                 primary: "#1D4ED8", // Blue 700
                 secondary: "#FBBF24", // Amber 400
+                lightBackground: "#f5f5f5", // Softer light background
+                lightText: "#4a4a4a", // Softer text color
+                lightBorder: "#dcdcdc", // Softer border color
+                lightNavbar: "#f0f0f0", // A soft light gray color
             },
             transitionProperty: {
                 height: "height",
