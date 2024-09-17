@@ -9,7 +9,7 @@ import { useParticles } from "../context/ParticlesContext";
 import { FaSnowflake } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["general", "projects", "blogs", "job-timeline", "contact"];
+const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 
 const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
                 document.body.offsetHeight - 1;
 
             if (isAtBottom) {
-                setActiveSection("contact");
+                setActiveSection("Contact");
             } else {
                 // Update active section based on scroll position
                 const sectionElements = sections.map((section) =>
@@ -137,7 +137,14 @@ const Navbar: React.FC = () => {
                             >
                                 {section === "general"
                                     ? "Home"
-                                    : section.replace("-", " ")}
+                                    : section
+                                          .split("-")
+                                          .map(
+                                              (word) =>
+                                                  word.charAt(0).toUpperCase() +
+                                                  word.slice(1)
+                                          )
+                                          .join(" ")}
                             </motion.button>
                         ))}
                     </motion.div>
