@@ -130,10 +130,10 @@ const Navbar: React.FC = () => {
                             className="focus:outline-none"
                             aria-label="Toggle Theme"
                         >
-                            {theme === "dark" ? (
-                                <FaMoon className="text-gray-300 hover:text-white" />
-                            ) : (
+                            {theme === "light" ? (
                                 <FaSun className="text-yellow-500 hover:text-yellow-600" />
+                            ) : (
+                                <FaMoon className="text-gray-300 hover:text-white" />
                             )}
                         </button>
 

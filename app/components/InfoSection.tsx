@@ -37,25 +37,23 @@ const InfoSection: React.FC = () => {
                 theme === "dark"
                     ? "bg-gray-800 bg-opacity-60 text-white"
                     : "bg-white bg-opacity-90 text-lightText"
-            } p-12 rounded-3xl shadow-2xl max-w-7xl w-full mx-auto backdrop-blur-lg`}
+            } p-4 sm:p-8 md:p-12 rounded-3xl shadow-2xl max-w-7xl w-full mx-auto backdrop-blur-lg`}
         >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {/* Profile Image */}
                 <motion.div
                     variants={itemVariants}
-                    className="flex justify-center items-center"
+                    className="flex justify-center items-center col-span-1 sm:col-span-2 lg:col-span-1 mb-4 sm:mb-0"
                 >
-                    <ImageWithFallback
-                        src="/images/me.png"
-                        alt="Nikita Pelagecha"
-                        width={250}
-                        height={250}
-                        className="object-cover rounded-3xl border-4 border-black shadow-lg"
-                        style={{
-                            // Center the image within its container
-                            margin: "auto",
-                        }}
-                    />
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 relative">
+                        <ImageWithFallback
+                            src="/images/me.png"
+                            alt="Nikita Pelagecha"
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-3xl border-4 border-black shadow-lg"
+                        />
+                    </div>
                 </motion.div>
 
                 {/* Information Tiles */}
@@ -176,18 +174,22 @@ const InfoTile: React.FC<InfoTileProps> = ({
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
             }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             className={`${
                 theme === "dark"
                     ? "bg-gray-700 bg-opacity-50 text-white"
                     : "bg-gray-100 bg-opacity-80 text-gray-800"
-            } p-6 rounded-xl shadow-md ${size === "large" ? "col-span-1" : ""}`}
+            } p-4 sm:p-6 rounded-xl shadow-md ${
+                size === "large" ? "col-span-1 sm:col-span-2" : ""
+            }`}
         >
-            <h2 className="text-xl font-semibold mb-3">{title}</h2>
+            <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                {title}
+            </h2>
             <div
                 className={`${
                     theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                } text-sm sm:text-base`}
             >
                 {content}
             </div>

@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
             <div
                 className={`min-h-screen relative ${
                     particlesEnabled ? "" : "grainy-gradient"
-                } ${theme === "dark" ? "bg-gray-900" : "bg-lightBackground"}`}
+                } bg-gray-900`}
             >
                 {particlesEnabled && <ParticlesBackground />}
                 <div className="relative z-10">
@@ -41,11 +41,12 @@ const HomePage: React.FC = () => {
                         id="general"
                         className="relative h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4 md:px-8"
                     >
+                        <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-teal-300 dark:from-green-900 dark:to-teal-800 opacity-30"></div>
                         <InfoSection />
                         {/* Scroll Down Button */}
                         <button
                             onClick={handleScroll}
-                            className="mt-8 md:mt-0 md:ml-8 animate-bounce flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors duration-300"
+                            className="mt-8 md:mt-0 md:ml-8 animate-bounce flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors duration-300 relative z-10"
                             aria-label="Scroll to Projects"
                         >
                             <FaChevronDown size={24} />
@@ -56,14 +57,15 @@ const HomePage: React.FC = () => {
                     <section
                         id="projects"
                         ref={nextSectionRef}
-                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                        className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
+                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-300 dark:from-yellow-900 dark:to-orange-800 opacity-30"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="mb-12 text-center"
+                            className="mb-12 text-center relative z-10"
                         >
                             <Link href="/projects" passHref>
                                 <h2 className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer hover:underline">
@@ -75,20 +77,23 @@ const HomePage: React.FC = () => {
                                 accomplishments.
                             </p>
                         </motion.div>
-                        <Projects />
+                        <div className="relative z-10">
+                            <Projects />
+                        </div>
                     </section>
 
                     {/* Blogs Section */}
                     <section
                         id="blogs"
-                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                        className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-red-300 dark:from-pink-900 dark:to-red-800 opacity-30"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="mb-12 text-center"
+                            className="mb-12 text-center relative z-10"
                         >
                             <Link href="/blogs" passHref>
                                 <h2 className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer hover:underline">
@@ -100,73 +105,39 @@ const HomePage: React.FC = () => {
                                 programming, and more.
                             </p>
                         </motion.div>
-                        <Blogs />
+                        <div className="relative z-10">
+                            <Blogs />
+                        </div>
                     </section>
 
                     {/* Experience Section */}
                     <section
                         id="experience"
-                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                        className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-400 dark:from-blue-900 dark:to-purple-900 opacity-30"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="mb-12 text-center"
+                            className="mb-12 text-center relative z-10"
                         >
                             <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
                                 Experience
                             </h2>
                         </motion.div>
-                        <JobTimeline />
+                        <div className="relative z-10">
+                            <JobTimeline />
+                        </div>
                     </section>
 
                     {/* Contact Section */}
                     <section
                         id="contact"
-                        className="scroll-mt-20 px-4 md:px-8 py-16"
+                        className="scroll-mt-0 px-0 md:px-0 relative"
                     >
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="mb-12 text-center"
-                        >
-                            {/* <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
-                                Contact
-                            </h2>
-                            <p className="mt-4 text-gray-600 dark:text-gray-300">
-                                Get in touch with me for collaborations or
-                                inquiries.
-                            </p> */}
-                        </motion.div>
-                        {/* <div className="max-w-md mx-auto">
-                            <form className="flex flex-col space-y-4">
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    className="p-3 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Your Email"
-                                    className="p-3 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                                />
-                                <textarea
-                                    placeholder="Your Message"
-                                    className="p-3 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                                    rows={5}
-                                ></textarea>
-                                <button
-                                    type="submit"
-                                    className="p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 dark:bg-blue-600 dark:hover:bg-blue-700"
-                                >
-                                    Send Message
-                                </button>
-                            </form>
-                        </div> */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-cyan-300 dark:from-indigo-900 dark:to-cyan-800 opacity-30"></div>
                     </section>
                 </div>
             </div>
