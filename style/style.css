@@ -1,20 +1,285 @@
-/* Global Styles */
-* {
-    box-sizing: border-box; /* Ensure padding does not add to total width */
-    cursor: none; /* Hide the default cursor globally */
-}
-
+/* General Styles */
 body {
-    font-family: "Courier New", Courier, monospace; /* Typeset font */
+    margin: 0;
+    padding: 0;
+    background-color: #000;
     color: #fff;
-    /* background-color: #781d1d; */
-    background-color: rgb(77, 122, 167);
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 70px; /* Add padding equal to the header height */
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2,
 h3 {
-    /* color: black; */
-    color: black;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
+/*============================= HEADER =============================*/
+header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    z-index: 1000; /* High enough to ensure nothing overlaps the header */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for better visibility */
+}
+
+/* Navbar links styling */
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Optional: Adjust email icon in the header */
+.navbar img {
+    vertical-align: middle;
+}
+
+.my-name h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.navbar a {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 100px; /* Adjust this based on your header height to avoid overlap */
+    padding: 3rem;
+}
+
+/* Starter page container */
+.starter-page {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    height: 880px; /* Adjust the height to your preference */
+    overflow: hidden; /* Ensure nothing overflows */
+    margin-top: 0px; /* Adjust to avoid overlapping with the header */
+}
+
+/* Starter page image */
+.starter-page img {
+    max-width: 100%; /* Ensure the image doesn't overflow horizontally */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Cover the container fully */
+}
+
+/* Project Library */
+.project-library {
+    margin-bottom: 5rem;
+}
+
+.project-item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #222;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+/* CV Visualization */
+.skills-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill-item {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #444;
+    border-radius: 3px;
+}
+
+/* Blog Section */
+.blog-section {
+    margin-bottom: 5rem;
+}
+
+.blog-post {
+    background-color: #222;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    padding: 2rem 3rem;
+    text-align: center;
+}
+
+/* Timeline Style */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 5rem;
+    border-left: 2px solid #fff;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -2.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #222;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.timeline-content {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    height: 12px;
+    width: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+
+/*============================= STORIES SECTION =============================*/
+.stories-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+    scrollbar-width: thin; /* Custom scrollbar for Firefox */
+    scrollbar-color: #888 #222; /* Custom scrollbar color for Firefox */
+}
+
+.stories-container::-webkit-scrollbar {
+    height: 8px; /* Custom scrollbar height for WebKit browsers */
+}
+
+.stories-container::-webkit-scrollbar-track {
+    background: #222; /* Scrollbar track */
+}
+
+.stories-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb */
+    border-radius: 10px;
+}
+
+.story {
+    width: 200px;
+    height: 300px; /* Fixed height to prevent resizing */
+    background-color: #1e1e1e; /* Darker background for contrast */
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.story img {
+    width: 100%;
+    height: 60%; /* Limit the image height */
+    object-fit: cover; /* Prevent image distortion */
+    border-radius: 8px;
+}
+
+.story p {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Hover effects for stories */
+.story:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Full-screen view */
+.full-screen-story {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.9
+    ); /* Slight transparency for background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.full-screen-story.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.full-screen-content {
+    padding: 2rem;
+    background-color: #222;
+    color: #fff;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.full-screen-story img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.full-screen-story p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/*===========================================================================*/
