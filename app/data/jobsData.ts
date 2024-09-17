@@ -1,44 +1,50 @@
-// app/data/jobsData.ts
-
 export interface Job {
-    id: number;
     title: string;
     company: string;
-    duration: string;
+    date: string;
     description: string;
+    details: string;
+    companyUrl?: string;
 }
 
 export const jobs: Job[] = [
     {
-        id: 1,
         title: "Research Intern",
         company: "University of Warwick - DCS",
-        duration: "Jul 2024 - Sep 2024",
+        date: "Jul 2024 - Sep 2024",
         description:
             "Engaged in research activities contributing to computer science projects. Applied analytical skills and technical knowledge to develop insights for the research team.",
+        details: "• Point 1\n• Point 2\n• Point 3\n• Point 4",
+        companyUrl: undefined,
     },
     {
-        id: 2,
         title: "Archery Specialist",
         company: "Camp Kinder Ring",
-        duration: "Jun 2023 - Aug 2023",
+        date: "Jun 2023 - Aug 2023",
         description:
-            "Managed the archery program, increasing participant engagement by 50%. Worked with a team of 200 to organize large-scale events for over 500 individuals.",
+            "Managed the archery program, driving a 50% increase in participant engagement and overseeing activities for 500+ individuals.",
+        details:
+            "• Managed the archery program, driving a 50% increase in participant engagement and overseeing activities for 500+ individuals.\n• Collaborated with a 200-member team to execute large-scale events, honing leadership and cross-functional communication skills.",
+        companyUrl: undefined,
     },
     {
-        id: 3,
         title: "Food and Beverage Assistant",
         company: "The Rupert Brooke",
-        duration: "Mar 2022 - Sep 2022",
+        date: "Mar 2022 - Sep 2022",
         description:
-            "Provided exceptional service to guests daily, leveraging problem-solving and multitasking skills. Contributed to training new staff and improving team productivity.",
+            "Delivered consistent service to 50-100 guests daily, leveraging problem-solving and multitasking skills in a fast-paced environment.",
+        details:
+            "• Delivered consistent service to 50-100 guests daily, leveraging problem-solving and multitasking skills in a fast-paced environment.\n• Contributed to the training of new staff, enhancing team productivity and fostering a collaborative culture.",
+        companyUrl: undefined,
     },
     {
-        id: 4,
         title: "Volunteer, Radio Electronics",
         company: "Palace of Children’s and Youth Creativity",
-        duration: "Sep 2019 - Nov 2019",
+        date: "Sep 2019 - Nov 2019",
         description:
             "Assembled and soldered circuit boards while gaining practical experience in embedded systems and programming with Arduino and C++.",
+        details:
+            "• Assembled and soldered circuit boards, ensuring high-quality and functional outcomes, demonstrating strong attention to detail.\n• Applied Arduino and C++ in hands-on projects, gaining practical experience in programming and embedded systems development.",
+        companyUrl: undefined,
     },
 ];
