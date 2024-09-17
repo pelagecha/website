@@ -18,9 +18,6 @@ const JobTimeline: React.FC = () => {
 
     return (
         <section id="job-timeline" className="my-16 p-4 container mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">
-                Career Timeline
-            </h2>
             <div className="relative border-l-2 border-gray-200 dark:border-gray-700">
                 {jobs.map((job, index) => (
                     <div key={index} className="mb-10 ml-6">

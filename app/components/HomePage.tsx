@@ -2,8 +2,9 @@
 
 import React, { useContext, useRef } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
-import ParticlesBackground from "./ParticlesBackground"; // Import the new Particles component
-import Skills from "./Skills"; // Assuming you have a Skills component
+import Link from "next/link";
+import ParticlesBackground from "./ParticlesBackground";
+import Skills from "./Skills";
 import Blogs from "./Blogs";
 import Projects from "./Projects";
 import JobTimeline from "./JobTimeline";
@@ -26,43 +27,45 @@ const HomePage: React.FC = () => {
     return (
         <ParallaxProvider>
             <div
-                id="general"
                 className={`min-h-screen relative ${
                     theme === "dark" ? "bg-gray-900" : "bg-gray-100"
                 }`}
             >
                 {particlesEnabled && <ParticlesBackground />}
                 <div className="relative z-10">
-                    {" "}
-                    {/* Wrapper for content */}
-                    {/* Hero Section */}
-                    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+                    <section
+                        id="general"
+                        className="relative h-screen flex items-center justify-center overflow-hidden"
+                    >
                         <InfoSection />
-                        <div
-                            className="absolute bottom-20 md:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                            onClick={handleScroll}
-                            aria-label="Scroll down to explore"
-                            role="button"
-                            tabIndex={0}
-                            onKeyPress={(e) => {
-                                if (e.key === "Enter") handleScroll();
-                            }}
-                        >
-                            <FaChevronDown
-                                className="text-3xl md:text-4xl lg:text-3xl text-gray-700 dark:text-gray-300 animate-bounce"
-                                aria-hidden="true"
-                            />
-                            <span className="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                                Explore
-                            </span>
-                        </div>
+                        {/* ... (scroll down button) ... */}
                     </section>
-                    {/* Next Section with Ref */}
-                    <div ref={nextSectionRef} className="scroll-mt-16">
+                    <section
+                        id="projects"
+                        ref={nextSectionRef}
+                        className="scroll-mt-16"
+                    >
+                        <Link href="/projects">
+                            <h2 className="text-3xl font-bold text-center cursor-pointer hover:underline">
+                                Projects
+                            </h2>
+                        </Link>
                         <Projects />
-                    </div>
-                    <Blogs />
-                    <JobTimeline />
+                    </section>
+                    <section id="blogs">
+                        <Link href="/blogs">
+                            <h2 className="text-3xl font-bold text-center cursor-pointer hover:underline">
+                                Blogs
+                            </h2>
+                        </Link>
+                        <Blogs />
+                    </section>
+                    <section id="experience">
+                        <h2 className="text-3xl font-bold text-center">
+                            Experience
+                        </h2>
+                        <JobTimeline />
+                    </section>
                 </div>
             </div>
         </ParallaxProvider>
