@@ -134,15 +134,15 @@ const HomePage: React.FC = () => {
                             transition={{ duration: 0.8 }}
                             className="mb-12 text-center"
                         >
-                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
+                            {/* <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
                                 Contact
                             </h2>
                             <p className="mt-4 text-gray-600 dark:text-gray-300">
                                 Get in touch with me for collaborations or
                                 inquiries.
-                            </p>
+                            </p> */}
                         </motion.div>
-                        <div className="max-w-md mx-auto">
+                        {/* <div className="max-w-md mx-auto">
                             <form className="flex flex-col space-y-4">
                                 <input
                                     type="text"
@@ -166,7 +166,7 @@ const HomePage: React.FC = () => {
                                     Send Message
                                 </button>
                             </form>
-                        </div>
+                        </div> */}
                     </section>
                 </div>
             </div>

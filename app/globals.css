@@ -40,3 +40,36 @@ html {
 section {
     scroll-margin-top: 80px; /* Adjust this value based on your navbar height */
 }
+
+/* Ripple Effect Animation */
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+.bg-dark-background {
+    background-color: #1e293b; /* Tailwind gray-900 equivalent */
+}
