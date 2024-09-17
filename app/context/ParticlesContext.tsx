@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    ReactNode,
+} from "react";
 
 interface ParticlesContextType {
     particlesEnabled: boolean;
@@ -14,11 +20,18 @@ const ParticlesContext = createContext<ParticlesContextType | undefined>(
 export const ParticlesProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
-    const [particlesEnabled, setParticlesEnabled] = useState(false); // Set to false by default
+    const [particlesEnabled, setParticlesEnabled] = useState(false);
+
+    useEffect(() => {
+        const storedPreference = localStorage.getItem("particlesEnabled");
+        setParticlesEnabled(storedPreference === "true");
+    }, []);
+
     const toggleParticles = () => {
         setParticlesEnabled((prev) => {
-            console.log("Toggling particles:", !prev); // Add this line
-            return !prev;
+            const newState = !prev;
+            localStorage.setItem("particlesEnabled", newState.toString());
+            return newState;
         });
     };
 
