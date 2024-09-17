@@ -11,7 +11,6 @@ import InfoSection from "./InfoSection";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
 import JobExperiencesSection from "./JobExperiencesSection";
-import Footer from "./Footer"; // Make sure to import the Footer component
 
 const HomePage: React.FC = () => {
     const { theme } = useContext(ThemeContext);
@@ -62,7 +61,6 @@ const HomePage: React.FC = () => {
                     </div>
                     <Blogs />
                     <JobTimeline />
-                    <Footer />
                 </div>
             </div>
         </ParallaxProvider>
