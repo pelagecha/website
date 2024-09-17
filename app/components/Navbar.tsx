@@ -23,26 +23,35 @@ const Navbar: React.FC = () => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
-            const fullHeight = document.documentElement.scrollHeight;
+            const documentHeight = document.documentElement.scrollHeight;
             const scrollPercentage =
-                scrollPosition / (fullHeight - windowHeight);
+                scrollPosition / (documentHeight - windowHeight);
             setProgress(Math.min(scrollPercentage, 0.9999));
 
-            // Update active section based on scroll position
-            const sectionElements = sections.map((section) =>
-                document.getElementById(section)
-            );
-            const activeIndex = sectionElements.findIndex((el, index) => {
-                if (!el) return false;
-                const rect = el.getBoundingClientRect();
-                const nextEl = sectionElements[index + 1];
-                const nextRect = nextEl
-                    ? nextEl.getBoundingClientRect()
-                    : { top: Infinity };
-                return rect.top <= 100 && nextRect.top > 100;
-            });
-            if (activeIndex !== -1) {
-                setActiveSection(sections[activeIndex]);
+            // Check if scrolled to bottom
+            const isAtBottom =
+                window.innerHeight + window.scrollY >=
+                document.body.offsetHeight - 1;
+
+            if (isAtBottom) {
+                setActiveSection("contact");
+            } else {
+                // Update active section based on scroll position
+                const sectionElements = sections.map((section) =>
+                    document.getElementById(section)
+                );
+                const activeIndex = sectionElements.findIndex((el, index) => {
+                    if (!el) return false;
+                    const rect = el.getBoundingClientRect();
+                    const nextEl = sectionElements[index + 1];
+                    const nextRect = nextEl
+                        ? nextEl.getBoundingClientRect()
+                        : { top: Infinity };
+                    return rect.top <= 100 && nextRect.top > 100;
+                });
+                if (activeIndex !== -1) {
+                    setActiveSection(sections[activeIndex]);
+                }
             }
         };
 
@@ -73,6 +82,8 @@ const Navbar: React.FC = () => {
                 });
             }
         }
+        // Immediately update the active section
+        setActiveSection(sectionId);
     };
 
     const getProgressColor = () => {
