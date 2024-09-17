@@ -10,7 +10,6 @@ import JobTimeline from "./JobTimeline";
 import InfoSection from "./InfoSection";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
-import JobExperiencesSection from "./JobExperiencesSection";
 import { useParticles } from "../context/ParticlesContext";
 
 const HomePage: React.FC = () => {
