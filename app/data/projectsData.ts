@@ -1,6 +1,10 @@
 // app/data/projectsData.ts
 
+import { ReactNode } from "react";
+
 export interface Project {
+    title: any;
+    duration: ReactNode;
     slug: string;
     name: string;
     summary: string;
@@ -73,6 +77,8 @@ As I watch my custom transformer generate text with surprising fluency, I'm remi
         image: "/images/projects/test.jpg",
         date: "2024-03-15",
         technologies: ["Python", "PyTorch", "CUDA", "Bash", "HPC"],
+        title: undefined,
+        duration: undefined,
     },
     // ----------------------------------------
     // ---------- Advanced CNN ------------------
@@ -157,6 +163,8 @@ As I reflect on this journey, I am inspired by the endless possibilities that li
             "Matplotlib",
             "TQDM",
         ],
+        title: undefined,
+        duration: undefined,
     },
     // ----------------------------------------
     // ---------- Cancer Detection AI ------------
@@ -272,6 +280,8 @@ The journey doesn't end here. Future plans include:
             "AJAX",
             "Git",
         ],
+        title: undefined,
+        duration: undefined,
     },
     // ----------------------------------------
     // ---------- Bigram Predictor --------------
@@ -382,6 +392,8 @@ The journey of the Bigram Character Predictor is ongoing, with exciting prospect
         image: "/images/projects/test.jpg",
         date: "2023-10-15",
         technologies: ["Python", "PyTorch", "NumPy", "Matplotlib"],
+        title: undefined,
+        duration: undefined,
     },
     // Add more projects...
 ];
