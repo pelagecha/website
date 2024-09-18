@@ -80,9 +80,9 @@ const JobItem: React.FC<JobItemProps> = ({
 
                 {/* Job Description */}
                 <p className="mt-4 text-gray-700 dark:text-gray-300">
-                    {job.description.length > 80
-                        ? `${job.description.substring(0, 80)}...`
-                        : job.description}
+                    {isExpanded
+                        ? job.description
+                        : `${job.description.substring(0, 80)}...`}
                 </p>
 
                 {/* Expand Icon */}

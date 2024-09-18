@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
         const section = document.getElementById(sectionId.toLowerCase());
         if (section) {
             const navbarHeight = 64; // Adjust this value to match your navbar height
-            const yOffset = -navbarHeight; // Negative offset to account for navbar height
+            const yOffset = -navbarHeight + 5; // Increased from -20 to -40
             const y =
                 section.getBoundingClientRect().top +
                 window.pageYOffset +
@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
                                     theme === "dark"
                                         ? "text-gray-300 hover:text-white"
                                         : "text-gray-600 hover:text-gray-800"
-                                } cursor-pointer transition-colors duration-300`}
+                                } cursor-pointer transition-colors duration-300 hover:underline`}
                             >
                                 About
                             </span>

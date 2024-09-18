@@ -39,14 +39,14 @@ const HomePage: React.FC = () => {
                     {/* General Section */}
                     <section
                         id="general"
-                        className="relative h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4 md:px-8"
+                        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 py-16 md:py-24"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-teal-300 dark:from-green-900 dark:to-teal-800 opacity-30"></div>
                         <InfoSection />
                         {/* Scroll Down Button */}
                         <button
                             onClick={handleScroll}
-                            className="mt-8 md:mt-0 md:ml-8 animate-bounce flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors duration-300 relative z-10"
+                            className="mt-8 animate-bounce flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors duration-300 relative z-10"
                             aria-label="Scroll to Projects"
                         >
                             <FaChevronDown size={24} />
