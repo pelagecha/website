@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
             {/* Progress Bar at the Bottom of the Viewport */}
             <div className="fixed bottom-0 left-0 right-0 z-40">
                 <motion.div
-                    className={`h-2 ${
+                    className={`h-1 ${
                         theme === "dark" ? "bg-gray-700" : "bg-lightBorder"
                     }`}
                     initial={{ width: 0 }}
@@ -182,7 +182,7 @@ const Navbar: React.FC = () => {
                     transition={{ ease: "easeOut", duration: 0.2 }}
                 >
                     <motion.div
-                        className="h-full bg-blue-500"
+                        className="h-full bg-black"
                         initial={{ width: 0 }}
                         animate={{ width: `${progress * 100}%` }}
                         transition={{ ease: "easeOut", duration: 0.2 }}

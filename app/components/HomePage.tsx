@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
             <div
                 className={`min-h-screen relative ${
                     particlesEnabled ? "" : "grainy-gradient"
-                } bg-gray-900`}
+                } bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900`}
             >
                 {particlesEnabled && <ParticlesBackground />}
                 <div className="relative z-10">
@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
                         id="general"
                         className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 py-16 md:py-24"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-teal-300 dark:from-green-900 dark:to-teal-800 opacity-30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 via-teal-500/10 to-blue-500/10 dark:from-green-900/30 dark:via-teal-800/30 dark:to-blue-900/30 opacity-50"></div>
                         <InfoSection />
                         {/* Scroll Down Button */}
                         <button
@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
                         ref={nextSectionRef}
                         className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-300 dark:from-yellow-900 dark:to-orange-800 opacity-30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-yellow-500/10 to-orange-500/10 dark:from-blue-900/30 dark:via-yellow-800/30 dark:to-orange-800/30 opacity-50"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const HomePage: React.FC = () => {
                         id="blogs"
                         className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-red-300 dark:from-pink-900 dark:to-red-800 opacity-30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-pink-500/10 to-red-500/10 dark:from-orange-800/30 dark:via-pink-900/30 dark:to-red-900/30 opacity-50"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ const HomePage: React.FC = () => {
                         id="experience"
                         className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-400 dark:from-blue-900 dark:to-purple-900 opacity-30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-red-500/10 via-blue-500/10 to-purple-500/10 dark:from-red-900/30 dark:via-blue-900/30 dark:to-purple-900/30 opacity-50"></div>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
                         id="contact"
                         className="scroll-mt-0 px-0 md:px-0 relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-cyan-300 dark:from-indigo-900 dark:to-cyan-800 opacity-30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-indigo-500/10 to-cyan-500/10 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-cyan-800/30 opacity-50"></div>
                     </section>
                 </div>
             </div>
