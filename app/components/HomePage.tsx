@@ -4,7 +4,6 @@ import React, { useContext, useRef } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
 import ParticlesBackground from "./ParticlesBackground";
-import Skills from "./Skills";
 import Blogs from "./Blogs";
 import Projects from "./Projects";
 import JobTimeline from "./JobTimeline";

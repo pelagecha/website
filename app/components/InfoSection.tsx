@@ -2,7 +2,13 @@
 
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaInstagram,
+    FaEnvelope,
+    FaCode,
+} from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image"; // Ensure this import is present
 import ImageWithFallback from "./ImageWithFallback";
@@ -59,22 +65,133 @@ const InfoSection: React.FC = () => {
                 {/* Information Tiles */}
                 <InfoTile
                     title="Education"
-                    content="University of Warwick - BSc Hons Computer Science"
+                    content={
+                        <>
+                            <p>
+                                <a
+                                    href="https://warwick.ac.uk"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    University of Warwick
+                                </a>
+                                <strong> '26</strong>{" "}
+                            </p>
+                            <p>BSc Hons Computer Science</p>
+                            <p>
+                                <strong>Y1:</strong> 1st Class
+                            </p>
+                        </>
+                    }
                 />
                 <InfoTile
                     title="Current Position"
-                    content="ML Research Intern at DCS Warwick"
+                    content={
+                        <div className="space-y-2">
+                            <p className="font-semibold">ML Research Intern</p>
+                            <p>
+                                <a
+                                    href="https://warwick.ac.uk/fac/sci/dcs/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    Department of Computer Science, University
+                                    of Warwick
+                                </a>
+                            </p>
+                            <ul className="list-disc list-inside text-sm">
+                                Designing Algorithmic ML models and developing
+                                LLM agents under the supervision of Dr. Long
+                                Tran-Thanh
+                            </ul>
+                        </div>
+                    }
                 />
                 <InfoTile
                     title="Competitions"
-                    content="NWERC and UKIEPC 2024 Contestant"
+                    content={
+                        <div className="space-y-2">
+                            <p className="font-semibold">
+                                <a
+                                    href="https://ichack.org/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    ICHack
+                                </a>
+                                ,{" "}
+                                <a
+                                    href="https://ukiepc.info/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    UKIEPC
+                                </a>{" "}
+                                and{" "}
+                                <a
+                                    href="https://nwerc.eu/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    NWERC
+                                </a>{" "}
+                            </p>
+                            <div className="text-sm">
+                                <p>
+                                    Achieved 53rd place in UKIEPC, represented
+                                    Warwick at NWERC.
+                                </p>
+                                <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
+                                <p>
+                                    Placed 7th in the optiver trading simulation
+                                    challenge.
+                                </p>
+                            </div>
+                        </div>
+                    }
                 />
                 <InfoTile
                     title="Technical Skills"
-                    content="Java, Python, Git, C++, C, SQL, JavaScript, TypeScript, React, Next.js, TailwindCSS, HTML, CSS"
                     size="large"
+                    content={
+                        <div className="space-y-2 text-xs sm:text-sm">
+                            <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
+                                <p className="font-semibold text-blue-800 dark:text-blue-200">
+                                    Proficient:
+                                </p>
+                                <p className="text-blue-700 dark:text-blue-300">
+                                    Java, Python, HTML, CSS, Git, LaTeX
+                                </p>
+                            </div>
+                            <div className="bg-green-100 dark:bg-green-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
+                                <p className="font-semibold text-green-800 dark:text-green-200">
+                                    Intermediate:
+                                </p>
+                                <p className="text-green-700 dark:text-green-300">
+                                    C, C++, Haskell, Javascript, Next.js
+                                </p>
+                            </div>
+                            <div className="bg-yellow-100 dark:bg-yellow-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
+                                <p className="font-semibold text-yellow-800 dark:text-yellow-200">
+                                    Familiar:
+                                </p>
+                                <p className="text-yellow-700 dark:text-yellow-300">
+                                    TypeScript, SQL, Tailwind CSS
+                                </p>
+                            </div>
+                        </div>
+                    }
                 />
-                <InfoTile title="Languages" content="English, Ukrainian" />
+
+                <InfoTile
+                    title="Languages"
+                    content="English, Ukrainian and Russian"
+                />
                 <InfoTile
                     title="Social"
                     content={
@@ -131,6 +248,26 @@ const InfoSection: React.FC = () => {
                                     } transition-colors duration-300`}
                                 />
                             </a>
+                            {/* LeetCode */}
+                            <a
+                                href="https://leetcode.com/u/pelagecha/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="LeetCode"
+                                className="transform hover:scale-110 transition-transform"
+                            >
+                                <Image
+                                    src="/images/leetcode.png"
+                                    alt="LeetCode"
+                                    width={32}
+                                    height={32}
+                                    className={`w-7 h-7 object-contain ${
+                                        theme === "dark"
+                                            ? "filter invert brightness-0 hover:brightness-100 hover:invert-0"
+                                            : "hover:filter hover:brightness-75"
+                                    } transition-all duration-300`}
+                                />
+                            </a>
 
                             {/* Mail */}
                             <a
@@ -175,21 +312,27 @@ const InfoTile: React.FC<InfoTileProps> = ({
                 visible: { opacity: 1, y: 0 },
             }}
             whileHover={{ scale: 1.02 }}
-            className={`${
-                theme === "dark"
-                    ? "bg-gray-700 bg-opacity-50 text-white"
-                    : "bg-gray-100 bg-opacity-80 text-gray-800"
-            } p-4 sm:p-6 rounded-xl shadow-md ${
-                size === "large" ? "col-span-1 sm:col-span-2" : ""
-            }`}
+            className={`
+                ${
+                    theme === "dark"
+                        ? "bg-gray-800 text-white"
+                        : "bg-white text-gray-800"
+                }
+                p-5 sm:p-6 rounded-xl shadow-lg
+                ${size === "large" ? "col-span-1 sm:col-span-2" : ""}
+                border ${
+                    theme === "dark" ? "border-gray-700" : "border-gray-200"
+                }
+                transition-all duration-300 ease-in-out
+            `}
         >
-            <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
                 {title}
             </h2>
             <div
-                className={`${
-                    theme === "dark" ? "text-gray-300" : "text-gray-700"
-                } text-sm sm:text-base`}
+                className={`text-sm sm:text-base ${
+                    theme === "dark" ? "text-white" : "text-gray-800"
+                }`}
             >
                 {content}
             </div>

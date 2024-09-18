@@ -13,10 +13,10 @@ export const ThemeContext = createContext<ThemeContextProps>({
     toggleTheme: () => {},
 });
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [theme, setTheme] = useState<"light" | "dark">("dark");
+    const [theme, setTheme] = useState<"light" | "dark">("light");
 
     // Load theme from localStorage or use dark as default on mount
     useEffect(() => {
