@@ -16,21 +16,22 @@ export const ThemeContext = createContext<ThemeContextProps>({
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
-    // Load theme from localStorage or use dark as default on mount
     useEffect(() => {
         const storedTheme = localStorage.getItem("theme") as
             | "light"
             | "dark"
             | null;
-        if (storedTheme) {
-            setTheme(storedTheme);
-        } else {
-            setTheme("dark");
-            localStorage.setItem("theme", "dark");
-        }
-        document.documentElement.classList.toggle("dark", theme === "dark");
+        const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+        const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+        setTheme(initialTheme);
+        document.documentElement.classList.toggle(
+            "dark",
+            initialTheme === "dark"
+        );
     }, []);
 
     const toggleTheme = () => {
@@ -44,6 +45,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
             return newTheme;
         });
     };
+
+    if (theme === null) {
+        return null; // or a loading spinner
+    }
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
