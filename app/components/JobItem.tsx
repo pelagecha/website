@@ -24,25 +24,26 @@ const JobItem: React.FC<JobItemProps> = React.memo(
     ({ job, index, isExpanded, onToggle }) => {
         return (
             <motion.div
-                layout
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="mb-8 flex items-start relative pl-8 cursor-pointer group"
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="mb-6 flex flex-col sm:flex-row items-start relative pl-4 sm:pl-8 cursor-pointer group"
                 onClick={onToggle}
             >
                 {/* Job Card */}
                 <div
-                    className={`bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-1 border-l-4 ${
+                    className={`bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 ${
                         isExpanded ? "border-indigo-500" : "border-transparent"
                     }`}
                 >
                     {/* Job Header */}
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center relative">
                         <div>
-                            <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                                {job.title} @{" "}
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
+                                {job.title}
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                                 {job.companyUrl ? (
                                     <a
                                         href={job.companyUrl}
@@ -55,10 +56,13 @@ const JobItem: React.FC<JobItemProps> = React.memo(
                                 ) : (
                                     job.company
                                 )}
-                            </h3>
+                            </p>
                             <time className="block text-sm text-gray-600 dark:text-gray-400">
                                 {job.date}
                             </time>
+                        </div>
+                        <div className="absolute top-4 right-4 sm:static text-gray-600 dark:text-gray-300">
+                            {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
                         </div>
                     </div>
 
@@ -71,27 +75,18 @@ const JobItem: React.FC<JobItemProps> = React.memo(
                             : job.description}
                     </p>
 
-                    {/* Expand Icon */}
-                    <div className="absolute top-4 right-4 text-gray-600 dark:text-gray-300">
-                        {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-                    </div>
-
                     {/* Expanded Details */}
                     <AnimatePresence>
                         {isExpanded && (
                             <motion.div
-                                initial="collapsed"
-                                animate="open"
-                                exit="collapsed"
-                                variants={{
-                                    open: { opacity: 1, height: "auto" },
-                                    collapsed: { opacity: 0, height: 0 },
-                                }}
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
                                 transition={{
                                     duration: 0.2,
                                     ease: "easeInOut",
                                 }}
-                                className="mt-4 text-gray-700 dark:text-gray-300 overflow-hidden"
+                                className="mt-0 text-gray-700 dark:text-gray-300 overflow-hidden"
                             >
                                 {job.details.split("\n").map((line, idx) => (
                                     <p key={idx} className="mb-2">

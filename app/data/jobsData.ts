@@ -9,13 +9,13 @@ export interface Job {
 
 export const jobs: Job[] = [
     {
-        title: "Research Intern",
+        title: "ML Research Intern",
         company: "University of Warwick - DCS",
         date: "Jul 2024 - Sep 2024",
         description:
             "Conducting research in Algorithmic ML and designing LLM agents.",
         details:
-            "• Working under the supervision of Dr. Long Tran-Thanh and his research network at the university of Maryland\n• Reviwing how Deep Learning models can generalise onto unseen problems or higher complexity using Recall and Recurrence \n• Got maximum funding and access to department computing resources to support my research",
+            "• Working under the supervision of Dr. Long Tran-Thanh and his research network at the university of Maryland\n• Seeing how Deep Learning models can generalise onto unseen problems or higher complexity using Recall and Recurrence \n• Got maximum funding and access to department computing resources to support my research",
         companyUrl: "https://warwick.ac.uk/fac/sci/dcs/",
     },
     {
@@ -45,7 +45,7 @@ export const jobs: Job[] = [
         description:
             "Assembled and soldered circuit boards while gaining practical experience in embedded systems and programming with Arduino and C++.",
         details:
-            "• Assembled and soldered circuit boards, ensuring high-quality and functional outcomes, demonstrating strong attention to detail\n• Applied Arduino and C++ in hands-on projects, gaining practical experience in programming and embedded systems development\n• Mentored younger participants, fostering their interest in electronics and programming",
+            "• Applied Arduino and C++ in hands-on projects, gaining practical experience in programming and embedded systems development\n• Mentored younger participants, fostering their interest in electronics and programming",
         companyUrl: undefined,
     },
 ];

@@ -68,11 +68,11 @@ const Footer: React.FC = () => {
                 >
                     <h2 className="text-xl font-bold mb-2">About This Site</h2>
                     <p className="mb-2 text-sm">
-                        This portfolio is built with Next.js and Tailwind CSS.
-                        It showcases my projects and skills as a developer.
+                        This site is built with Next.js, TypeScript, Tailwind
+                        CSS, and Framer Motion.
                     </p>
 
-                    <p className="text-xs mt-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <p className="text-xs mt-2 whitespace-wrap text-ellipsis">
                         This work is licensed under a Creative Commons
                         Attribution-NonCommercial 4.0 International License.
                         <a
