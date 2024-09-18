@@ -56,13 +56,14 @@ const Navbar: React.FC = () => {
         const section = document.getElementById(sectionId.toLowerCase());
         if (section) {
             const navbarHeight = 64; // Adjust this value to match your navbar height
-            const offset = 20; // Additional offset to ensure the title is visible
-            const elementPosition = section.getBoundingClientRect().top;
-            const offsetPosition =
-                elementPosition + window.pageYOffset - navbarHeight - offset;
+            const yOffset = -navbarHeight; // Negative offset to account for navbar height
+            const y =
+                section.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
 
             window.scrollTo({
-                top: offsetPosition,
+                top: y,
                 behavior: "smooth",
             });
         }
