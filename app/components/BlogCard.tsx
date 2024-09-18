@@ -1,4 +1,5 @@
 // components/BlogCard.tsx
+"use client";
 
 import React from "react";
 import { Blog } from "../data/blogsData";
