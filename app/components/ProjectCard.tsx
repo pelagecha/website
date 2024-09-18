@@ -2,6 +2,7 @@ import React from "react";
 import { Project } from "../data/projectsData";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
     project: Project;
@@ -10,36 +11,37 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <Link href={`/projects/${project.slug}`} passHref>
-            <div
-                className="w-96 h-full bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer flex-shrink-0 flex flex-col"
+            <motion.a
+                whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
+                }}
+                className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 transform cursor-pointer flex flex-col"
                 aria-label={`View details about ${project.name}`}
             >
-                <div className="w-full h-40 mb-4">
+                <div className="w-full h-32 mb-4 relative">
                     <Image
                         src={project.image}
                         alt={project.name}
-                        width={320}
-                        height={160}
-                        className="w-full h-full object-cover rounded-md"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-md"
+                        priority
                     />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 whitespace-normal">
+                <h3 className="text-white dark:text-gray-100 text-lg font-semibold mb-1">
                     {project.name}
                 </h3>
-                <p className="text-gray-500 text-sm mb-2">{project.date}</p>
-                <div className="flex-1">
-                    <p
-                        className="text-gray-600 dark:text-gray-300 mb-4 overflow-hidden line-clamp-3"
-                        style={{
-                            display: "-webkit-box",
-                            WebkitBoxOrient: "vertical",
-                            WebkitLineClamp: 3,
-                        }}
-                    >
-                        {project.summary}
+                <p className="text-gray-200 text-xs mb-1">{project.date}</p>
+                <p className="text-gray-100 dark:text-gray-300 mb-4 line-clamp-2">
+                    {project.summary}
+                </p>
+                <div className="mt-auto">
+                    <p className="text-sm text-gray-200 dark:text-gray-400">
+                        Technologies: {project.technologies.join(", ")}
                     </p>
                 </div>
-            </div>
+            </motion.a>
         </Link>
     );
 };
