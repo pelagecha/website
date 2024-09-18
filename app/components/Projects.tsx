@@ -1,13 +1,14 @@
 // components/Projects.tsx
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { projectsData } from "../data/projectsData";
 import ProjectCard from "./ProjectCard";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Projects: React.FC = () => {
+    const [projectsPerPage, setProjectsPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
-    const [projectsPerPage, setProjectsPerPage] = useState(3); // Default to desktop view
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     // Function to update projectsPerPage based on window width
     const updateProjectsPerPage = () => {
@@ -22,99 +23,84 @@ const Projects: React.FC = () => {
     };
 
     useEffect(() => {
-        // Update projectsPerPage on mount
         updateProjectsPerPage();
-
-        // Update projectsPerPage on window resize
         window.addEventListener("resize", updateProjectsPerPage);
-
-        // Cleanup listener on unmount
         return () =>
             window.removeEventListener("resize", updateProjectsPerPage);
     }, []);
 
-    // Calculate total pages based on projectsPerPage
+    // Calculate total pages
     const totalPages = Math.ceil(projectsData.length / projectsPerPage);
 
-    // Ensure currentPage is within bounds when projectsPerPage changes
+    // Function to handle scroll
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            const scrollPosition = scrollRef.current.scrollLeft;
+            const pageWidth = scrollRef.current.clientWidth;
+            const newPage = Math.round(scrollPosition / pageWidth) + 1;
+            setCurrentPage(newPage);
+        }
+    };
+
     useEffect(() => {
-        if (currentPage > totalPages) {
-            setCurrentPage(totalPages);
+        const scrollContainer = scrollRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener("scroll", handleScroll);
+            return () =>
+                scrollContainer.removeEventListener("scroll", handleScroll);
         }
-    }, [projectsPerPage, totalPages, currentPage]);
-
-    // Get current projects based on currentPage and projectsPerPage
-    const indexOfLastProject = currentPage * projectsPerPage;
-    const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-    const currentProjects = projectsData.slice(
-        indexOfFirstProject,
-        indexOfLastProject
-    );
-
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage((prev) => prev + 1);
-        }
-    };
-
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage((prev) => prev - 1);
-        }
-    };
+    }, []);
 
     return (
-        <section id="projects" className="my-16 p-4 container mx-auto">
-            <div className="relative">
-                <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                        key={currentPage}
-                        initial={{ opacity: 0, x: 300 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -300 }}
-                        transition={{ duration: 0.3 }}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={1}
-                        onDragEnd={(event, info) => {
-                            const swipe = info.offset.x;
-                            if (swipe < -100 && currentPage < totalPages) {
-                                setCurrentPage(currentPage + 1);
-                            } else if (swipe > 100 && currentPage > 1) {
-                                setCurrentPage(currentPage - 1);
+        <section id="projects" className="p-4 container mx-auto section-flush">
+            <div
+                className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
+                ref={scrollRef}
+            >
+                <div className="flex" style={{ width: `${100 * totalPages}%` }}>
+                    {Array.from({ length: totalPages }).map((_, pageIndex) => (
+                        <div
+                            key={pageIndex}
+                            className="flex-shrink-0 snap-start px-3" // Added px-3 for horizontal padding
+                            style={{ width: `${100 / totalPages}%` }}
+                        >
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {projectsData
+                                    .slice(
+                                        pageIndex * projectsPerPage,
+                                        (pageIndex + 1) * projectsPerPage
+                                    )
+                                    .map((project) => (
+                                        <ProjectCard
+                                            key={project.slug}
+                                            project={project}
+                                        />
+                                    ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="flex justify-center items-center mt-8 space-x-2">
+                {Array.from({ length: totalPages }).map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => {
+                            if (scrollRef.current) {
+                                scrollRef.current.scrollTo({
+                                    left: index * scrollRef.current.clientWidth,
+                                    behavior: "smooth",
+                                });
                             }
                         }}
-                    >
-                        {currentProjects.map((project) => (
-                            <ProjectCard key={project.slug} project={project} />
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-            {/* Pagination Controls */}
-            <div className="flex justify-center items-center mt-8 space-x-4">
-                <button
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                    className={`px-4 py-2 bg-indigo-500 text-white rounded 
-                                disabled:opacity-50 disabled:cursor-not-allowed 
-                                hover:bg-indigo-600 transition-colors duration-300`}
-                >
-                    Previous
-                </button>
-                <span className="text-gray-700 dark:text-gray-300">
-                    Page {currentPage} of {totalPages}
-                </span>
-                <button
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                    className={`px-4 py-2 bg-indigo-500 text-white rounded 
-                                disabled:opacity-50 disabled:cursor-not-allowed 
-                                hover:bg-indigo-600 transition-colors duration-300`}
-                >
-                    Next
-                </button>
+                        className={`w-3 h-3 rounded-full ${
+                            currentPage === index + 1
+                                ? "bg-indigo-500"
+                                : "bg-gray-300"
+                        }`}
+                        aria-label={`Go to page ${index + 1}`}
+                    />
+                ))}
             </div>
         </section>
     );
