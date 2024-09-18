@@ -18,30 +18,48 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     scale: 1.05,
                     boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
                 }}
-                className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 transform cursor-pointer flex flex-col"
-                aria-label={`View details about ${project.name}`}
+                className="
+                    w-full 
+                    bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 
+                    dark:from-gray-700 dark:via-gray-600 dark:to-gray-500 
+                    rounded-lg 
+                    shadow-md 
+                    p-4 
+                    hover:shadow-2xl 
+                    transition-shadow 
+                    duration-300 
+                    transform 
+                    cursor-pointer 
+                    flex 
+                    flex-col
+                "
+                aria-label={`View project: ${project.title}`}
             >
                 <div className="w-full h-32 mb-4 relative">
                     <Image
                         src={project.image}
-                        alt={project.name}
+                        alt={project.title}
                         layout="fill"
                         objectFit="cover"
                         className="rounded-md"
                         priority
                     />
                 </div>
-                <h3 className="text-white dark:text-gray-100 text-lg overflow-hidden line-clamp-1 font-semibold mb-1">
-                    {project.name}
+                <h3 className="text-gray-900 dark:text-gray-100 text-lg overflow-hidden line-clamp-1 font-semibold mb-1">
+                    {project.title}
                 </h3>
-                <p className="text-gray-200 text-xs mb-1">{project.date}</p>
-                <p className="text-gray-100 dark:text-gray-300 mb-4 line-clamp-2">
-                    {project.summary}
+                <p className="text-gray-700 dark:text-gray-400 text-xs mb-2">
+                    {project.date} • {project.duration}
                 </p>
-                <div className="mt-auto">
-                    <p className="text-sm text-gray-200 overflow-hidden line-clamp-1 dark:text-gray-400">
-                        {project.technologies.join(", ")}
+                <div className="flex-1">
+                    <p className="text-gray-800 dark:text-gray-300 mb-4 line-clamp-3">
+                        {project.summary}
                     </p>
+                </div>
+                <div className="mt-auto">
+                    <span className="text-gray-700 dark:text-gray-300 text-xs">
+                        {project.technologies.join(", ")}
+                    </span>
                 </div>
             </motion.a>
         </Link>

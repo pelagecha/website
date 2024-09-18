@@ -38,10 +38,10 @@ const HomePage: React.FC = () => {
                     {/* General Section */}
                     <section
                         id="general"
-                        className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden px-4 md:px-8 py-4 md:py-8"
+                        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 py-4 md:py-8"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 via-teal-500/10 to-blue-500/10 dark:from-green-900/30 dark:via-teal-800/30 dark:to-blue-900/30 opacity-50"></div>
-                        <div className="flex-grow flex items-center justify-center mt-4">
+                        <div className="flex items-center justify-center">
                             <InfoSection />
                         </div>
                     </section>

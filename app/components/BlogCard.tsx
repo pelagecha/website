@@ -18,7 +18,21 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                     scale: 1.05,
                     boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
                 }}
-                className="w-full bg-gradient-to-r from-green-300 via-teal-400 to-blue-400 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-md p-4 hover:shadow-2xl transition-shadow duration-300 transform cursor-pointer flex flex-col"
+                className="
+                    w-full 
+                    bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 
+                    dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 
+                    rounded-lg 
+                    shadow-md 
+                    p-4 
+                    hover:shadow-2xl 
+                    transition-shadow 
+                    duration-300 
+                    transform 
+                    cursor-pointer 
+                    flex 
+                    flex-col
+                "
                 aria-label={`Read blog post: ${blog.title}`}
             >
                 <div className="w-full h-32 mb-4 relative">
@@ -34,7 +48,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                 <h3 className="text-gray-900 dark:text-gray-100 text-lg overflow-hidden line-clamp-1 font-semibold mb-1">
                     {blog.title}
                 </h3>
-                <p className="text-gray-700 text-xs mb-2">
+                <p className="text-gray-700 dark:text-gray-400 text-xs mb-2">
                     {blog.date} • {blog.readTime} • {blog.wordCount} words
                 </p>
                 <div className="flex-1">
@@ -43,7 +57,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                     </p>
                 </div>
                 <div className="mt-auto">
-                    <span className="inline-block bg-teal-500 text-xs overflow-hidden line-clamp-1 text-white px-2 py-1 rounded-full">
+                    <span className="inline-block bg-gray-500 dark:bg-gray-400 text-xs overflow-hidden line-clamp-1 text-white px-2 py-1 rounded-full">
                         {blog.category}
                     </span>
                 </div>
