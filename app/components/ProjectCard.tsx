@@ -1,3 +1,5 @@
+// components/ProjectCard.tsx
+
 import React from "react";
 import { Project } from "../data/projectsData";
 import Link from "next/link";
@@ -29,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         priority
                     />
                 </div>
-                <h3 className="text-white dark:text-gray-100 text-lg font-semibold mb-1">
+                <h3 className="text-white dark:text-gray-100 text-lg overflow-hidden line-clamp-1 font-semibold mb-1">
                     {project.name}
                 </h3>
                 <p className="text-gray-200 text-xs mb-1">{project.date}</p>
@@ -37,8 +39,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     {project.summary}
                 </p>
                 <div className="mt-auto">
-                    <p className="text-sm text-gray-200 dark:text-gray-400">
-                        Technologies: {project.technologies.join(", ")}
+                    <p className="text-sm text-gray-200 overflow-hidden line-clamp-1 dark:text-gray-400">
+                        {project.technologies.join(", ")}
                     </p>
                 </div>
             </motion.a>
