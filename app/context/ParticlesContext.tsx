@@ -20,7 +20,7 @@ const ParticlesContext = createContext<ParticlesContextType | undefined>(
 export const ParticlesProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
-    const [particlesEnabled, setParticlesEnabled] = useState(true);
+    const [particlesEnabled, setParticlesEnabled] = useState(false);
 
     useEffect(() => {
         const storedPreference = localStorage.getItem("particlesEnabled");
