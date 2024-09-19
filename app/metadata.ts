@@ -9,10 +9,10 @@ export const metadata = {
         siteName: "Nikita Pelagecha Portfolio",
         images: [
             {
-                url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa", // Unsplash image of a starry night sky with code overlay
+                url: "/meta-preview.png", // Updated to use meta-preview.png
                 width: 1200,
                 height: 630,
-                alt: "Starry night sky with floating code",
+                alt: "Nikita Pelagecha Portfolio Preview",
             },
         ],
         locale: "en_US",
