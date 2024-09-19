@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import { blogsData } from "../data/blogsData";
 import BlogCard from "./BlogCard";

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Project } from "../data/projectsData";
 import Link from "next/link";
