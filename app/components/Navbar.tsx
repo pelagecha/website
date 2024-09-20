@@ -6,6 +6,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { FaSun, FaMoon, FaBars, FaTimes, FaMagic } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation"; // Updated import
 
 const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 
@@ -15,6 +16,8 @@ const Navbar: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>("general");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [progress, setProgress] = useState(0);
+    const router = useRouter();
+    const pathname = usePathname(); // Get current pathname
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,19 +56,24 @@ const Navbar: React.FC = () => {
     }, []);
 
     const scrollToSection = (sectionId: string) => {
-        const section = document.getElementById(sectionId.toLowerCase());
-        if (section) {
-            const navbarHeight = 64; // Adjust this value to match your navbar height
-            const yOffset = -navbarHeight + 5; // Increased from -20 to -40
-            const y =
-                section.getBoundingClientRect().top +
-                window.pageYOffset +
-                yOffset;
+        if (pathname !== "/") {
+            // Use pathname instead of router.pathname
+            router.push(`/#${sectionId.toLowerCase()}`);
+        } else {
+            const section = document.getElementById(sectionId.toLowerCase());
+            if (section) {
+                const navbarHeight = 64; // Adjust this value to match your navbar height
+                const yOffset = -navbarHeight + 5; // Increased from -20 to -40
+                const y =
+                    section.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
 
-            window.scrollTo({
-                top: y,
-                behavior: "smooth",
-            });
+                window.scrollTo({
+                    top: y,
+                    behavior: "smooth",
+                });
+            }
         }
         setActiveSection(sectionId.toLowerCase());
         setIsSidebarOpen(false); // Close sidebar after navigation
