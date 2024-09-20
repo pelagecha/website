@@ -1,95 +1,112 @@
 "use client";
 
-import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import React, { useContext } from "react";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaTwitter,
+    FaEnvelope,
+    FaInstagram,
+} from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
+import { ThemeContext } from "../context/ThemeContext";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
     const { particlesEnabled } = useParticles();
+    const { theme } = useContext(ThemeContext);
 
     return (
         <footer
             id="contact"
             className={`relative z-10 w-full ${
+                theme === "dark" ? "bg-gray-900" : "bg-lightNavbar"
+            } ${
                 particlesEnabled ? "bg-opacity-80 backdrop-blur-md" : ""
-            }`}
+            } shadow-md`}
         >
-            <div className="flex flex-col md:flex-row">
-                {/* Blue section (left half) */}
-                <div
-                    className={`w-full md:w-1/2 bg-blue-500 ${
-                        particlesEnabled ? "bg-opacity-80" : ""
-                    } p-4 text-white`}
-                >
-                    <h2 className="text-xl font-bold mb-2">Contact Me</h2>
-                    <p className="mb-2 text-sm">
-                        Feel free to reach out for collaborations or just a
-                        friendly chat.
-                    </p>
-                    <div className="flex space-x-4">
-                        <a
-                            href="https://github.com/pelagecha"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-gray-300 transition-colors"
-                        >
-                            <FaGithub size={24} />
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/pelagecha"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-gray-300 transition-colors"
-                        >
-                            <FaLinkedin size={24} />
-                        </a>
-                        <a
-                            href="https://twitter.com/pelagecha"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-gray-300 transition-colors"
-                        >
-                            <FaTwitter size={24} />
-                        </a>
-                        <a
-                            href="mailto:nikitapelagecha@gmail.com"
-                            className="hover:text-gray-300 transition-colors"
-                        >
-                            <FaEnvelope size={24} />
-                        </a>
+            <div className="container mx-auto px-4 py-8">
+                <div className="flex flex-col md:flex-row justify-between items-center">
+                    <div className="mb-4 md:mb-0">
+                        <p className="text-gray-600 dark:text-gray-300">
+                            © 2024 Nikita Pelagecha. All rights reserved. 🇺🇦
+                        </p>
                     </div>
-                </div>
-
-                {/* Yellow section (right half) */}
-                <div
-                    className={`w-full md:w-1/2 bg-yellow-400 ${
-                        particlesEnabled ? "bg-opacity-80" : ""
-                    } p-4 text-gray-800`}
-                >
-                    <h2 className="text-xl font-bold mb-2">About This Site</h2>
-                    <p className="mb-2 text-sm">
-                        This site is built with Next.js, TypeScript, Tailwind
-                        CSS, and Framer Motion.
-                    </p>
-
-                    <p className="text-xs mt-2 whitespace-wrap text-ellipsis">
-                        This work is licensed under a Creative Commons
-                        Attribution-NonCommercial 4.0 International License.
-                        <a
-                            href="https://creativecommons.org/licenses/by-nc/4.0/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline ml-1 hover:text-gray-600 transition-colors"
-                        >
-                            View License
-                        </a>
-                    </p>
-                    <p className="text-sm mt-2">
-                        © 2024 Nikita Pelagecha. All rights reserved.
-                    </p>
+                    <div className="flex space-x-6">
+                        <SocialLink
+                            href="https://github.com/pelagecha"
+                            icon={FaGithub}
+                            label="GitHub"
+                        />
+                        <SocialLink
+                            href="https://linkedin.com/in/pelagecha"
+                            icon={FaLinkedin}
+                            label="LinkedIn"
+                        />
+                        <SocialLink
+                            href="https://instagram.com/nikitapelagecha"
+                            icon={FaInstagram}
+                            label="Instagram"
+                        />
+                        <SocialLink
+                            href="https://leetcode.com/u/pelagecha/"
+                            icon={LeetCodeIcon}
+                            label="LeetCode"
+                        />
+                        <SocialLink
+                            href="mailto:nikitapelagecha@gmail.com"
+                            icon={FaEnvelope}
+                            label="Email"
+                        />
+                    </div>
                 </div>
             </div>
         </footer>
+    );
+};
+
+interface SocialLinkProps {
+    href: string;
+    icon: React.ElementType;
+    label: string;
+}
+
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => {
+    const { theme } = useContext(ThemeContext);
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className="transform hover:scale-110 transition-transform"
+        >
+            <Icon
+                size={24}
+                className={`${
+                    theme === "dark"
+                        ? "text-white hover:text-blue-400"
+                        : "text-gray-800 hover:text-blue-600"
+                } transition-colors duration-300`}
+            />
+        </a>
+    );
+};
+
+const LeetCodeIcon: React.FC = () => {
+    const { theme } = useContext(ThemeContext);
+    return (
+        <Image
+            src="/images/leetcode.png"
+            alt="LeetCode"
+            width={24}
+            height={24}
+            className={`w-6 h-6 object-contain ${
+                theme === "dark"
+                    ? "filter invert brightness-0 hover:brightness-100 hover:invert-0"
+                    : "hover:filter hover:brightness-75"
+            } transition-all duration-300`}
+        />
     );
 };
 
