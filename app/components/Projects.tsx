@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <section id="projects" className="p-4 container mx-auto section-flush">
+        <section id="projects" className="container mx-auto section-flush">
             <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
                 ref={scrollRef}
@@ -61,10 +61,10 @@ const Projects: React.FC = () => {
                     {Array.from({ length: totalPages }).map((_, pageIndex) => (
                         <div
                             key={pageIndex}
-                            className="flex-shrink-0 snap-start px-3" // Added px-3 for horizontal padding
+                            className="flex-shrink-0 snap-start px-3"
                             style={{ width: `${100 / totalPages}%` }}
                         >
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-2">
                                 {projectsData
                                     .slice(
                                         pageIndex * projectsPerPage,
@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center items-center mt-8 space-x-2">
+            <div className="flex justify-center items-center mt-6 space-x-2">
                 {Array.from({ length: totalPages }).map((_, index) => (
                     <button
                         key={index}

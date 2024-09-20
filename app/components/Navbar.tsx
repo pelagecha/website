@@ -140,10 +140,10 @@ const Navbar: React.FC = () => {
                             aria-label="Toggle Theme"
                             whileHover={{ scale: 1.2 }}
                         >
-                            {theme === "light" ? (
+                            {theme === "dark" ? (
                                 <FaSun className="text-yellow-500 hover:text-yellow-600" />
                             ) : (
-                                <FaMoon className="text-gray-300 hover:text-white" />
+                                <FaMoon className="text-gray-600 hover:text-gray-700" />
                             )}
                         </motion.button>
 

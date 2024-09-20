@@ -49,7 +49,7 @@ const Blogs: React.FC = () => {
     }, []);
 
     return (
-        <section id="blogs" className="p-4 container mx-auto section-flush">
+        <section id="blogs" className="container mx-auto section-flush">
             <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
                 ref={scrollRef}
@@ -58,10 +58,10 @@ const Blogs: React.FC = () => {
                     {Array.from({ length: totalPages }).map((_, pageIndex) => (
                         <div
                             key={pageIndex}
-                            className="flex-shrink-0 snap-start px-3" // Added px-3 for horizontal padding
+                            className="flex-shrink-0 snap-start px-3"
                             style={{ width: `${100 / totalPages}%` }}
                         >
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-2">
                                 {blogsData
                                     .slice(
                                         pageIndex * blogsPerPage,
@@ -75,7 +75,7 @@ const Blogs: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center items-center mt-8 space-x-2">
+            <div className="flex justify-center items-center mt-6 space-x-2">
                 {Array.from({ length: totalPages }).map((_, index) => (
                     <button
                         key={index}

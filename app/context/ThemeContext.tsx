@@ -16,21 +16,19 @@ export const ThemeContext = createContext<ThemeContextProps>({
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+    const [theme, setTheme] = useState<"light" | "dark">("dark");
 
     useEffect(() => {
         const storedTheme = localStorage.getItem("theme") as
             | "light"
             | "dark"
             | null;
-        const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches;
-        const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
-        setTheme(initialTheme);
+        if (storedTheme) {
+            setTheme(storedTheme);
+        }
         document.documentElement.classList.toggle(
             "dark",
-            initialTheme === "dark"
+            storedTheme === "dark" || storedTheme === null
         );
     }, []);
 
