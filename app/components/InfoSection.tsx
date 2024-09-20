@@ -41,11 +41,11 @@ const InfoSection: React.FC = () => {
             animate="visible"
             className={`${
                 theme === "dark"
-                    ? "bg-gray-800 bg-opacity-60 text-white"
-                    : "bg-white bg-opacity-90 text-lightText"
-            } p-4 sm:p-8 md:p-12 rounded-3xl shadow-2xl max-w-7xl w-full mx-auto backdrop-blur-lg`}
+                    ? "bg-gray-800 bg-opacity-80 text-white"
+                    : "bg-white bg-opacity-95 text-lightText"
+            } p-4 sm:p-8 md:p-12 rounded-3xl max-w-7xl w-full mx-auto backdrop-blur-sm`}
         >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {/* Profile Image */}
                 <motion.div
                     variants={itemVariants}
