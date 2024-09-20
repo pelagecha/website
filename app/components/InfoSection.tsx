@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image"; // Ensure this import is present
-import ImageWithFallback from "./ImageWithFallback";
 
 // Interface for InfoTile props
 interface InfoTileProps {
@@ -97,7 +96,7 @@ const InfoSection: React.FC = () => {
                     className="flex justify-center items-center col-span-1 sm:col-span-2 lg:col-span-1 mb-4 sm:mb-0"
                 >
                     <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 relative">
-                        <ImageWithFallback
+                        <Image
                             src="/images/me.png"
                             alt="Nikita Pelagecha"
                             layout="fill"

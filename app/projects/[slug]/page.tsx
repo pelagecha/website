@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import type { Project } from "../../data/projectsData";
-import ImageWithFallback from "@/app/components/ImageWithFallback";
+import Image from "next/image";
 import fs from "fs/promises";
 import path from "path";
 
@@ -74,7 +74,7 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
             </p>
 
             <div className="flex justify-center mb-6">
-                <ImageWithFallback
+                <Image
                     src={project.image}
                     alt={project.name}
                     width={600}
