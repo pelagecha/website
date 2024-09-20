@@ -7,6 +7,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import type { Project } from "../../data/projectsData";
 import ImageWithFallback from "@/app/components/ImageWithFallback";
+import fs from "fs/promises";
+import path from "path";
 
 interface ProjectPageProps {
     params: {
@@ -36,12 +38,24 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     };
 }
 
-const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
+const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
     const { slug } = params;
     const project = projectsData.find((p) => p.slug === slug);
 
     if (!project) {
         notFound();
+    }
+
+    let markdownContent = "";
+    if (project.markdownContent) {
+        const filePath = path.join(
+            process.cwd(),
+            "app",
+            "data",
+            "projects",
+            project.markdownContent
+        );
+        markdownContent = await fs.readFile(filePath, "utf8");
     }
 
     return (
@@ -70,7 +84,9 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
             </div>
 
             <div className="prose dark:prose-invert max-w-none mb-6">
-                <ReactMarkdown>{project.description}</ReactMarkdown>
+                <ReactMarkdown>
+                    {markdownContent || project.description}
+                </ReactMarkdown>
             </div>
 
             <div className="bg-gray-200 dark:bg-gray-700 p-6 rounded-lg">

@@ -3,31 +3,30 @@
 import { ReactNode } from "react";
 
 export interface Project {
-    title: any;
-    duration: ReactNode;
+    title: string;
+    duration: string;
     slug: string;
     name: string;
     summary: string;
     description: string;
-    image: string; // Mandatory
-    date: string; // Use ISO 8601 format
+    image: string;
+    date: string;
     technologies: string[];
+    markdownContent?: string; // New field for markdown content
 }
 
 export const projectsData: Project[] = [
-    // ----------------------------------------
-    // ---------- Bigram Predictor --------------
-    // ----------------------------------------
     {
         slug: "bigram-character-predictor",
         name: "Bigram Character Predictor",
         image: "/images/projects/test.jpg",
         date: "2023-10-15",
         technologies: ["Python", "PyTorch", "NumPy", "Matplotlib"],
-        title: undefined,
-        duration: undefined,
-        summary: "summary",
-        description: `all the text`,
+        title: "Bigram Character Predictor",
+        duration: "2 weeks",
+        summary: "A simple character-level language model using bigrams.",
+        description: "Short description for card view",
+        markdownContent: "bigram-predictor.md", // Reference to the markdown file
     },
     // Add more projects...
 ];
