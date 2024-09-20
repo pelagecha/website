@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
                         id="general"
                         className="relative min-h-screen flex flex-col items-center justify-start pt-4 sm:pt-8 md:pt-16 lg:pt-10 overflow-hidden px-4 md:px-8"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 via-teal-500/10 to-blue-500/10 dark:from-green-900/30 dark:via-teal-800/30 dark:to-blue-900/30 opacity-50"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-teal-500/10 to-blue-500/10 dark:from-blue-900/30 dark:via-teal-800/30 dark:to-blue-900/30 opacity-50"></div>
                         <div className="flex items-center justify-center w-full">
                             <InfoSection />
                         </div>

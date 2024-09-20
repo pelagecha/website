@@ -9,7 +9,7 @@ export const metadata = {
         siteName: "Nikita Pelagecha Portfolio",
         images: [
             {
-                url: "/meta-preview.png", // Updated to use meta-preview.png
+                url: "/images/meta-preview.png", // Updated to use meta-preview.png
                 width: 1200,
                 height: 630,
                 alt: "Nikita Pelagecha Portfolio Preview",

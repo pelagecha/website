@@ -86,10 +86,15 @@ const JobItem: React.FC<JobItemProps> = React.memo(
                                     duration: 0.2,
                                     ease: "easeInOut",
                                 }}
-                                className="mt-0 text-gray-700 dark:text-gray-300 overflow-hidden"
+                                className="mt-2 text-gray-700 dark:text-gray-300 overflow-hidden"
                             >
                                 {job.details.split("\n").map((line, idx) => (
-                                    <p key={idx} className="mb-2">
+                                    <p
+                                        key={idx}
+                                        className={`mb-2 ${
+                                            idx === 0 ? "mb-2" : ""
+                                        }`}
+                                    >
                                         {line}
                                     </p>
                                 ))}

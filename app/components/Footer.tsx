@@ -43,11 +43,11 @@ const Footer: React.FC = () => {
                             icon={FaLinkedin}
                             label="LinkedIn"
                         />
-                        <SocialLink
+                        {/* <SocialLink
                             href="https://instagram.com/nikitapelagecha"
                             icon={FaInstagram}
                             label="Instagram"
-                        />
+                        /> */}
                         <SocialLink
                             href="https://leetcode.com/u/pelagecha/"
                             icon={LeetCodeIcon}

@@ -3,10 +3,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeContext } from "../context/ThemeContext";
-import { FaSun, FaMoon, FaBars, FaTimes, FaMagic } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaMagic } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
+import Sidebar from "./Sidebar"; // Import the new Sidebar component
 
 const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 
@@ -200,60 +201,15 @@ const Navbar: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* Sidebar for Mobile Navigation */}
-            <AnimatePresence>
-                {isSidebarOpen && (
-                    <motion.div
-                        initial={{ x: "100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "100%" }}
-                        transition={{ type: "tween", duration: 0.3 }}
-                        className={`fixed top-0 right-0 h-full w-64 ${
-                            theme === "dark" ? "bg-gray-800" : "bg-white"
-                        } shadow-lg z-50`}
-                    >
-                        <div className="p-4 relative h-full">
-                            {/* Close Button */}
-                            <button
-                                className="absolute top-4 right-4 focus:outline-none"
-                                onClick={() => setIsSidebarOpen(false)}
-                                aria-label="Close menu"
-                            >
-                                <FaTimes className="text-gray-600 dark:text-gray-300" />
-                            </button>
-
-                            {/* Sidebar Content */}
-                            <div className="mt-12 flex flex-col items-start space-y-6">
-                                {/* Section Links */}
-                                {sections.map((section) => (
-                                    <button
-                                        key={section}
-                                        onClick={() => scrollToSection(section)}
-                                        className={`w-full text-left py-2 px-4 rounded-lg text-lg font-medium ${
-                                            activeSection ===
-                                            section.toLowerCase()
-                                                ? "bg-blue-500 text-white"
-                                                : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-                                        } transition-colors duration-300`}
-                                    >
-                                        {section}
-                                    </button>
-                                ))}
-
-                                {/* About Link */}
-                                <Link href="/about" passHref>
-                                    <button
-                                        onClick={() => setIsSidebarOpen(false)}
-                                        className={`w-full text-left py-2 px-4 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300`}
-                                    >
-                                        About
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {/* New Sidebar Component */}
+            <Sidebar
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
+                theme={theme}
+                sections={sections}
+                activeSection={activeSection}
+                scrollToSection={scrollToSection}
+            />
         </>
     );
 };
