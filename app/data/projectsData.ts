@@ -17,16 +17,15 @@ export interface Project {
 
 export const projectsData: Project[] = [
     {
-        slug: "bigram-character-predictor",
-        name: "Bigram Character Predictor",
-        image: "/images/projects/test.jpg",
+        slug: "bigram",
+        name: "Bigram Language Model",
+        image: "/images/projects/bigram/cover.png",
         date: "2023-10-15",
         technologies: ["Python", "PyTorch", "NumPy", "Matplotlib"],
-        title: "Bigram Character Predictor",
+        title: "Bigram Language Model",
         duration: "2 weeks",
         summary: "A simple character-level language model using bigrams.",
-        description: "Short description for card view",
-        markdownContent: "bigram-predictor.md", // Reference to the markdown file
+        description: "",
+        markdownContent: "bigram.md",
     },
-    // Add more projects...
 ];

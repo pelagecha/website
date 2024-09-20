@@ -89,8 +89,8 @@ const ParticlesBackground: React.FC = () => {
             },
             particles: {
                 number: {
-                    value: 200,
-                    density: { enable: true, value_area: 800 },
+                    value: 150,
+                    density: { enable: true, value_area: 1000 },
                 },
                 color: { value: ["#ff6b6b", "#f7d794", "#f9ca24"] },
                 shape: {

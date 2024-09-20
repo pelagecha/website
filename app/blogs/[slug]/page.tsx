@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import type { Blog } from "../../data/blogsData";
+import fs from "fs/promises";
+import path from "path";
 
 interface BlogPageProps {
     params: {
@@ -35,12 +37,24 @@ export async function generateMetadata({ params }: BlogPageProps) {
     };
 }
 
-const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
+const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
     const { slug } = params;
     const blog = blogsData.find((b: Blog) => b.slug === slug);
 
     if (!blog) {
         notFound();
+    }
+
+    let markdownContent = "";
+    if (blog.markdownContent) {
+        const filePath = path.join(
+            process.cwd(),
+            "app",
+            "data",
+            "blogs",
+            blog.markdownContent
+        );
+        markdownContent = await fs.readFile(filePath, "utf8");
     }
 
     return (
@@ -67,7 +81,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
                 className="w-full h-auto object-cover rounded-lg mb-8"
             />
             <div className="prose prose-lg max-w-none dark:prose-invert">
-                <ReactMarkdown>{blog.content}</ReactMarkdown>
+                <ReactMarkdown>{markdownContent}</ReactMarkdown>
             </div>
         </article>
     );

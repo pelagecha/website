@@ -3,7 +3,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeContext } from "../context/ThemeContext";
-import { FaSun, FaMoon, FaBars, FaTimes, FaCloud } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaTimes, FaMagic } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                             className="focus:outline-none"
                             whileHover={{ scale: 1.2 }}
                         >
-                            <FaCloud
+                            <FaMagic
                                 className={`${
                                     particlesEnabled
                                         ? "text-blue-500"
