@@ -11,6 +11,7 @@ interface InfoTileProps {
     title: string;
     content: string | React.ReactNode;
     size?: "normal" | "large";
+    centerContent?: boolean;
 }
 
 // InfoTile Component
@@ -18,6 +19,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
     title,
     content,
     size = "normal",
+    centerContent = true,
 }) => {
     const { theme } = useContext(ThemeContext);
 
@@ -42,13 +44,13 @@ const InfoTile: React.FC<InfoTileProps> = ({
                 transition-all duration-300 ease-in-out
             `}
         >
-            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">
                 {title}
             </h2>
             <div
                 className={`text-sm sm:text-base ${
                     theme === "dark" ? "text-white" : "text-gray-800"
-                }`}
+                } ${centerContent ? "text-center" : ""}`}
             >
                 {content}
             </div>
@@ -122,7 +124,7 @@ const InfoSection: React.FC = () => {
                                     rel="noopener noreferrer"
                                     className={`${
                                         theme === "dark"
-                                            ? "text-indigo-300"
+                                            ? "text-indigo-400"
                                             : "text-indigo-500"
                                     } hover:underline font-bold`}
                                 >
@@ -130,10 +132,13 @@ const InfoSection: React.FC = () => {
                                 </a>
                                 <strong> '26</strong>{" "}
                             </p>
-                            <p>BSc Hons Computer Science</p>
-                            <p>
-                                <strong>Y1:</strong> 1st Class
-                            </p>
+                            <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
+                            <div className="text-left">
+                                <p>BSc Hons Computer Science</p>
+                                <p>
+                                    <strong>Y1:</strong> 1st Class
+                                </p>
+                            </div>
                         </>
                     }
                 />
@@ -141,35 +146,38 @@ const InfoSection: React.FC = () => {
                     title="Current Position"
                     content={
                         <div className="space-y-2">
-                            <p className="font-semibold">
-                                ML Research Intern @{" "}
-                                <a
-                                    href="https://warwick.ac.uk/fac/sci/dcs/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`${
-                                        theme === "dark"
-                                            ? "text-indigo-400"
-                                            : "text-indigo-500"
-                                    } hover:underline font-bold`}
-                                >
-                                    DCS
-                                </a>
-                            </p>
+                            <div className="text-center">
+                                <p className="font-semibold">
+                                    ML Research Intern @{" "}
+                                    <a
+                                        href="https://warwick.ac.uk/fac/sci/dcs/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`${
+                                            theme === "dark"
+                                                ? "text-indigo-400"
+                                                : "text-indigo-500"
+                                        } hover:underline font-bold`}
+                                    >
+                                        DCS
+                                    </a>
+                                </p>
+                            </div>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <ul className="list-disc list-inside text-sm">
+                            <ul className="list-disc list-inside text-sm text-left">
                                 Designing Algorithmic ML models and developing
                                 LLM agents under the supervision of Dr. Long
                                 Tran-Thanh
                             </ul>
                         </div>
                     }
+                    centerContent={false}
                 />
                 <InfoTile
                     title="Competitions"
                     content={
                         <div className="space-y-2">
-                            <p className="font-semibold">
+                            <p className="font-semibold text-center">
                                 <a
                                     href="https://ichack.org/"
                                     target="_blank"
@@ -210,7 +218,7 @@ const InfoSection: React.FC = () => {
                                 </a>{" "}
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <div className="text-sm">
+                            <div className="text-sm text-left">
                                 <p>
                                     Achieved 53rd place in UKIEPC, represented
                                     Warwick at NWERC and placed 7th in the
@@ -220,6 +228,7 @@ const InfoSection: React.FC = () => {
                             </div>
                         </div>
                     }
+                    centerContent={false}
                 />
                 <InfoTile
                     title="Technical Skills"
@@ -252,16 +261,17 @@ const InfoSection: React.FC = () => {
                             </div>
                         </div>
                     }
+                    centerContent={false}
                 />
 
                 <InfoTile
                     title="Languages"
-                    content="English, Ukrainian, and Russian"
+                    content="English, Ukrainian, Russian"
                 />
                 <InfoTile
                     title="Social"
                     content={
-                        <div className="flex space-x-6">
+                        <div className="flex justify-center space-x-6">
                             {/* GitHub */}
                             <a
                                 href="https://github.com/pelagecha"

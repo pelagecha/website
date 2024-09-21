@@ -67,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                             className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-8"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
+                            transition={{ delay: 0.1, duration: 0.3 }} // Reduced delay and duration
                         >
                             Menu
                         </motion.h2>
@@ -81,8 +81,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                                         initial={{ opacity: 0, x: -30 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
-                                            delay: 0.2 + index * 0.05,
-                                            duration: 0.4,
+                                            delay: 0.1 + index * 0.03, // Reduced delay and interval
+                                            duration: 0.2, // Reduced duration
                                         }}
                                     >
                                         <button
@@ -110,8 +110,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                                     initial={{ opacity: 0, x: -30 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{
-                                        delay: 0.2 + sections.length * 0.05,
-                                        duration: 0.4,
+                                        delay: 0.1 + sections.length * 0.03, // Reduced delay and interval
+                                        duration: 0.2, // Reduced duration
                                     }}
                                 >
                                     <Link href="/about" passHref>
