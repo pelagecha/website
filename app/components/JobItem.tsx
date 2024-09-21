@@ -67,12 +67,12 @@ const JobItem: React.FC<JobItemProps> = React.memo(
                     </div>
 
                     {/* Job Description */}
-                    <p className="mt-4 text-gray-700 dark:text-gray-300">
-                        {isExpanded
-                            ? job.description
-                            : job.description.length > 80
-                            ? `${job.description.substring(0, 80)}...`
-                            : job.description}
+                    <p
+                        className={`mt-4 text-gray-700 dark:text-gray-300 ${
+                            isExpanded ? "" : "line-clamp-1"
+                        }`}
+                    >
+                        {job.description}
                     </p>
 
                     {/* Expanded Details */}

@@ -1,8 +1,5 @@
 // app/data/blogsData.ts
 
-import fs from "fs";
-import path from "path";
-
 export interface Blog {
     slug: string;
     title: string;
@@ -30,14 +27,7 @@ export const blogsData: Blog[] = [
 // Calculate word count and read time for each blog
 blogsData.forEach((blog) => {
     if (blog.markdownContent) {
-        const filePath = path.join(
-            process.cwd(),
-            "public",
-            "blogs",
-            blog.markdownContent
-        );
-        const content = fs.readFileSync(filePath, "utf8");
-        const words = content.trim().split(/\s+/).length;
+        const words = blog.markdownContent.trim().split(/\s+/).length;
         blog.wordCount = words;
 
         // Assuming an average reading speed of 200 words per minute

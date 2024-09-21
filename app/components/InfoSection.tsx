@@ -37,7 +37,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
                 p-5 sm:p-6 rounded-xl shadow-lg
                 ${size === "large" ? "col-span-1 sm:col-span-2" : ""}
                 border ${
-                    theme === "dark" ? "border-gray-700" : "border-gray-200"
+                    theme === "dark" ? "border-[#cfc4af]" : "border-gray-400"
                 }
                 transition-all duration-300 ease-in-out
             `}
@@ -85,7 +85,7 @@ const InfoSection: React.FC = () => {
             animate="visible"
             className={`${
                 theme === "dark"
-                    ? "bg-gray-800 bg-opacity-80 text-white"
+                    ? "bg-gray-900 bg-opacity-80 text-white"
                     : "bg-gradient-to-r from-purple-50 to-pink-50 text-gray-800"
             } p-4 sm:p-8 md:p-12 rounded-3xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
         >
@@ -101,7 +101,11 @@ const InfoSection: React.FC = () => {
                             alt="Nikita Pelagecha"
                             layout="fill"
                             objectFit="cover"
-                            className="rounded-3xl border-4 border-black shadow-lg"
+                            className={`rounded-3xl border-4 ${
+                                theme === "dark"
+                                    ? "border-gray-700"
+                                    : "border-black"
+                            } shadow-lg`}
                         />
                     </div>
                 </motion.div>
@@ -116,7 +120,11 @@ const InfoSection: React.FC = () => {
                                     href="https://warwick.ac.uk"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:underline"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-300"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
                                 >
                                     University of Warwick
                                 </a>
@@ -139,7 +147,11 @@ const InfoSection: React.FC = () => {
                                     href="https://warwick.ac.uk/fac/sci/dcs/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:underline"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
                                 >
                                     DCS
                                 </a>
@@ -162,7 +174,11 @@ const InfoSection: React.FC = () => {
                                     href="https://ichack.org/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:underline"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
                                 >
                                     ICHack
                                 </a>
@@ -171,7 +187,11 @@ const InfoSection: React.FC = () => {
                                     href="https://ukiepc.info/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:underline"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
                                 >
                                     UKIEPC
                                 </a>{" "}
@@ -180,7 +200,11 @@ const InfoSection: React.FC = () => {
                                     href="https://nwerc.eu/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:underline"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
                                 >
                                     NWERC
                                 </a>{" "}
@@ -202,28 +226,28 @@ const InfoSection: React.FC = () => {
                     size="large"
                     content={
                         <div className="space-y-2 text-xs sm:text-sm">
-                            <div className="bg-purple-100 dark:bg-purple-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
-                                <p className="font-semibold text-purple-800 dark:text-purple-200">
+                            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-7">
+                                <p className="font-semibold text-indigo-700 dark:text-indigo-300 self-start">
                                     Proficient:
                                 </p>
-                                <p className="text-purple-700 dark:text-purple-300">
-                                    Java, Python, HTML, CSS, Git, LaTeX
+                                <p className="text-indigo-600 dark:text-indigo-200">
+                                    Java, Python, HTML/CSS/JS, Git, LaTeX, Bash
                                 </p>
                             </div>
-                            <div className="bg-green-100 dark:bg-green-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
-                                <p className="font-semibold text-green-800 dark:text-green-200">
+                            <div className="bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-3">
+                                <p className="font-semibold text-teal-700 dark:text-teal-300 self-start">
                                     Intermediate:
                                 </p>
-                                <p className="text-green-700 dark:text-green-300">
-                                    C, C++, Haskell, Swift, JavaScript, Next.js,
+                                <p className="text-teal-600 dark:text-teal-200">
+                                    C/C++, Haskell, Swift, TypeScript
                                 </p>
                             </div>
-                            <div className="bg-yellow-100 dark:bg-yellow-900 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-2">
-                                <p className="font-semibold text-yellow-800 dark:text-yellow-200">
+                            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-9">
+                                <p className="font-semibold text-amber-700 dark:text-amber-300 self-start">
                                     Familiar:
                                 </p>
-                                <p className="text-yellow-700 dark:text-yellow-300">
-                                    TypeScript, SQL, Tailwind CSS
+                                <p className="text-amber-600 dark:text-amber-200">
+                                    SQL, Tailwind CSS
                                 </p>
                             </div>
                         </div>

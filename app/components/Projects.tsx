@@ -81,27 +81,31 @@ const Projects: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center items-center mt-6 space-x-2">
-                {Array.from({ length: totalPages }).map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => {
-                            if (scrollRef.current) {
-                                scrollRef.current.scrollTo({
-                                    left: index * scrollRef.current.clientWidth,
-                                    behavior: "smooth",
-                                });
-                            }
-                        }}
-                        className={`w-3 h-3 rounded-full ${
-                            currentPage === index + 1
-                                ? "bg-indigo-500"
-                                : "bg-gray-300"
-                        }`}
-                        aria-label={`Go to page ${index + 1}`}
-                    />
-                ))}
-            </div>
+            {totalPages > 1 && (
+                <div className="flex justify-center items-center mt-6 space-x-2">
+                    {Array.from({ length: totalPages }).map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => {
+                                if (scrollRef.current) {
+                                    scrollRef.current.scrollTo({
+                                        left:
+                                            index *
+                                            scrollRef.current.clientWidth,
+                                        behavior: "smooth",
+                                    });
+                                }
+                            }}
+                            className={`w-3 h-3 rounded-full ${
+                                currentPage === index + 1
+                                    ? "bg-indigo-500"
+                                    : "bg-gray-300"
+                            }`}
+                            aria-label={`Go to page ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
         </section>
     );
 };
