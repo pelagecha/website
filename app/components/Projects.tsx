@@ -5,6 +5,8 @@ import { projectsData } from "../data/projectsData";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 
+const ISEXPANDABLE = false;
+
 const Projects: React.FC = () => {
     const [projectsPerPage, setProjectsPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);

@@ -50,3 +50,6 @@ first, we need to realise that computer needs a way to represent tokens as numbe
 ```
 
 This is the basic unit of our model, and we can represent a name as a sequence of these tokens.
+
+Then onto finding the hyperparameters:
+to find the optimal learning rate, or the factor by which the partial derivative of a given parameter with respect to the output layer is multiplied during backward pass in the training stage, we can use the following method: # talk about linear search

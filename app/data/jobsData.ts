@@ -13,10 +13,20 @@ export const jobs: Job[] = [
         company: "University of Warwick - DCS",
         date: "Jul 2024 - Sep 2024",
         description:
-            "Conducting research in Algorithmic ML and designing LLM agents.",
+            "Developing custom LLama3 and OpenAI-based LLM Agents under the supervision of Prof. Long Tran-Thanh and his research network at UMD.",
         details:
-            "• Working under the supervision of Dr. Long Tran-Thanh and his research network at the university of Maryland\n• Seeing how Deep Learning models can generalise onto unseen problems or higher complexity using Recall and Recurrence \n• Got maximum funding and access to department computing resources to support my research",
+            "\n• Secured funding from the Undergraduate Research Support Scheme and a position in an upcoming study on runtime neural network pruning. \n• Implemented a Retrieval Augmented Generation model to automate Unix Bash task execution within Docker, validated using AgentBench.\n• Utilised RAG-fusion, semantic routing, hierarchical indexing, VectorDB retrievers, Corrective RAG and CoT prompting to optmise performance",
         companyUrl: "https://warwick.ac.uk/fac/sci/dcs/",
+    },
+    {
+        title: "CTO/Co-founder",
+        company: "ParkApp",
+        date: "Jan 2024 - Jul 2024",
+        description:
+            "Co-founded a parking app startup in a team of 4 students contributing to over 600 combined hours of market research and software development.",
+        details:
+            "• Designed and implemented a semi-functional prototype using Swift, incorporating user reporting features for real-time parking availability. \n • Secured mentorship from a Warwick Science Park representative, leveraging their expertise to refine business models and technical decisions.",
+        companyUrl: "",
     },
     {
         title: "Archery Specialist",
@@ -30,13 +40,13 @@ export const jobs: Job[] = [
     },
     {
         title: "Food and Beverage Assistant",
-        company: "The Rupert Brooke",
+        company: "Chestnut",
         date: "Mar 2022 - Sep 2022",
         description:
             "Delivered consistent service to 50-100 guests daily, leveraging problem-solving and multitasking skills in a fast-paced environment.",
         details:
             "• Contributed to the training of new staff, enhancing team productivity and fostering a collaborative culture\n• Maintained high standards of cleanliness and adhered to food safety regulations",
-        companyUrl: "https://www.therupertbrooke.com/",
+        companyUrl: "https://www.chestnutgroup.co.uk/",
     },
     {
         title: "Volunteer, Radio Electronics",
