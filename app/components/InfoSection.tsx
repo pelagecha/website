@@ -26,7 +26,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
     return (
         <motion.div
             variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 0 },
                 visible: { opacity: 1, y: 0 },
             }}
             whileHover={{ scale: 1.02 }}
@@ -41,7 +41,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
                 border ${
                     theme === "dark" ? "border-[#cfc4af]" : "border-gray-400"
                 }
-                transition-all duration-300 ease-in-out
+                transition-all duration-400 ease-in-out
             `}
         >
             <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">
@@ -64,7 +64,7 @@ const InfoSection: React.FC = () => {
 
     // Define animation variants for parent and children
     const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 0 },
         visible: {
             opacity: 1,
             y: 0,
