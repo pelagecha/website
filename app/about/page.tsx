@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { ThemeProvider } from "../context/ThemeContext";
 import { motion } from "framer-motion";
+import Link from "next/link"; // Import Link from next/link
 
 const AboutPage: React.FC = () => {
     return (
@@ -66,6 +67,18 @@ const AboutPage: React.FC = () => {
                                 experience.
                             </p>
                         </motion.div>
+                    </motion.div>
+                    <motion.div
+                        className="flex justify-center mt-10" // Center the button
+                    >
+                        <Link href="/" passHref>
+                            <motion.button
+                                className="px-6 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition duration-300"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                Explore
+                            </motion.button>
+                        </Link>
                     </motion.div>
                 </main>
             </div>

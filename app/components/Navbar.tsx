@@ -28,7 +28,8 @@ const Navbar: React.FC = () => {
             setProgress(scrolled);
 
             // Update active section based on scroll position
-            let currentSection = "general";
+            let currentSection =
+                pathname === "/" ? "general" : pathname.substring(1); // Set active section based on pathname
             for (const section of sections) {
                 const element = document.getElementById(section.toLowerCase());
                 if (element) {
@@ -41,10 +42,11 @@ const Navbar: React.FC = () => {
 
             // Check if the user has scrolled to the bottom of the page
             if (
+                pathname === "/" &&
                 window.innerHeight + window.scrollY >=
-                document.body.scrollHeight
+                    document.body.scrollHeight
             ) {
-                currentSection = "contact";
+                currentSection = "contact"; // Only highlight "contact" if on the main page
             }
 
             setActiveSection(currentSection);
@@ -54,7 +56,7 @@ const Navbar: React.FC = () => {
         // Initial call to set progress and active section on load
         handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [pathname]);
 
     const scrollToSection = (sectionId: string) => {
         if (pathname !== "/") {

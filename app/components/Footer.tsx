@@ -7,10 +7,12 @@ import {
     FaTwitter,
     FaEnvelope,
     FaInstagram,
+    FaInfoCircle,
 } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
     const { particlesEnabled } = useParticles();
@@ -58,6 +60,16 @@ const Footer: React.FC = () => {
                             icon={FaEnvelope}
                             label="Email"
                         />
+                        <Link href="/about">
+                            <FaInfoCircle
+                                size={24}
+                                className={`${
+                                    theme === "dark"
+                                        ? "text-white hover:text-blue-400"
+                                        : "text-gray-800 hover:text-blue-600"
+                                } transition-colors duration-300`}
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>
