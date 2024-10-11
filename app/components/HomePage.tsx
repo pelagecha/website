@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
                         >
                             <Link href="/projects" passHref>
                                 <h2 className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer hover:underline">
-                                    Projects
+                                    Projects (currently non-expandable)
                                 </h2>
                             </Link>
                             <p className="mt-4 text-gray-600 dark:text-gray-300">
