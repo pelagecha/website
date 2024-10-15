@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Metadata } from "next";
 import { ParticlesProvider } from "./context/ParticlesContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Providers } from "./context/Providers";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
                     </ThemeProvider>
                 </Providers>
             </body>
+            <GoogleAnalytics gaId="G-QR8YZB5NC2" />
         </html>
     );
 }

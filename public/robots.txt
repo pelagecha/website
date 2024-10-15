@@ -1,0 +1,23 @@
+# *
+User-agent: *
+Allow: /
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /private-page
+Disallow: /admin/**
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /private-page
+Disallow: /admin/**
+
+# Host
+Host: https://www.pelagecha.com
+
+# Sitemaps
+Sitemap: https://www.pelagecha.com/sitemap.xml
+Sitemap: https://www.pelagecha.com/sitemap-images.xml
+Sitemap: https://www.pelagecha.com/sitemap-videos.xml
