@@ -17,10 +17,20 @@ export const blogsData: Blog[] = [
         slug: "welcome",
         title: "Introduction",
         summary: "Welcome to my blog",
-        image: "/images/blogs/intro/intro.png", // Ensure this image exists
+        image: "/images/blogs/intro/me.png", // Ensure this image exists
         date: "2023-08-15",
-        category: "miscellaneous",
+        category: "personal",
         markdownContent: "intro.md", // Add this line
+    },
+
+    {
+        slug: "mirage",
+        title: "Mirage",
+        summary: "(upcoming) stories from the greatest music band at Warwick",
+        image: "/images/blogs/mirage/image.png", // Ensure this image exists
+        date: "2023-08-15",
+        category: "hobbies",
+        markdownContent: "mirage.md", // Add this line
     },
 ];
 

@@ -24,8 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             <Image
                                 src={project.image}
                                 alt={project.title}
-                                layout="fill"
-                                objectFit="cover"
+                                fill
+                                style={{ objectFit: "cover" }}
                                 priority
                             />
                         </div>
@@ -55,8 +55,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         <Image
                             src={project.image}
                             alt={project.title}
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            style={{ objectFit: "cover" }}
                             priority
                         />
                     </div>

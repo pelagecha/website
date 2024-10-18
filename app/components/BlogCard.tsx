@@ -23,8 +23,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                         <Image
                             src={blog.image}
                             alt={blog.title}
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            style={{ objectFit: "cover" }}
                             priority
                         />
                     </div>
