@@ -220,7 +220,7 @@ const InfoSection: React.FC = () => {
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-sm text-left">
                                 <p>
-                                    Achieved 53rd place in UKIEPC, represented
+                                    Achieved 36th place in UKIEPC, represented
                                     Warwick at NWERC and placed 7th in the
                                     Optiver trading simulation challenge at
                                     ICHack.
