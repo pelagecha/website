@@ -26,20 +26,24 @@ const InfoTile: React.FC<InfoTileProps> = ({
     return (
         <motion.div
             variants={{
-                hidden: { opacity: 0, y: 0 },
+                hidden: { opacity: 0.25, y: 0 },
                 visible: { opacity: 1, y: 0 },
             }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             className={`
                 ${
                     theme === "dark"
                         ? "bg-gray-800 text-white"
-                        : "bg-gradient-to-r from-white to-gray-100 text-gray-800"
+                        : "bg-white text-gray-800" // Changed from gradient to solid white
                 }
-                p-5 sm:p-6 rounded-xl shadow-lg
+                p-5 sm:p-6 rounded-xl ${
+                    theme === "dark" ? "shadow-lg" : "shadow-md" // Use a lighter shadow in light mode
+                }
                 ${size === "large" ? "col-span-1 sm:col-span-2" : ""}
-                border ${
-                    theme === "dark" ? "border-[#cfc4af]" : "border-gray-400"
+                ${
+                    theme === "dark"
+                        ? "border border-[#cfc4af]"
+                        : "border border-gray-400" // Lighter border in light mode
                 }
                 transition-all duration-400 ease-in-out
             `}
@@ -49,8 +53,9 @@ const InfoTile: React.FC<InfoTileProps> = ({
             </h2>
             <div
                 className={`text-sm sm:text-base ${
-                    theme === "dark" ? "text-white" : "text-gray-800"
-                } ${centerContent ? "text-center" : ""}`}
+                    theme === "dark" ? "text-white" : "text-gray-700" // Slightly darker text in light mode
+                } ${centerContent ? "text-center" : ""}
+                `}
             >
                 {content}
             </div>
@@ -68,10 +73,10 @@ const InfoSection: React.FC = () => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                staggerChildren: 0.2,
-                duration: 0.8,
-            },
+            // transition: {
+            //     staggerChildren: 0.2,
+            //     duration: 0,
+            // },
         },
     };
 
@@ -87,8 +92,8 @@ const InfoSection: React.FC = () => {
             animate="visible"
             className={`${
                 theme === "dark"
-                    ? "bg-gray-900 bg-opacity-80 text-white"
-                    : "bg-gradient-to-r from-purple-50 to-pink-50 text-gray-800"
+                    ? "bg-gray-900 bg-opacity-80 text-white" // Semi-transparent dark background
+                    : "bg-transparent text-gray-800" // Fully transparent in light mode
             } p-4 sm:p-8 md:p-12 rounded-3xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
         >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
