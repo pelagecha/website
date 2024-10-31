@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <motion.div
             whileHover={{ scale: 1.03 }}
-            className="w-full  rounded-xl shadow-lg overflow-hidden"
+            className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-xl shadow-lg overflow-hidden"
         >
             <Link href={`/projects/${project.slug}`} passHref>
                 <div className="cursor-pointer">
@@ -39,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             {project.technologies.map((tech, index) => (
                                 <span
                                     key={index}
-                                    className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                                    className="inline-block px-2 py-1 bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
                                 >
                                     {tech}
                                 </span>

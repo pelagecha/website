@@ -33,14 +33,17 @@ const JobItem: React.FC<JobItemProps> = React.memo(
             >
                 {/* Job Card */}
                 <div
-                    className={`bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 ${
+                    // className={`bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 ${
+                    //     isExpanded ? "border-indigo-500" : "border-transparent"
+                    // }`}
+                    className={`bg-gray-100 dark:bg-transparent dark:backdrop-blur-md p-4 sm:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 border border-gray-200 dark:border-gray-700 ${
                         isExpanded ? "border-indigo-500" : "border-transparent"
                     }`}
                 >
                     {/* Job Header */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center relative">
                         <div>
-                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200">
                                 {job.title}
                             </h3>
                             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">

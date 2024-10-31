@@ -12,7 +12,7 @@ const JobTimeline: React.FC = () => {
     }, []);
 
     return (
-        <section id="job-timeline" className="my-12 p-4 container mx-auto">
+        <section id="job-timeline" className="my-12 p-3 container mx-auto">
             <div className="relative">
                 {/* Vertical Pill-Shaped Timeline Line */}
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full"></div>

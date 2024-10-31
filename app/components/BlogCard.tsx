@@ -15,7 +15,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     return (
         <motion.div
             whileHover={{ scale: 1.03 }}
-            className="w-full  rounded-xl shadow-lg overflow-hidden"
+            className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-xl shadow-lg overflow-hidden"
         >
             <Link href={`/blogs/${blog.slug}`} passHref>
                 <div className="cursor-pointer">
@@ -39,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                         <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
                             {blog.summary}
                         </p>
-                        <span className="inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full">
+                        <span className="inline-block px-2 py-1 bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full">
                             {blog.category}
                         </span>
                     </div>

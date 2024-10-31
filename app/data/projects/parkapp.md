@@ -1,4 +1,4 @@
-# MapKitLearn: An Interactive Mapping Application
+<!-- # MapKitLearn: An Interactive Mapping Application
 
 ## Overview
 
@@ -64,4 +64,4 @@ The project structure is meticulously organized, with separate files for views, 
 
 ## Conclusion
 
-MapKitLearn stands as a testament to modern iOS development, seamlessly integrating SwiftUI's expressive UI capabilities with MapKit's powerful location services. Through thoughtful architectural decisions, robust feature implementations, and adherence to best practices, the application delivers an impressive and reliable mapping experience. Whether for personal use or professional applications, MapKitLearn showcases a high level of technical proficiency and a commitment to delivering quality user-centric solutions.
+MapKitLearn stands as a testament to modern iOS development, seamlessly integrating SwiftUI's expressive UI capabilities with MapKit's powerful location services. Through thoughtful architectural decisions, robust feature implementations, and adherence to best practices, the application delivers an impressive and reliable mapping experience. Whether for personal use or professional applications, MapKitLearn showcases a high level of technical proficiency and a commitment to delivering quality user-centric solutions. -->

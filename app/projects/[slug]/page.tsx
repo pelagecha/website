@@ -84,9 +84,10 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
             </div>
 
             <div className="prose dark:prose-invert max-w-none mb-6">
-                <ReactMarkdown>
+                {/* <ReactMarkdown>
                     {markdownContent || project.description}
-                </ReactMarkdown>
+                </ReactMarkdown> */}
+                Upcoming...
             </div>
 
             <div className="bg-gray-200 dark:bg-gray-700 p-6 rounded-lg">
@@ -98,6 +99,14 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
                         <li key={index}>{tech}</li>
                     ))}
                 </ul>
+            </div>
+            <div className="flex justify-center py-4">
+                <Link
+                    href="/#projects"
+                    className="text-blue-400 hover:underline mb-6 inline-block"
+                >
+                    &larr; Back to Projects
+                </Link>
             </div>
         </div>
     );

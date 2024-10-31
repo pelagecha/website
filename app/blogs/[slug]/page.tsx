@@ -83,6 +83,14 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
             <div className="prose prose-lg max-w-none dark:prose-invert">
                 <ReactMarkdown>{markdownContent}</ReactMarkdown>
             </div>
+            <div className="flex justify-center py-4">
+                <Link
+                    href="/#projects"
+                    className="text-blue-400 hover:underline mb-6 inline-block"
+                >
+                    &larr; Back to Blogs
+                </Link>
+            </div>
         </article>
     );
 };
