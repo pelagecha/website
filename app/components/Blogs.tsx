@@ -92,8 +92,8 @@ const Blogs: React.FC = () => {
                             }}
                             className={`w-3 h-3 rounded-full ${
                                 currentPage === index + 1
-                                    ? "bg-indigo-500"
-                                    : "bg-gray-300"
+                                    ? "bg-black dark:bg-white"
+                                    : "bg-white dark:bg-black"
                             }`}
                             aria-label={`Go to page ${index + 1}`}
                         />

@@ -15,7 +15,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     return (
         <motion.div
             whileHover={{ scale: 1.03 }}
-            className="w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+            className="w-full  rounded-xl shadow-lg overflow-hidden"
         >
             <Link href={`/blogs/${blog.slug}`} passHref>
                 <div className="cursor-pointer">

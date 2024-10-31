@@ -5,7 +5,7 @@ import { projectsData } from "../data/projectsData";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 
-const ISEXPANDABLE = false;
+const ISEXPANDABLE = true;
 
 const Projects: React.FC = () => {
     const [projectsPerPage, setProjectsPerPage] = useState(3);
@@ -100,8 +100,8 @@ const Projects: React.FC = () => {
                             }}
                             className={`w-3 h-3 rounded-full ${
                                 currentPage === index + 1
-                                    ? "bg-indigo-500"
-                                    : "bg-gray-300"
+                                    ? "bg-black dark:bg-white"
+                                    : "bg-white dark:bg-black"
                             }`}
                             aria-label={`Go to page ${index + 1}`}
                         />

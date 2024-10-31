@@ -92,7 +92,7 @@ const InfoSection: React.FC = () => {
             animate="visible"
             className={`${
                 theme === "dark"
-                    ? "bg-gray-900 bg-opacity-80 text-white" // Semi-transparent dark background
+                    ? "bg-gray-900 bg-opacity-10 text-white" // Semi-transparent dark background
                     : "bg-transparent text-gray-800" // Fully transparent in light mode
             } p-4 sm:p-8 md:p-12 rounded-3xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
         >
