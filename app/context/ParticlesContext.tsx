@@ -24,7 +24,9 @@ export const ParticlesProvider: React.FC<{ children: ReactNode }> = ({
 
     useEffect(() => {
         const storedPreference = localStorage.getItem("particlesEnabled");
-        setParticlesEnabled(storedPreference === "true");
+        if (storedPreference !== null) {
+            setParticlesEnabled(storedPreference === "true");
+        }
     }, []);
 
     const toggleParticles = () => {
