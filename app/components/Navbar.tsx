@@ -157,12 +157,12 @@ const Navbar: React.FC = () => {
                             className="focus:outline-none"
                             whileHover={{ scale: 1.2 }}
                         >
-                            <FaMagic
+                            <motion.div
                                 className={`${
                                     particlesEnabled
-                                        ? "text-blue-500"
-                                        : "text-gray-400"
-                                } hover:text-teal-400`}
+                                        ? "bg-blue-500"
+                                        : "bg-gray-400"
+                                } hover:bg-teal-400 w-4 h-4 rounded-full`}
                             />
                         </motion.button>
 

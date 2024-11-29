@@ -13,10 +13,20 @@ export const jobs: Job[] = [
         company: "University of Warwick - DCS",
         date: "Jul 2024 - Sep 2024",
         description:
-            "Developing custom LLama3 and OpenAI-based LLM Agents under the supervision of Prof. Long Tran-Thanh and his research network at UMD.",
+            "Developed custom multi-LLM-agent Retrieval-Augmented Generation architectures for Docker-hosted Unix Bash and SQL task execution.",
         details:
-            "\n• Secured funding from the Undergraduate Research Support Scheme and a position in an upcoming study on runtime neural network pruning. \n• Implemented a Retrieval Augmented Generation model to automate Unix Bash task execution within Docker, validated using AgentBench.\n• Utilised RAG-fusion, semantic routing, hierarchical indexing, VectorDB retrievers, Corrective RAG and CoT prompting to optmise performance",
+            "• Collaborated with Prof. Long Tran-Thanh and his research network at the UMD as part of the Undergraduate Research Support Scheme.\n• Employed HyDE, hybrid routing, self-query retrievers, RAPTOR, RRF, CRAG, and CoT prompting to optimise retrieval and reasoning.\n• Achieved a 12% performance improvement on programmatic and reasoning tasks compared to standard LLMs, validated through AgentBench.",
         companyUrl: "https://warwick.ac.uk/fac/sci/dcs/",
+    },
+    {
+        title: "Software Engineer",
+        company: "",
+        date: "Jul 2024 - Oct 2024",
+        description:
+            "Designed, developed, and deployed a commercial WordPress website for a startup in MAMP, Elementor and PHP.",
+        details:
+            "• Integrated plugin-based payment gateways, security protocols, and configured SQL databases ensuring seamless backend communication.\n• Created an accessible, user-friendly UI/UX that attracted over 250 users on launch day.",
+        companyUrl: "",
     },
     {
         title: "CTO/Co-founder",
@@ -55,7 +65,7 @@ export const jobs: Job[] = [
         description:
             "Assembled and soldered circuit boards while gaining practical experience in embedded systems and programming with Arduino and C++.",
         details:
-            "• Applied Arduino and C++ in hands-on projects, gaining practical experience in programming and embedded systems development\n• Mentored younger participants, fostering their interest in electronics and programming",
-        companyUrl: undefined,
+            "• Programmed embedded system microcontrollers, enhancing their performance by up to 30% through optimisation.",
+        companyUrl: "https://palace.kyiv.ua/",
     },
 ];

@@ -148,7 +148,7 @@ const InfoSection: React.FC = () => {
                     }
                 />
                 <InfoTile
-                    title="Current Position"
+                    title="Latest Position"
                     content={
                         <div className="space-y-2">
                             <div className="text-center">
@@ -170,9 +170,21 @@ const InfoSection: React.FC = () => {
                             </div>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <ul className="list-disc list-inside text-sm text-left">
-                                Designing Algorithmic ML models and developing
-                                LLM agents under the supervision of Dr. Long
-                                Tran-Thanh
+                                Designed and implemented <br></br>multi-agent
+                                LLM Retrieval Augmented Generation models under
+                                the supervision of <br></br>
+                                <a
+                                    href="https://scholar.google.co.uk/citations?user=YBQai3gAAAAJ&hl=en"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
+                                >
+                                    Prof. Long Tran-Thanh
+                                </a>
                             </ul>
                         </div>
                     }
@@ -184,7 +196,7 @@ const InfoSection: React.FC = () => {
                         <div className="space-y-2">
                             <p className="font-semibold text-center">
                                 <a
-                                    href="https://ichack.org/"
+                                    href="https://nwerc.eu/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`${
@@ -193,9 +205,8 @@ const InfoSection: React.FC = () => {
                                             : "text-indigo-500"
                                     } hover:underline font-bold`}
                                 >
-                                    ICHack
-                                </a>
-                                ,{" "}
+                                    NWERC,
+                                </a>{" "}
                                 <a
                                     href="https://ukiepc.info/"
                                     target="_blank"
@@ -206,11 +217,10 @@ const InfoSection: React.FC = () => {
                                             : "text-indigo-500"
                                     } hover:underline font-bold`}
                                 >
-                                    UKIEPC
+                                    UKIEPC(23', 24')
                                 </a>{" "}
-                                and{" "}
                                 <a
-                                    href="https://nwerc.eu/"
+                                    href="https://ichack.org/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`${
@@ -219,8 +229,20 @@ const InfoSection: React.FC = () => {
                                             : "text-indigo-500"
                                     } hover:underline font-bold`}
                                 >
-                                    NWERC
+                                    ICHack,
                                 </a>{" "}
+                                <a
+                                    href="https://www.warwickhack.co.uk/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "text-indigo-400"
+                                            : "text-indigo-500"
+                                    } hover:underline font-bold`}
+                                >
+                                    WHack
+                                </a>
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-sm text-left">

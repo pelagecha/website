@@ -44,6 +44,20 @@ const HomePage: React.FC = () => {
                         <div className="flex items-center justify-center w-full">
                             <InfoSection />
                         </div>
+                        <div className="relative bottom-0 flex justify-center w-full hidden md:flex">
+                            <motion.div
+                                animate={{ y: [0, 5, 0] }}
+                                transition={{
+                                    repeat: Infinity,
+                                    duration: 2,
+                                    ease: "easeInOut",
+                                }}
+                                className="cursor-pointer"
+                                onClick={handleScroll}
+                            >
+                                <FaChevronDown className="text-3xl text-gray-600 dark:text-gray-400" />
+                            </motion.div>
+                        </div>
                     </section>
 
                     {/* Projects Section */}

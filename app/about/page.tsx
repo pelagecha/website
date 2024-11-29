@@ -4,14 +4,15 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { ThemeProvider } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-import Link from "next/link"; // Import Link from next/link
+import Link from "next/link";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 const AboutPage: React.FC = () => {
     return (
         <ThemeProvider>
-            <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-700 transition-colors duration-500">
-                <Navbar />
-                <main className="container mx-auto px-4 py-24">
+            <div className="relative min-h-screen bg-white dark:bg-gray-900">
+                <ParticlesBackground />
+                <main className="container mx-auto px-4 py-24 relative z-10">
                     <motion.h1
                         className="text-5xl font-extrabold mb-8 text-gray-900 dark:text-gray-100 cursor-default inline-block pb-2"
                         initial={{ opacity: 0, y: -20 }}
@@ -22,7 +23,7 @@ const AboutPage: React.FC = () => {
                         About Me
                     </motion.h1>
                     <motion.div
-                        className="space-y-6 text-lg text-gray-800 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-10"
+                        className="space-y-6 text-lg text-gray-800 dark:text-gray-300 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-xl shadow-lg p-10"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
@@ -48,7 +49,7 @@ const AboutPage: React.FC = () => {
                             out if you have any questions.
                         </p>
                         <motion.div
-                            className="p-6 bg-blue-50 dark:bg-blue-800 rounded-md shadow-inner"
+                            className="p-6 bg-blue-50/70 dark:bg-cyan-900/70 rounded-md shadow-inner border border-blue-300 dark:border-cyan-700"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{
@@ -68,9 +69,7 @@ const AboutPage: React.FC = () => {
                             </p>
                         </motion.div>
                     </motion.div>
-                    <motion.div
-                        className="flex justify-center mt-10" // Center the button
-                    >
+                    <motion.div className="flex justify-center mt-10">
                         <Link href="/" passHref>
                             <motion.button
                                 className="px-6 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition duration-300"
