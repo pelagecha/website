@@ -10,6 +10,7 @@ export interface Blog {
     wordCount?: number;
     readTime?: string;
     markdownContent?: string; // New field for markdown content
+    isHtml?: boolean;
 }
 
 export const blogsData: Blog[] = [
@@ -26,11 +27,13 @@ export const blogsData: Blog[] = [
     {
         slug: "mirage",
         title: "Mirage",
-        summary: "(upcoming) stories from the greatest music band at Warwick",
+        summary:
+            "Stories from the greatest music band at Warwick. Battle of The Cover Bands 2024 winners!",
         image: "/images/blogs/mirage/image.png", // Ensure this image exists
         date: "2023-08-15",
         category: "hobbies",
-        markdownContent: "mirage.md", // Add this line
+        isHtml: true,
+        markdownContent: "mirage.html", // Add this line
     },
 ];
 

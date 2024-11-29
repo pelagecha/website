@@ -38,8 +38,8 @@ const AboutPage: React.FC = () => {
                                 Nikita Pelagecha
                             </span>
                             , a Computer Science student at the University of
-                            Warwick. I am passionate about training deep neural
-                            networks and developing large language model agents.
+                            Warwick. I am passionate about developing quality
+                            software and training deep neural networks.
                         </p>
                         <p className="leading-relaxed">
                             I hope this website provides a comprehensive
@@ -63,9 +63,8 @@ const AboutPage: React.FC = () => {
                                 <span className="font-semibold text-blue-700 dark:text-blue-300">
                                     Next.js
                                 </span>{" "}
-                                with TypeScript, Tailwind CSS, and Framer Motion
-                                to create a seamless and interactive user
-                                experience.
+                                with TypeScript, Tailwind CSS, and Framer
+                                Motion.
                             </p>
                         </motion.div>
                     </motion.div>

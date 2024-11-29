@@ -45,7 +45,7 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
         notFound();
     }
 
-    let markdownContent = "";
+    let content = "";
     if (blog.markdownContent) {
         const filePath = path.join(
             process.cwd(),
@@ -54,8 +54,10 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
             "blogs",
             blog.markdownContent
         );
-        markdownContent = await fs.readFile(filePath, "utf8");
+        content = await fs.readFile(filePath, "utf8");
     }
+
+    const isHtml = blog.isHtml; // Assuming you have a flag in your blog data to indicate HTML content
 
     return (
         <article className="container mx-auto my-16 p-4 max-w-4xl">
@@ -81,7 +83,11 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
                 className="w-full h-auto object-cover rounded-lg mb-8"
             />
             <div className="prose prose-lg max-w-none dark:prose-invert">
-                <ReactMarkdown>{markdownContent}</ReactMarkdown>
+                {isHtml ? (
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                ) : (
+                    <ReactMarkdown>{content}</ReactMarkdown>
+                )}
             </div>
             <div className="flex justify-center py-4">
                 <Link
