@@ -9,6 +9,7 @@ import {
     FaBriefcase,
     FaEnvelope,
     FaInfoCircle,
+    FaBoxOpen,
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -104,6 +105,29 @@ const Sidebar: React.FC<SidebarProps> = ({
                                         </button>
                                     </motion.li>
                                 ))}
+                                {/* Products Link */}
+                                <motion.li
+                                    initial={{ opacity: 0, x: -30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        delay: 0.1 + sections.length * 0.03, // Reduced delay and interval
+                                        duration: 0.2, // Reduced duration
+                                    }}
+                                >
+                                    <Link href="/products" passHref>
+                                        <motion.a
+                                            onClick={() =>
+                                                setIsSidebarOpen(false)
+                                            }
+                                            className="flex items-center w-full py-3 px-4 rounded-lg text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                                        >
+                                            <FaBoxOpen className="text-xl" />
+                                            <span className="ml-3">
+                                                Products
+                                            </span>
+                                        </motion.a>
+                                    </Link>
+                                </motion.li>
 
                                 {/* About Link */}
                                 <motion.li
@@ -148,6 +172,8 @@ const getSectionIcon = (section: string) => {
             return <FaBriefcase className="text-xl" />;
         case "contact":
             return <FaEnvelope className="text-xl" />;
+        case "products":
+            return <FaBoxOpen className="text-xl" />;
         default:
             return <FaInfoCircle className="text-xl" />;
     }

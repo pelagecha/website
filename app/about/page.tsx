@@ -9,7 +9,7 @@ import ParticlesBackground from "../components/ParticlesBackground";
 
 const AboutPage: React.FC = () => {
     return (
-        <ThemeProvider>
+        <>
             <div className="relative min-h-screen bg-white dark:bg-gray-900">
                 <ParticlesBackground />
                 <main className="container mx-auto px-4 py-24 relative z-10">
@@ -80,7 +80,7 @@ const AboutPage: React.FC = () => {
                     </motion.div>
                 </main>
             </div>
-        </ThemeProvider>
+        </>
     );
 };
 

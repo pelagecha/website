@@ -123,6 +123,18 @@ const Navbar: React.FC = () => {
 
                     {/* Right Side Icons */}
                     <div className="flex items-center space-x-4">
+                        {/* Products */}
+                        <Link href="/products" passHref>
+                            <span
+                                className={`hidden md:block ${
+                                    theme === "dark"
+                                        ? "text-gray-300 hover:text-white"
+                                        : "text-gray-600 hover:text-gray-800"
+                                } cursor-pointer transition-colors duration-300 hover:underline`}
+                            >
+                                Products
+                            </span>
+                        </Link>
                         {/* About Link */}
                         <Link href="/about" passHref>
                             <span
@@ -155,7 +167,7 @@ const Navbar: React.FC = () => {
                             onClick={toggleParticles}
                             aria-label="Toggle Particles"
                             className="focus:outline-none"
-                            whileHover={{ scale: 1.2 }}
+                            whileHover={{ scale: 1.1 }}
                         >
                             <motion.div
                                 className={`${
