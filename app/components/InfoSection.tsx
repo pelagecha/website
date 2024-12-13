@@ -135,13 +135,15 @@ const InfoSection: React.FC = () => {
                                 >
                                     University of Warwick
                                 </a>
-                                <strong> '26</strong>{" "}
+                                <strong> '2026</strong>{" "}
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-left">
                                 <p>BSc Hons Computer Science</p>
                                 <p>
                                     <strong>Y1:</strong> 1st Class
+                                    <br />
+                                    <strong>Y2:</strong> Ongoing
                                 </p>
                             </div>
                         </>
@@ -169,7 +171,7 @@ const InfoSection: React.FC = () => {
                                 </p>
                             </div>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <ul className="list-disc list-inside text-sm text-left">
+                            <ul className="list-disc list-inside text-sm text-center">
                                 Designed and implemented <br></br>multi-agent
                                 LLM Retrieval Augmented Generation models under
                                 the supervision of <br></br>
@@ -245,7 +247,7 @@ const InfoSection: React.FC = () => {
                                 </a>
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <div className="text-sm text-left">
+                            <div className="text-sm text-center">
                                 <p>
                                     Achieved 36th place in UKIEPC, represented
                                     Warwick at NWERC and placed 7th in the
@@ -267,7 +269,7 @@ const InfoSection: React.FC = () => {
                                     Proficient:
                                 </p>
                                 <p className="text-indigo-600 dark:text-indigo-200">
-                                    Java, Python, HTML/CSS/JS, Git, LaTeX, Bash
+                                    Python, Java, HTML/CSS/JS, Git, LaTeX
                                 </p>
                             </div>
                             <div className="bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-3">
@@ -275,7 +277,7 @@ const InfoSection: React.FC = () => {
                                     Intermediate:
                                 </p>
                                 <p className="text-teal-600 dark:text-teal-200">
-                                    C/C++, Haskell, Swift, TypeScript
+                                    C, SQL, Haskell, Swift, TypeScript
                                 </p>
                             </div>
                             <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-9">
@@ -283,7 +285,7 @@ const InfoSection: React.FC = () => {
                                     Familiar:
                                 </p>
                                 <p className="text-amber-600 dark:text-amber-200">
-                                    SQL, Tailwind CSS
+                                    C++, Bash
                                 </p>
                             </div>
                         </div>
@@ -296,7 +298,7 @@ const InfoSection: React.FC = () => {
                     content="English, Ukrainian, Russian"
                 />
                 <InfoTile
-                    title="Social"
+                    title="Contact"
                     content={
                         <div className="flex justify-center space-x-6">
                             {/* GitHub */}

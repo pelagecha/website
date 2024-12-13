@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
 import Sidebar from "./Sidebar"; // Import the new Sidebar component
 
-const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
+// const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
+const sections = ["General", "Projects", "Blogs", "Experience"];
 
 const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);

@@ -3,9 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { projectsData } from "../data/projectsData";
 import ProjectCard from "./ProjectCard";
-import { motion } from "framer-motion";
-
-const ISEXPANDABLE = true;
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const Projects: React.FC = () => {
     const [projectsPerPage, setProjectsPerPage] = useState(3);
@@ -85,6 +83,24 @@ const Projects: React.FC = () => {
             </div>
             {totalPages > 1 && (
                 <div className="flex justify-center items-center mt-6 space-x-2">
+                    <button
+                        onClick={() => {
+                            if (scrollRef.current) {
+                                scrollRef.current.scrollBy({
+                                    left: -scrollRef.current.clientWidth,
+                                    behavior: "smooth",
+                                });
+                            }
+                        }}
+                        aria-label="Scroll left"
+                        className={`p-2 bg-gray-100 dark:bg-gray-800 rounded ${
+                            currentPage === 1
+                                ? "bg-gray-200 dark:bg-gray-900 cursor-not-allowed"
+                                : ""
+                        }`}
+                    >
+                        <FaAngleLeft />
+                    </button>
                     {Array.from({ length: totalPages }).map((_, index) => (
                         <button
                             key={index}
@@ -100,12 +116,30 @@ const Projects: React.FC = () => {
                             }}
                             className={`w-3 h-3 rounded-full ${
                                 currentPage === index + 1
-                                    ? "bg-black dark:bg-white"
+                                    ? "bg-black dark:bg-gray-300"
                                     : "bg-white dark:bg-black"
                             }`}
                             aria-label={`Go to page ${index + 1}`}
                         />
                     ))}
+                    <button
+                        onClick={() => {
+                            if (scrollRef.current) {
+                                scrollRef.current.scrollBy({
+                                    left: scrollRef.current.clientWidth,
+                                    behavior: "smooth",
+                                });
+                            }
+                        }}
+                        aria-label="Scroll right"
+                        className={`p-2 bg-gray-100 dark:bg-gray-800 rounded ${
+                            currentPage === totalPages
+                                ? "bg-gray-200 dark:bg-gray-900 cursor-not-allowed"
+                                : ""
+                        }`}
+                    >
+                        <FaAngleRight />
+                    </button>
                 </div>
             )}
         </section>
