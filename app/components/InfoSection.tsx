@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image"; // Ensure this import is present
+import { SiLeetcode } from "react-icons/si";
 
 // Interface for InfoTile props
 interface InfoTileProps {
@@ -135,7 +136,7 @@ const InfoSection: React.FC = () => {
                                 >
                                     University of Warwick
                                 </a>
-                                <strong> '2026</strong>{" "}
+                                <strong> '26</strong>{" "}
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-left">
@@ -344,16 +345,13 @@ const InfoSection: React.FC = () => {
                                 aria-label="LeetCode"
                                 className="transform hover:scale-110 transition-transform duration-300 ease-in-out"
                             >
-                                <Image
-                                    src="/images/leetcode.png"
-                                    alt="LeetCode"
-                                    width={32}
-                                    height={32}
-                                    className={`w-7 h-7 object-contain transform hover:scale-110 transition-all duration-300 ease-in-out ${
+                                <SiLeetcode
+                                    size={28}
+                                    className={`${
                                         theme === "dark"
-                                            ? "filter invert brightness-0"
-                                            : ""
-                                    }`}
+                                            ? "text-white hover:text-purple-400"
+                                            : "text-blue-700 hover:text-purple-500"
+                                    } transition-colors duration-300`}
                                 />
                             </a>
 
