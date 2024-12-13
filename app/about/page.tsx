@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ThemeContext } from "../context/ThemeContext";
+import { useParticles } from "../context/ParticlesContext";
 import {
     FiAirplay,
     FiAnchor,
@@ -25,7 +27,6 @@ import {
     FiSun,
     FiZap,
 } from "react-icons/fi";
-import { useParticles } from "../context/ParticlesContext";
 
 const ICONS = [
     FiAirplay,
@@ -49,20 +50,22 @@ const ICONS = [
     FiSun,
     FiZap,
 ];
+
 const ICON_COUNT = 30;
+
 const COLORS = [
-    "#3B82F6",
-    "#A855F7",
+    "#60A5FA",
+    "#A78BFA",
     "#F472B6",
     "#FBBF24",
-    "#10B981",
+    "#34D399",
     "#F43F5E",
-    "#22D3EE",
-    "#E879F9",
+    "#38BDF8",
+    "#C084FC",
 ];
+
 const random = (min: number, max: number) => Math.random() * (max - min) + min;
 
-// Define a type for the icon data
 type IconData = {
     Icon: React.ComponentType;
     color: string;
@@ -75,6 +78,8 @@ type IconData = {
 const AboutPage: React.FC = () => {
     const [iconData, setIconData] = useState<IconData[]>([]);
     const { particlesEnabled } = useParticles();
+    const { theme } = useContext(ThemeContext);
+    const [invert, setInvert] = useState(false);
 
     useEffect(() => {
         const generateIconData = () => {
@@ -89,7 +94,6 @@ const AboutPage: React.FC = () => {
         };
         setIconData(generateIconData());
     }, []);
-    const [invert, setInvert] = useState(false);
 
     const shapeVariants = (offsetAngle: number, orbitSpeed: number) => ({
         animate: {
@@ -125,6 +129,10 @@ const AboutPage: React.FC = () => {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
+    useEffect(() => {
+        setInvert(false);
+    }, [theme]);
+
     const headingText = "About Me";
     const letters = headingText.split("");
     const subtitle =
@@ -132,30 +140,30 @@ const AboutPage: React.FC = () => {
 
     return (
         <div
-            className={`relative min-h-screen overflow-hidden text-white select-none bg-gray-900 ${
-                invert ? "invert" : ""
-            }`}
+            className={`relative min-h-screen overflow-hidden select-none ${
+                theme === "dark" ? "text-white" : "text-black"
+            } ${invert ? "invert" : ""}`}
             style={{
                 cursor: "crosshair",
                 fontFamily: "'Press Start 2P', monospace",
+                background:
+                    theme === "dark"
+                        ? "radial-gradient(circle, #1E293B, #0F172A 80%)"
+                        : "radial-gradient(circle, #EFF6FF, #DBEAFE 80%)",
             }}
         >
-            <div
-                className="absolute inset-0 flex items-center justify-center"
-                style={{
-                    background:
-                        "radial-gradient(circle at center, #1e293b, #0f172a 80%)",
-                }}
-            >
+            <div className="absolute inset-0 flex items-center justify-center">
                 {particlesEnabled && (
                     <motion.div
-                        className="relative rounded-full mt-48"
+                        className="relative rounded-full"
                         style={{
                             width: 150,
                             height: 150,
                             background:
-                                "radial-gradient(circle at center, #000000, #1e1e1e)",
-                            boxShadow: "0 0 60px #0ff, 0 0 120px #3B82F6",
+                                theme === "dark"
+                                    ? "radial-gradient(circle, #000000, #1e1e1e)"
+                                    : "radial-gradient(circle, #ffffff, #e2e8f0)",
+                            boxShadow: "0 0 60px #3B82F6, 0 0 120px #0ff",
                         }}
                         initial={{ scale: 1 }}
                         animate={{ scale: [1, 1.05, 1], rotate: [0, 5, -5, 0] }}
@@ -187,7 +195,7 @@ const AboutPage: React.FC = () => {
                                     }}
                                     style={{
                                         transform: `translate(${icon.orbitRadius}px, -50%)`,
-                                        cursor: "grab",
+                                        cursor: "pointer",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
@@ -220,8 +228,8 @@ const AboutPage: React.FC = () => {
                                 duration: 0.4,
                                 ease: "easeOut",
                             }}
-                            whileHover={{ scale: 1.2, color: "#F472B6" }}
-                            style={{ textShadow: "0 0 10px #F472B6" }}
+                            whileHover={{ scale: 1.2, color: "#A78BFA" }}
+                            style={{ textShadow: "0 0 10px #A78BFA" }}
                         >
                             {char}
                         </motion.span>
@@ -229,7 +237,11 @@ const AboutPage: React.FC = () => {
                 </div>
 
                 <motion.p
-                    className="text-center text-md bg-black/80 p-4 rounded-md shadow-xl max-w-md leading-relaxed border border-gray-700"
+                    className={`text-center text-lg p-4 rounded-md shadow-xl max-w-2xl leading-relaxed border ${
+                        theme === "dark"
+                            ? "bg-black/80 border-gray-700"
+                            : "bg-white/80 border-gray-300"
+                    }`}
                     initial={{ scale: 0.8, opacity: 0, rotate: 2 }}
                     animate={{ scale: 1, opacity: 1, rotate: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
@@ -241,7 +253,11 @@ const AboutPage: React.FC = () => {
                 <div className="flex space-x-4 mt-8">
                     <Link href="/" passHref>
                         <motion.button
-                            className="px-6 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition duration-300"
+                            className={`px-6 py-2 rounded-md shadow-md ${
+                                theme === "dark"
+                                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                                    : "bg-blue-400 text-black hover:bg-blue-500"
+                            }`}
                             whileHover={{ scale: 1.1, rotate: 2 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -252,7 +268,11 @@ const AboutPage: React.FC = () => {
                         href="mailto:nikitapelagecha@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-2 bg-purple-600 text-white rounded-md shadow-md hover:bg-purple-700 transition duration-300 inline-block"
+                        className={`px-6 py-2 rounded-md shadow-md ${
+                            theme === "dark"
+                                ? "bg-purple-600 text-white hover:bg-purple-700"
+                                : "bg-purple-400 text-black hover:bg-purple-500"
+                        }`}
                         whileHover={{ scale: 1.1, rotate: -2 }}
                         whileTap={{ scale: 0.95 }}
                     >
