@@ -13,6 +13,7 @@ import { useParticles } from "../context/ParticlesContext";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image";
 import Link from "next/link";
+import { SiLeetcode } from "react-icons/si";
 
 const Footer: React.FC = () => {
     const { particlesEnabled } = useParticles();
@@ -52,7 +53,7 @@ const Footer: React.FC = () => {
                         /> */}
                         <SocialLink
                             href="https://leetcode.com/u/pelagecha/"
-                            icon={LeetCodeIcon}
+                            icon={SiLeetcode}
                             label="LeetCode"
                         />
                         <SocialLink
@@ -102,23 +103,6 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => {
                 } transition-colors duration-300`}
             />
         </a>
-    );
-};
-
-const LeetCodeIcon: React.FC = () => {
-    const { theme } = useContext(ThemeContext);
-    return (
-        <Image
-            src="/images/leetcode.png"
-            alt="LeetCode"
-            width={24}
-            height={24}
-            className={`w-6 h-6 object-contain ${
-                theme === "dark"
-                    ? "filter invert brightness-0 hover:brightness-100 hover:invert-0"
-                    : "hover:filter hover:brightness-75"
-            } transition-all duration-300`}
-        />
     );
 };
 
