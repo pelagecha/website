@@ -5,7 +5,7 @@ export const metadata = {
         title: "Nikita Pelagecha - Portfolio",
         description:
             "Explore my projects, skills, and experiences in software development",
-        url: "https://www.nikitapelagecha.com", // Replace with your actual URL
+        url: "https://www.nikitapelagecha.com",
         siteName: "Nikita Pelagecha Portfolio",
         images: [
             {
