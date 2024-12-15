@@ -3,13 +3,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeContext } from "../context/ThemeContext";
-import { FaSun, FaMoon, FaBars, FaMagic } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
 import Sidebar from "./Sidebar"; // Import the new Sidebar component
 
-// const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 const sections = ["General", "Projects", "Blogs", "Experience"];
 
 const Navbar: React.FC = () => {
@@ -125,29 +124,47 @@ const Navbar: React.FC = () => {
                     {/* Right Side Icons */}
                     <div className="flex items-center space-x-4">
                         {/* Products */}
-                        <Link href="/products" passHref>
-                            <span
-                                className={`hidden md:block ${
-                                    theme === "dark"
-                                        ? "text-gray-300 hover:text-white"
-                                        : "text-gray-600 hover:text-gray-800"
-                                } cursor-pointer transition-colors duration-300 hover:underline`}
+                        <div className="hidden md:block">
+                            <motion.button
+                                className={`px-3 py-1 rounded-full border ${
+                                    pathname === "/products" // Check if on the products page
+                                        ? "bg-blue-500 text-white border-blue-500"
+                                        : theme === "dark"
+                                        ? "bg-transparent text-gray-300 border-transparent hover:border-gray-500 hover:text-white"
+                                        : "bg-transparent text-gray-600 border-transparent hover:border-gray-400 hover:text-gray-800"
+                                } transition-colors duration-300`}
+                                onClick={() => {
+                                    if (pathname !== "/products") {
+                                        router.push("/products");
+                                    }
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 Products
-                            </span>
-                        </Link>
+                            </motion.button>
+                        </div>
                         {/* About Link */}
-                        <Link href="/about" passHref>
-                            <span
-                                className={`hidden md:block ${
-                                    theme === "dark"
-                                        ? "text-gray-300 hover:text-white"
-                                        : "text-gray-600 hover:text-gray-800"
-                                } cursor-pointer transition-colors duration-300 hover:underline`}
+                        <div className="hidden md:block">
+                            <motion.button
+                                className={`px-3 py-1 rounded-full border ${
+                                    pathname === "/about" // Check if on the products page
+                                        ? "bg-blue-500 text-white border-blue-500"
+                                        : theme === "dark"
+                                        ? "bg-transparent text-gray-300 border-transparent hover:border-gray-500 hover:text-white"
+                                        : "bg-transparent text-gray-600 border-transparent hover:border-gray-400 hover:text-gray-800"
+                                } transition-colors duration-300`}
+                                onClick={() => {
+                                    if (pathname !== "/about") {
+                                        router.push("/about");
+                                    }
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 About
-                            </span>
-                        </Link>
+                            </motion.button>
+                        </div>
 
                         {/* Toggle Theme */}
                         <motion.button

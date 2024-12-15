@@ -108,7 +108,10 @@ const InfoSection: React.FC = () => {
                             src="/images/me.jpeg"
                             alt="Nikita Pelagecha"
                             fill
-                            style={{ objectFit: "cover" }}
+                            style={{
+                                objectFit: "cover",
+                                pointerEvents: "none",
+                            }}
                             className={`rounded-3xl border-4 ${
                                 theme === "dark"
                                     ? "border-gray-700"

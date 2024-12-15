@@ -8,16 +8,11 @@ import Blogs from "./Blogs";
 import Projects from "./Projects";
 import JobTimeline from "./JobTimeline";
 import InfoSection from "./InfoSection";
-import { ThemeContext } from "../context/ThemeContext";
 import { FaChevronDown } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion } from "framer-motion";
-import Contact from "./Contact";
-
-const sections = ["General", "Projects", "Blogs", "Experience", "Contact"];
 
 const HomePage: React.FC = () => {
-    const { theme } = useContext(ThemeContext);
     const { particlesEnabled } = useParticles();
     const nextSectionRef = useRef<HTMLDivElement>(null);
 
@@ -137,6 +132,22 @@ const HomePage: React.FC = () => {
                         </motion.div>
                         <div className="relative z-10">
                             <JobTimeline />
+                        </div>
+                        <div className="flex flex-col items-center mt-8 space-y-4 relative z-10">
+                            <Link
+                                href="/products"
+                                className="inline-block bg-transparent border border-gray-500 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-800 hover:bg-opacity-25 transition ease-in-out duration-200"
+                            >
+                                Explore My Other Projects
+                            </Link>
+                            <Link
+                                href="mailto:nikitapelagecha@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block bg-transparent border border-gray-500 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-800 hover:bg-opacity-25 transition ease-in-out duration-200"
+                            >
+                                Contact me
+                            </Link>
                         </div>
                     </section>
 

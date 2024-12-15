@@ -15,8 +15,8 @@ const JobTimeline: React.FC = () => {
         <section id="job-timeline" className="my-12 p-3 container mx-auto">
             <div className="relative">
                 {/* Vertical Pill-Shaped Timeline Line */}
+                {/* <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full"></div> */}
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full"></div>
-
                 {jobs.map((job, index) => (
                     <JobItem
                         key={index} // Using index as key since 'id' doesn't exist on Job type
