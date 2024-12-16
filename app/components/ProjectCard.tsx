@@ -22,12 +22,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             src={project.image}
                             alt={project.title}
                             fill
-                            style={{ objectFit: "cover" }}
+                            style={{
+                                objectFit: "cover",
+                                pointerEvents: "none",
+                                userSelect: "none",
+                            }}
                             priority
                         />
                     </div>
-                    {/* Apply opacity to this div only */}
-                    {/* <div className="p-6 bg-white opacity-100 dark:bg-gray-800"> */}
                     <div className="p-6 ">
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                             {project.title}
@@ -36,12 +38,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             {project.summary}
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, index) => (
+                            {project.technologies.map((libraries, index) => (
                                 <span
                                     key={index}
                                     className="inline-block px-2 py-1 bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
                                 >
-                                    {tech}
+                                    {libraries}
                                 </span>
                             ))}
                         </div>
