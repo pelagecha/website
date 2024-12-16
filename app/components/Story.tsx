@@ -2,37 +2,49 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { projectsData } from "../data/projectsData";
-import ProjectCard from "./ProjectCard";
+import { blogsData } from "../data/blogsData";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import StoryCard from "./StoryCard";
 
-const Projects: React.FC = () => {
-    const [projectsPerPage, setProjectsPerPage] = useState(3);
+const Story: React.FC<{ storyType: string }> = ({ storyType }) => {
+    const [storiesPerPage, setStoriesPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
     const scrollRef = useRef<HTMLDivElement>(null);
+    let storyData;
 
-    // Function to update projectsPerPage based on window width
-    const updateProjectsPerPage = () => {
+    switch (storyType) {
+        case "projects":
+            storyData = projectsData;
+            break;
+        case "blogs":
+            storyData = blogsData;
+            break;
+        default:
+            storyData = projectsData;
+    }
+
+    /** Number of columns in the row of stories */
+    const updateStoriesPerPage = () => {
         const width = window.innerWidth;
         if (width < 640) {
-            setProjectsPerPage(1); // Mobile
+            setStoriesPerPage(1); // Mobile
         } else if (width >= 640 && width < 1024) {
-            setProjectsPerPage(2); // Tablet
+            setStoriesPerPage(2); // Tablet
         } else {
-            setProjectsPerPage(3); // Desktop
+            setStoriesPerPage(3); // Desktop
         }
     };
 
+    /** Adjust to window resizing */
     useEffect(() => {
-        updateProjectsPerPage();
-        window.addEventListener("resize", updateProjectsPerPage);
-        return () =>
-            window.removeEventListener("resize", updateProjectsPerPage);
+        updateStoriesPerPage();
+        window.addEventListener("resize", updateStoriesPerPage);
+        return () => window.removeEventListener("resize", updateStoriesPerPage);
     }, []);
 
-    // Calculate total pages
-    const totalPages = Math.ceil(projectsData.length / projectsPerPage);
+    const totalPages = Math.ceil(storyData.length / storiesPerPage); // Calculate total pages
 
-    // Function to handle scroll
+    /** Handle horizontal scroll */
     const handleScroll = () => {
         if (scrollRef.current) {
             const scrollPosition = scrollRef.current.scrollLeft;
@@ -52,7 +64,7 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <section id="projects" className="container mx-auto section-flush">
+        <section id={storyType} className="container mx-auto section-flush">
             <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
                 ref={scrollRef}
@@ -65,15 +77,16 @@ const Projects: React.FC = () => {
                             style={{ width: `${100 / totalPages}%` }}
                         >
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-2">
-                                {projectsData
+                                {storyData
                                     .slice(
-                                        pageIndex * projectsPerPage,
-                                        (pageIndex + 1) * projectsPerPage
+                                        pageIndex * storiesPerPage,
+                                        (pageIndex + 1) * storiesPerPage
                                     )
-                                    .map((project) => (
-                                        <ProjectCard
-                                            key={project.slug}
-                                            project={project}
+                                    .map((storyData) => (
+                                        <StoryCard
+                                            key={storyData.slug}
+                                            storyData={storyData}
+                                            storyType={storyType} // Add this line
                                         />
                                     ))}
                             </div>
@@ -146,4 +159,4 @@ const Projects: React.FC = () => {
     );
 };
 
-export default Projects;
+export default Story;

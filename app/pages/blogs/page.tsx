@@ -1,12 +1,14 @@
 import React from "react";
-import { blogsData } from "../data/blogsData";
-import BlogCard from "../components/BlogCard";
-import ParticlesBackground from "../components/ParticlesBackground";
+import { blogsData } from "@/app/data/blogsData";
+import ParticlesBackground from "@/app/components/ParticlesBackground";
+import StoryCard from "@/app/components/StoryCard";
 
 const BlogsPage: React.FC = () => {
-    const sortedBlogs = [...blogsData].sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
+    const sortedBlogs = [...blogsData].sort((a, b) => {
+        const dateA = a.date ? new Date(a.date) : new Date();
+        const dateB = b.date ? new Date(b.date) : new Date();
+        return dateB.getTime() - dateA.getTime();
+    });
 
     return (
         <div className="relative container mx-auto my-16 p-4">
@@ -19,7 +21,11 @@ const BlogsPage: React.FC = () => {
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {sortedBlogs.map((blog) => (
-                        <BlogCard key={blog.slug} blog={blog} />
+                        <StoryCard
+                            key={blog.slug}
+                            storyType="blogs"
+                            storyData={blog}
+                        />
                     ))}
                 </div>
             </div>

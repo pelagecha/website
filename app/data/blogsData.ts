@@ -1,16 +1,13 @@
-// app/data/blogsData.ts
-
 export interface Blog {
     slug: string;
     title: string;
+    document: string; // New field for markdown content
     summary: string;
     image: string;
-    date: string;
-    category: string;
+    date?: string;
+    tags: string[];
     wordCount?: number;
     readTime?: string;
-    markdownContent?: string; // New field for markdown content
-    isHtml?: boolean;
 }
 
 export const blogsData: Blog[] = [
@@ -18,10 +15,10 @@ export const blogsData: Blog[] = [
         slug: "welcome",
         title: "Introduction",
         summary: "Welcome to my blog",
-        image: "/images/blogs/intro/me.png", // Ensure this image exists
+        image: "/images/blogs/intro/me.png",
         date: "2023-08-15",
-        category: "personal",
-        markdownContent: "intro.md", // Add this line
+        tags: ["personal"],
+        document: "intro.html",
     },
 
     {
@@ -31,20 +28,12 @@ export const blogsData: Blog[] = [
             "Stories from the greatest music band at Warwick. Battle of The Cover Bands 2024 winners!",
         image: "/images/blogs/mirage/image.png", // Ensure this image exists
         date: "2023-08-15",
-        category: "hobbies",
-        isHtml: true,
-        markdownContent: "mirage.html", // Add this line
+        tags: ["hobbies", "music"],
+        document: "mirage.html",
     },
 ];
 
-// Calculate word count and read time for each blog
-blogsData.forEach((blog) => {
-    if (blog.markdownContent) {
-        const words = blog.markdownContent.trim().split(/\s+/).length;
-        blog.wordCount = words;
-
-        // Assuming an average reading speed of 200 words per minute
-        const minutes = Math.ceil(words / 200);
-        blog.readTime = `${minutes} min read`;
-    }
-});
+// Create a mapping of indices to project slugs
+export const projectIndexMap: Record<number, string> = Object.fromEntries(
+    blogsData.map((blog, index) => [index, blog.slug])
+);

@@ -4,13 +4,12 @@ import React, { useContext, useRef } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
 import ParticlesBackground from "./ParticlesBackground";
-import Blogs from "./Blogs";
-import Projects from "./Projects";
 import JobTimeline from "./JobTimeline";
 import InfoSection from "./InfoSection";
 import { FaChevronDown } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion } from "framer-motion";
+import Story from "./Story";
 
 const HomePage: React.FC = () => {
     const { particlesEnabled } = useParticles();
@@ -81,7 +80,7 @@ const HomePage: React.FC = () => {
                             </p> */}
                         </motion.div>
                         <div className="relative z-10">
-                            <Projects />
+                            <Story storyType={"projects"} />
                         </div>
                     </section>
 
@@ -109,7 +108,7 @@ const HomePage: React.FC = () => {
                             </p> */}
                         </motion.div>
                         <div className="relative z-10">
-                            <Blogs />
+                            <Story storyType={"blogs"} />
                         </div>
                     </section>
 
@@ -133,21 +132,24 @@ const HomePage: React.FC = () => {
                         <div className="relative z-10">
                             <JobTimeline />
                         </div>
-                        <div className="flex flex-col items-center mt-8 space-y-4 relative z-10">
-                            <Link
-                                href="/products"
+                        <div className="flex flex-col items-center mt-8 space-y-2 relative z-10">
+                            <button
+                                onClick={() =>
+                                    (window.location.href = "/products")
+                                }
                                 className="inline-block bg-transparent border border-gray-500 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-800 hover:bg-opacity-25 transition ease-in-out duration-200"
                             >
                                 Explore My Other Projects
-                            </Link>
-                            <Link
+                            </button>
+
+                            <a
                                 href="mailto:nikitapelagecha@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-transparent border border-gray-500 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-800 hover:bg-opacity-25 transition ease-in-out duration-200"
                             >
                                 Contact me
-                            </Link>
+                            </a>
                         </div>
                     </section>
 
@@ -158,8 +160,6 @@ const HomePage: React.FC = () => {
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-indigo-500/10 to-cyan-500/10 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-cyan-800/30 opacity-50"></div>
                     </section>
-
-                    {/* <Contact /> */}
                 </div>
             </div>
         </ParallaxProvider>

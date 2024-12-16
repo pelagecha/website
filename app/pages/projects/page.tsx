@@ -1,7 +1,7 @@
 import React from "react";
-import { projectsData } from "../data/projectsData";
-import ProjectCard from "../components/ProjectCard";
-import ParticlesBackground from "../components/ParticlesBackground";
+import { projectsData } from "@/app/data/projectsData";
+import ParticlesBackground from "@/app/components/ParticlesBackground";
+import StoryCard from "@/app/components/StoryCard";
 
 const ProjectsPage: React.FC = () => {
     const sortedProjects = [...projectsData].sort(
@@ -19,7 +19,11 @@ const ProjectsPage: React.FC = () => {
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {sortedProjects.map((project) => (
-                        <ProjectCard key={project.slug} project={project} />
+                        <StoryCard
+                            key={project.slug}
+                            storyType="projects"
+                            storyData={project}
+                        />
                     ))}
                 </div>
             </div>

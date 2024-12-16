@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ThemeContext } from "../context/ThemeContext";
-import { useParticles } from "../context/ParticlesContext";
+import { ThemeContext } from "@/app/context/ThemeContext";
+import { useParticles } from "@/app/context/ParticlesContext";
 import {
     FiAirplay,
     FiAnchor,

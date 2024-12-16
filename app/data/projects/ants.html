@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Langton's Ant in Haskell</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 2rem;
+                background: #f4f4f9;
+                color: #333;
+            }
+            h1,
+            h2,
+            h3 {
+                color: #444;
+            }
+            code {
+                background: #e8e8e8;
+                padding: 0.2rem 0.4rem;
+                border-radius: 4px;
+            }
+            pre {
+                background: #e8e8e8;
+                padding: 1rem;
+                border-radius: 4px;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Langton's Ant Simulation in Haskell</h1>
+
+        <h2>Overview</h2>
+        <p>
+            Langton's Ant is a simple, rule-based Turing machine that produces
+            complex, emergent behaviour. This project implements the simulation
+            using Haskell, leveraging its powerful functional programming
+            features for efficient state management and smooth animations.
+        </p>
+
+        <h2>Motivation</h2>
+        <p>
+            The project explores Haskell's capabilities in handling complex
+            state transformations and visualisations. Langton's Ant was chosen
+            for its simple rules but intricate emergent patterns, showcasing
+            Haskell's expressiveness and power.
+        </p>
+
+        <h2>Technologies</h2>
+        <ul>
+            <li>
+                <strong>Haskell</strong>: Strong typing, immutability, and
+                functional purity.
+            </li>
+            <li>
+                <strong>Gloss</strong>: Simplified graphics and animation
+                rendering.
+            </li>
+            <li><strong>Stack</strong>: Build and dependency management.</li>
+            <li>
+                <strong>Tasty, HUnit, QuickCheck</strong>: Comprehensive testing
+                suite.
+            </li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <h3>Functional Core</h3>
+        <p>
+            Pure functions and recursion drive the simulation. State transitions
+            are handled immutably using concise pattern matching.
+        </p>
+
+        <pre><code>initialState :: AntState
+initialState = AS West (0, 0) Set.empty</code></pre>
+
+        <h3>Grid and Rules</h3>
+        <p>
+            The ant's movements follow simple rules applied across the grid,
+            leveraging Haskell's powerful list-processing capabilities.
+        </p>
+
+        <pre><code>applyRule :: (CellState -> CellState -> CellState) -> LineState -> LineState
+applyRule rule (LS list) = LS $ zipWith3 rule (Off : list) list (drop 1 list ++ [Off])</code></pre>
+
+        <h3>Animation</h3>
+        <p>
+            Animations are computed lazily using Gloss, producing frames on
+            demand.
+        </p>
+
+        <pre><code>animation :: Int -> Image
+animation frame = draw (iterate step initialState !! frame)</code></pre>
+
+        <h2>Challenges & Solutions</h2>
+        <ul>
+            <li>
+                <strong>Managing Infinite Lists</strong>: Handled with lazy
+                evaluation, enabling efficient memory usage.
+            </li>
+            <li>
+                <strong>Optimising Performance</strong>: Used
+                <code>Data.Set</code> for efficient tile management and lookup.
+            </li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            This project demonstrates Haskell's ability to manage complex
+            simulations through immutability, recursion, and concise code. It
+            highlights the elegance of functional programming and serves as a
+            strong technical showcase for developers.
+        </p>
+    </body>
+</html>

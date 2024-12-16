@@ -1,7 +1,6 @@
 import React from "react";
-import LinkCard from "../components/Extension";
-import { ThemeProvider } from "../context/ThemeContext";
-import ParticlesBackground from "../components/ParticlesBackground";
+import LinkCard from "@/app/components/Extension";
+import ParticlesBackground from "@/app/components/ParticlesBackground";
 import Link from "next/link";
 
 const Products = () => {
