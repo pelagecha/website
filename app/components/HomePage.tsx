@@ -154,12 +154,12 @@ const HomePage: React.FC = () => {
                     </section>
 
                     {/* Contact Section */}
-                    <section
+                    {/* <section
                         id="contact"
                         className="scroll-mt-0 px-0 md:px-0 relative"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-indigo-500/10 to-cyan-500/10 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-cyan-800/30 opacity-50"></div>
-                    </section>
+                    </section> */}
                 </div>
             </div>
         </ParallaxProvider>

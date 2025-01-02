@@ -8,6 +8,7 @@ import { useParticles } from "../context/ParticlesContext";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
 import Sidebar from "./Sidebar"; // Import the new Sidebar component
+import { IoSunny } from "react-icons/io5";
 
 const sections = ["General", "Projects", "Blogs", "Experience"];
 
@@ -105,7 +106,7 @@ const Navbar: React.FC = () => {
                         {sections.map((section) => (
                             <motion.button
                                 key={section}
-                                className={`px-3 py-1 rounded-full border ${
+                                className={`px-3 py-1 rounded-md border ${
                                     activeSection === section.toLowerCase()
                                         ? "bg-blue-500 text-white border-blue-500"
                                         : theme === "dark"
@@ -126,7 +127,7 @@ const Navbar: React.FC = () => {
                         {/* Products */}
                         <div className="hidden md:block">
                             <motion.button
-                                className={`px-3 py-1 rounded-full border ${
+                                className={`px-3 py-1 rounded-md border ${
                                     pathname === "/products" // Check if on the products page
                                         ? "bg-blue-500 text-white border-blue-500"
                                         : theme === "dark"
@@ -147,7 +148,7 @@ const Navbar: React.FC = () => {
                         {/* About Link */}
                         <div className="hidden md:block">
                             <motion.button
-                                className={`px-3 py-1 rounded-full border ${
+                                className={`px-3 py-1 rounded-md border ${
                                     pathname === "/about" // Check if on the products page
                                         ? "bg-blue-500 text-white border-blue-500"
                                         : theme === "dark"
@@ -166,35 +167,40 @@ const Navbar: React.FC = () => {
                             </motion.button>
                         </div>
 
-                        {/* Toggle Theme */}
-                        <motion.button
-                            onClick={toggleTheme}
-                            className="focus:outline-none"
-                            aria-label="Toggle Theme"
-                            whileHover={{ scale: 1.2 }}
+                        <div
+                            className="space-x-4"
+                            style={{ display: "flex", alignItems: "center" }}
                         >
-                            {theme === "dark" ? (
-                                <FaSun className="text-yellow-500 hover:text-yellow-600" />
-                            ) : (
-                                <FaMoon className="text-gray-600 hover:text-gray-700" />
-                            )}
-                        </motion.button>
+                            {/* Toggle Theme */}
+                            <motion.button
+                                onClick={toggleTheme}
+                                className="focus:outline-none"
+                                aria-label="Toggle Theme"
+                                whileHover={{ scale: 1.2 }}
+                            >
+                                {theme === "dark" ? (
+                                    <IoSunny className="text-yellow-500 hover:text-yellow-600 text-lg" />
+                                ) : (
+                                    <FaMoon className="text-gray-600 hover:text-gray-700" />
+                                )}
+                            </motion.button>
 
-                        {/* Toggle Particles */}
-                        <motion.button
-                            onClick={toggleParticles}
-                            aria-label="Toggle Particles"
-                            className="focus:outline-none"
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <motion.div
-                                className={`${
-                                    particlesEnabled
-                                        ? "bg-blue-500"
-                                        : "bg-gray-400"
-                                } hover:bg-teal-400 w-4 h-4 rounded-full`}
-                            />
-                        </motion.button>
+                            {/* Toggle Particles */}
+                            {/* <motion.button
+                                onClick={toggleParticles}
+                                aria-label="Toggle Particles"
+                                className="focus:outline-none"
+                                whileHover={{ scale: 1.1 }}
+                            >
+                                <motion.div
+                                    className={`${
+                                        particlesEnabled
+                                            ? "bg-blue-500"
+                                            : "bg-gray-400"
+                                    } hover:bg-teal-400 w-4 h-4 rounded-full`}
+                                />
+                            </motion.button> */}
+                        </div>
 
                         {/* Mobile Menu Button */}
                         <button

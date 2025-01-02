@@ -25,11 +25,11 @@ const StoryCard = ({
 }) => (
     <motion.div
         whileHover={{ scale: 1.03 }}
-        className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-xl shadow-lg overflow-hidden"
+        className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-lg"
     >
         <Link href={`${storyType}/${storyData.slug}`} passHref>
             <div className="cursor-pointer">
-                <div className="relative h-48 w-full">
+                <div className="relative h-48 w-full rounded-t-md overflow-hidden">
                     <Image
                         src={storyData.image}
                         alt={storyData.title}
@@ -39,31 +39,29 @@ const StoryCard = ({
                             pointerEvents: "none",
                             userSelect: "none",
                         }}
+                        draggable="false"
                         priority
                     />
                 </div>
-                <div className="p-6">
+                <div className="p-6 border border-black rounded-b-lg">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                             {storyData.title}
                         </h3>
-                        {/*
-                        {storyType === "blogs" && (
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                {storyData.date && `${storyData.date}`}
-                                {storyData.date && storyData.readTime && ` • `}
-                                {storyData.readTime && `${storyData.readTime}`}
-                                {storyData.readTime &&
-                                    storyData.wordCount &&
-                                    ` • `}
-                                {storyData.wordCount && storyData.wordCount}
-                            </p>
-                        )}
-                        */}
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                    <p
+                        className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-1"
+                        style={{
+                            lineHeight: "1.5em",
+                            maxHeight: "3em",
+                            overflow: "hidden",
+                        }}
+                    >
                         {storyData.summary}
                     </p>
+
+                    {/* TAGS */}
+                    <div className="flex"></div>
                     <div className="flex flex-wrap gap-2">
                         {storyData.tags?.map((lib, i) => (
                             <span

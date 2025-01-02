@@ -152,7 +152,7 @@ const AboutPage: React.FC = () => {
                         : "radial-gradient(circle, #EFF6FF, #DBEAFE 80%)",
             }}
         >
-            <div className="absolute inset-0 flex items-center justify-center">
+            {/* <div className="absolute inset-0 flex items-center justify-center">
                 {particlesEnabled && (
                     <motion.div
                         className="relative rounded-full"
@@ -213,7 +213,7 @@ const AboutPage: React.FC = () => {
                         ))}
                     </motion.div>
                 )}
-            </div>
+            </div> */}
 
             <main className="container mx-auto px-4 py-24 relative z-10 flex flex-col items-center">
                 <div className="inline-flex mb-6">

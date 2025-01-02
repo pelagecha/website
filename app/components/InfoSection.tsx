@@ -37,7 +37,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
                         ? "bg-gray-800 text-white"
                         : "bg-white text-gray-800" // Changed from gradient to solid white
                 }
-                p-5 sm:p-6 rounded-xl ${
+                p-5 sm:p-6 rounded-lg ${
                     theme === "dark" ? "shadow-lg" : "shadow-md" // Use a lighter shadow in light mode
                 }
                 ${size === "large" ? "col-span-1 sm:col-span-2" : ""}
@@ -95,7 +95,7 @@ const InfoSection: React.FC = () => {
                 theme === "dark"
                     ? "bg-gray-900 bg-opacity-10 text-white" // Semi-transparent dark background
                     : "bg-transparent text-gray-800" // Fully transparent in light mode
-            } p-4 sm:p-8 md:p-12 rounded-3xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
+            } p-4 sm:p-8 md:p-12 rounded-xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
         >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {/* Profile Image */}
@@ -112,7 +112,7 @@ const InfoSection: React.FC = () => {
                                 objectFit: "cover",
                                 pointerEvents: "none",
                             }}
-                            className={`rounded-3xl border-4 ${
+                            className={`rounded-lg border-4 ${
                                 theme === "dark"
                                     ? "border-gray-700"
                                     : "border-black"
@@ -334,8 +334,8 @@ const InfoSection: React.FC = () => {
                                     size={28}
                                     className={`${
                                         theme === "dark"
-                                            ? "text-white hover:text-purple-400"
-                                            : "text-blue-700 hover:text-purple-500"
+                                            ? "text-blue-400 hover:text-blue-300"
+                                            : "text-blue-700 hover:text-blue-600"
                                     } transition-colors duration-300`}
                                 />
                             </a>
@@ -353,7 +353,7 @@ const InfoSection: React.FC = () => {
                                     className={`${
                                         theme === "dark"
                                             ? "text-white hover:text-purple-400"
-                                            : "text-blue-700 hover:text-purple-500"
+                                            : "text-blue-700 hover:text-blue-600"
                                     } transition-colors duration-300`}
                                 />
                             </a>
