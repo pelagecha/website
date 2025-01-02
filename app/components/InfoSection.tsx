@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image"; // Ensure this import is present
 import { SiLeetcode } from "react-icons/si";
+import { Device } from "../context/Device";
 
 // Interface for InfoTile props
 interface InfoTileProps {
@@ -67,6 +68,14 @@ const InfoTile: React.FC<InfoTileProps> = ({
 // InfoSection Component
 const InfoSection: React.FC = () => {
     const { theme } = useContext(ThemeContext);
+    const [deviceType, setDeviceType] = useState(""); // get current client device
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent;
+        const detectedDevice = Device(userAgent);
+        console.log("Detected Device:", detectedDevice); // Debugging
+        setDeviceType(detectedDevice);
+    }, []);
 
     // Define animation variants for parent and children
     const containerVariants = {
@@ -195,6 +204,7 @@ const InfoSection: React.FC = () => {
                         </div>
                     }
                     centerContent={false}
+                    size={deviceType === "tablet" ? "large" : "normal"} // Added size prop to make the tile larger
                 />
                 <InfoTile
                     title="Competitions"
