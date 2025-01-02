@@ -46,7 +46,7 @@ const StoryCard = ({
                 {/* <div className="p-6 border-l border-r border-b border-black rounded-b-lg"> */}
                 <div className="p-6 rounded-b-lg">
                     <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">
                             {storyData.title}
                         </h3>
                     </div>
