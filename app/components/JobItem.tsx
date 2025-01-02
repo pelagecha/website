@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { Device } from "../context/Device";
@@ -23,6 +23,14 @@ interface JobItemProps {
 
 const JobItem: React.FC<JobItemProps> = React.memo(
     ({ job, index, isExpanded, onToggle }) => {
+        const [deviceType, setDeviceType] = useState(""); // get current client device
+        useEffect(() => {
+            const userAgent = navigator.userAgent;
+            const detectedDevice = Device(userAgent);
+            console.log("Detected Device:", detectedDevice); // Debugging
+            setDeviceType(detectedDevice);
+        }, []);
+
         return (
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -46,21 +54,42 @@ const JobItem: React.FC<JobItemProps> = React.memo(
                         <div>
                             <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200">
                                 {job.title}
-                            </h3>
-                            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-                                {job.companyUrl ? (
-                                    <a
-                                        href={job.companyUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-indigo-500 hover:underline"
-                                    >
-                                        {job.company}
-                                    </a>
-                                ) : (
-                                    job.company
+                                {deviceType === "desktop" && (
+                                    <>
+                                        {job.company ? " @ " : ""}
+                                        {job.companyUrl ? (
+                                            <a
+                                                href={job.companyUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-indigo-500 hover:underline"
+                                            >
+                                                {job.company}
+                                            </a>
+                                        ) : (
+                                            job.company
+                                        )}
+                                    </>
                                 )}
-                            </p>
+                            </h3>
+                            {deviceType !== "desktop" && (
+                                <>
+                                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                                        {job.companyUrl ? (
+                                            <a
+                                                href={job.companyUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-indigo-500 hover:underline"
+                                            >
+                                                {job.company}
+                                            </a>
+                                        ) : (
+                                            job.company
+                                        )}
+                                    </p>
+                                </>
+                            )}
                             <time className="block text-sm text-gray-600 dark:text-gray-400">
                                 {job.date}
                             </time>

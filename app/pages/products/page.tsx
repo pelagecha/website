@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Products = () => {
     return (
-        <div className="relative min-h-screen flex flex-col">
+        <div className="relative flex flex-col">
             <div className="absolute inset-0 z-0">
                 <ParticlesBackground />
             </div>

@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     const [progress, setProgress] = useState(0);
     const router = useRouter();
     const pathname = usePathname(); // Get current pathname
+    const [deviceType, setDeviceType] = useState(""); // get current client device
 
     useEffect(() => {
         const handleScroll = () => {
@@ -123,7 +124,11 @@ const Navbar: React.FC = () => {
                     </div>
 
                     {/* Right Side Icons */}
-                    <div className="flex items-center space-x-4">
+                    <div
+                        className={`flex items-center space-x-${
+                            deviceType === "mobile" ? "4" : "2"
+                        }`}
+                    >
                         {/* Products */}
                         <div className="hidden md:block">
                             <motion.button

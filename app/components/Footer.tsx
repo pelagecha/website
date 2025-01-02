@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0">
                         <p className="text-gray-600 dark:text-gray-300">
-                            © 2024 Nikita Pelagecha. All rights reserved. 🇺🇦
+                            © 2025 Nikita Pelagecha. All rights reserved. 🇺🇦
                         </p>
                     </div>
                     <div className="flex space-x-6">

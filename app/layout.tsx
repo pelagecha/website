@@ -6,6 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Providers } from "./context/Providers";
 
+// app/layout.tsx
 export default function RootLayout({
     children,
 }: {
@@ -16,9 +17,9 @@ export default function RootLayout({
             <body className="transition-colors duration-500">
                 <Providers>
                     <ThemeProvider>
-                        <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
+                        <div className="main-container bg-gray-100 dark:bg-gray-900 min-h-screen">
                             <Navbar />
-                            <main className="pt-16">{children}</main>
+                            <main className="content pt-16">{children}</main>
                             <Footer />
                         </div>
                     </ThemeProvider>
