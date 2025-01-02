@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
 import Sidebar from "./Sidebar"; // Import the new Sidebar component
 import { IoSunny } from "react-icons/io5";
+import { Device } from "../context/Device";
 
 const sections = ["General", "Projects", "Blogs", "Experience"];
 
@@ -21,6 +22,13 @@ const Navbar: React.FC = () => {
     const router = useRouter();
     const pathname = usePathname(); // Get current pathname
     const [deviceType, setDeviceType] = useState(""); // get current client device
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent;
+        const detectedDevice = Device(userAgent);
+        console.log("Detected Device:", detectedDevice); // Debugging
+        setDeviceType(detectedDevice);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
