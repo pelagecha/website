@@ -43,7 +43,8 @@ const StoryCard = ({
                         priority
                     />
                 </div>
-                <div className="p-6 border border-black rounded-b-lg">
+                {/* <div className="p-6 border-l border-r border-b border-black rounded-b-lg"> */}
+                <div className="p-6 rounded-b-lg">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                             {storyData.title}
