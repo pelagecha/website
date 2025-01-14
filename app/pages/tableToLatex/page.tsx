@@ -73,12 +73,67 @@ const EditableTable: React.FC = () => {
     };
 
     /**
-     * Remove a column from the table
+     * Remove a column from the table.
      */
+    const removeColumn = () => {
+        if (columns.length > 1) {
+            const newColumns = columns.slice(0, -1);
+            setColumns(newColumns);
+            setData(
+                data.map((row) => {
+                    const newRow = { ...row };
+                    delete newRow[`col${columns.length}`];
+                    return newRow;
+                })
+            );
+        }
+    };
 
     /**
-     * Handle
+     * Rename a column header.
      */
+    const renameColumn = (index: number, newName: string) => {
+        setColumns(
+            columns.map((col, i) =>
+                i === index ? { ...col, Header: newName } : col
+            )
+        );
+    };
+
+    /**
+     * Swap two columns.
+     */
+    const swapColumns = (index1: number, index2: number) => {
+        const newColumns = [...columns];
+        [newColumns[index1], newColumns[index2]] = [
+            newColumns[index2],
+            newColumns[index1],
+        ];
+        setColumns(newColumns);
+        setData(
+            data.map((row) => {
+                const newRow = { ...row };
+                [newRow[`col${index1 + 1}`], newRow[`col${index2 + 1}`]] = [
+                    newRow[`col${index2 + 1}`],
+                    newRow[`col${index1 + 1}`],
+                ];
+                return newRow;
+            })
+        );
+    };
+
+    /**
+     * Render LaTeX formula for the table.
+     */
+    const renderLatex = () => {
+        const headers = columns.map((col) => col.Header).join(" & ");
+        const rowsData = data
+            .map((row) => columns.map((col) => row[col.accessor]).join(" & "))
+            .join(" \\\\ ");
+        return `\\begin{tabular}{${"c".repeat(
+            columns.length
+        )}}\n${headers} \\\\\n\\hline\n${rowsData}\n\\end{tabular}`;
+    };
 
     const updateCell = (rowIndex: number, columnId: string, value: string) => {
         setData((oldData) =>
@@ -107,6 +162,7 @@ const EditableTable: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100vh",
+                flexDirection: "column",
             }}
         >
             <div style={{ position: "relative" }}>
@@ -117,12 +173,20 @@ const EditableTable: React.FC = () => {
                     <thead>
                         {headerGroups.map((headerGroup) => (
                             <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column) => (
+                                {headerGroup.headers.map((column, index) => (
                                     <th
                                         {...column.getHeaderProps()}
                                         style={{ border: "solid 1px black" }}
                                     >
-                                        {column.render("Header")}
+                                        <input
+                                            value={column.Header}
+                                            onChange={(e) =>
+                                                renameColumn(
+                                                    index,
+                                                    e.target.value
+                                                )
+                                            }
+                                        />
                                     </th>
                                 ))}
                             </tr>
@@ -157,7 +221,26 @@ const EditableTable: React.FC = () => {
                         })}
                     </tbody>
                 </table>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    {resizeButton(true, true)}
+                    {resizeButton(true, false)}
+                </div>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-end",
+                    }}
+                >
+                    {resizeButton(false, true)}
+                    {resizeButton(false, false)}
+                </div>
             </div>
+            <textarea
+                readOnly
+                value={renderLatex()}
+                style={{ marginTop: "20px", width: "80%", height: "100px" }}
+            />
         </div>
     );
 };
