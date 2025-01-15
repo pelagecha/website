@@ -21,7 +21,7 @@ export const projectsData: Project[] = [
         summary:
             "Transformer architecture, backpropagation, tokenization and training of OpenAI's GPT-2",
         description: "",
-        document: "bigram.html",
+        document: "gpt2.html",
     },
     {
         slug: "cnn",

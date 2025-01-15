@@ -80,14 +80,13 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
                     </div>
                 </div>
             </div>
-            {/* 
+
             <div
                 className="prose dark:prose-invert max-w-none mb-8"
                 dangerouslySetInnerHTML={{
                     __html: document || project.description,
                 }}
-            /> 
-            */}
+            />
 
             {/* Technologies */}
             <div className="bg-gray-200 justify-items-center  dark:bg-gray-700 p-6 rounded-lg mb-8">
@@ -107,49 +106,43 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
             </div>
 
             {/* Bottom Navigation */}
-            <div className="flex justify-between items-center py-0 text-blue-500 relative">
+            <div className="flex justify-between items-center py-0 relative">
                 {/* Previous Project */}
                 {prevProjectSlug ? (
-                    <Link
-                        href={`/projects/${prevProjectSlug}`}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
-                        &larr; {projectsData[projectIndex - 1].slug}
-                    </Link>
-                ) : (
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                        <FaTimes />
-                    </button>
-                )}
-
-                {/* Centered Projects Button */}
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                    <Link
-                        href="/#projects"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
-                        Projects
-                    </Link>
-                </div>
-
-                {/* Next Project */}
-                {nextProjectSlug ? (
-                    // <Link
-                    //     href={`/projects/${nextProjectSlug}`}
-                    //     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    // >
-                    //     {projectsData[projectIndex + 1].slug} &rarr;
-                    // </Link>
                     <PageNavigationButton
-                        title={`${projectsData[projectIndex + 1].slug} →`}
-                        href={`/projects/${nextProjectSlug}`}
-                        colour="blue"
+                        title={`${projectsData[projectIndex - 1].slug} ←`}
+                        href={`/projects/${prevProjectSlug}`}
+                        pos="left"
                     />
                 ) : (
                     <PageNavigationButton
                         title=<FaTimes />
                         href=""
-                        colour="gray"
+                        pos="left"
+                    />
+                )}
+
+                {/* Centered Projects Button */}
+                <div>
+                    <PageNavigationButton
+                        title="Projects"
+                        href={`/#projects`}
+                        pos="center"
+                    />
+                </div>
+
+                {/* Next Project */}
+                {nextProjectSlug ? (
+                    <PageNavigationButton
+                        title={`${projectsData[projectIndex + 1].slug} →`}
+                        href={`/projects/${nextProjectSlug}`}
+                        pos="right"
+                    />
+                ) : (
+                    <PageNavigationButton
+                        title=<FaTimes />
+                        href=""
+                        pos="right"
                     />
                 )}
             </div>
@@ -160,21 +153,42 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
 interface PageNavigationButtonProps {
     title: string | React.ReactNode;
     href: string;
-    colour: string;
+    pos: string;
 }
 
 const PageNavigationButton: React.FC<PageNavigationButtonProps> = ({
     title,
     href,
-    colour,
+    pos,
 }) => {
+    let colour;
+    let hoverColour;
+    let rounded = ""; // Default to no rounding
+    if (pos === "center") {
+        colour = "bg-gray-800 dark:bg-black";
+        hoverColour = "dark:bg-black";
+    } else {
+        if (href === "") {
+            colour = "bg-gray-500 dark:bg-gray-800";
+            hoverColour = "bg-gray-700";
+        } else {
+            colour = "bg-green-700 dark:bg-green-800";
+            hoverColour = "bg-green-900";
+        }
+        if (pos === "left") {
+            rounded = "rounded-l-lg"; // Left rounded
+        } else if (pos === "right") {
+            rounded = "rounded-r-lg"; // Right rounded
+        }
+    }
+
     return (
-        <a
+        <Link
             href={href}
-            className={`bg-${colour}-500 hover:bg-${colour}-700 justify-items-center justify-center text-white font-bold py-2 px-4 rounded w-100 h-10 overflow-hidden`}
+            className={`${colour} hover:${hoverColour} text-white font-bold py-2 px-4 ${rounded} w-full h-10 flex items-center justify-center overflow-hidden`}
         >
             {title}
-        </a>
+        </Link>
     );
 };
 
