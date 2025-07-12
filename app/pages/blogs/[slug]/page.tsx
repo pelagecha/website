@@ -78,7 +78,7 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
                 alt={blog.title}
                 width={800}
                 height={400}
-                className="w-full h-96 object-cover rounded-lg mb-8"
+                className="w-full h-96 object-cover rounded-md mb-8"
             />
             <div className="prose prose-lg max-w-none dark:prose-invert">
                 <div dangerouslySetInnerHTML={{ __html: content }} />

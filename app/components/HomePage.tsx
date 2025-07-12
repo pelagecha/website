@@ -84,8 +84,33 @@ const HomePage: React.FC = () => {
                         </div>
                     </section>
 
-                    {/* Blogs Section */}
+                    {/* Notes Section */}
+                    {/* app/data/notes/CS254_Notes___Algorithmic_Graph_Theory.pdf */}
                     <section
+                        id="notes"
+                        className="scroll-mt-20 px-4 md:px-8 py-16 relative"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 via-pink-500/10 to-red-500/10 dark:from-green-800/30 dark:via-pink-900/30 dark:to-red-900/30 opacity-50"></div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-12 text-center relative z-10"
+                        >
+                            {/* <Link href="/notes" passHref> */}
+                            <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">
+                                Notes
+                            </h2>
+                            {/* </Link> */}
+                        </motion.div>
+                        <div className="relative z-10">
+                            <Story storyType={"notes"} />
+                        </div>
+                    </section>
+
+                    {/* Blogs Section */}
+                    {/* <section
                         id="blogs"
                         className="scroll-mt-20 px-4 md:px-8 py-16 relative"
                     >
@@ -101,16 +126,16 @@ const HomePage: React.FC = () => {
                                 <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200 cursor-pointer hover:underline">
                                     Blogs
                                 </h2>
-                            </Link>
-                            {/* <p className="mt-4 text-gray-600 dark:text-gray-300">
+                            </Link> */}
+                    {/* <p className="mt-4 text-gray-600 dark:text-gray-300">
                                 Insights and articles on technology,
                                 programming, and more.
                             </p> */}
-                        </motion.div>
+                    {/* </motion.div>
                         <div className="relative z-10">
                             <Story storyType={"blogs"} />
                         </div>
-                    </section>
+                    </section> */}
 
                     {/* Experience Section */}
                     <section

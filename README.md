@@ -18,8 +18,8 @@ This portfolio features a collection of projects that demonstrate my skills in s
 
 This website was built using:
 
--   **Frontend**: React, Next.js, Tailwind CSS
--   **Backend**: Node.js
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Backend**: Node.js
 
 ## Contact
 

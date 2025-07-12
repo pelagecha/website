@@ -25,7 +25,7 @@ const StoryCard = ({
 }) => (
     <motion.div
         whileHover={{ scale: 1.03 }}
-        className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-lg"
+        className="w-full bg-gray-100 dark:bg-transparent dark:backdrop-blur-md rounded-md"
     >
         <Link href={`${storyType}/${storyData.slug}`} passHref>
             <div className="cursor-pointer">
@@ -43,8 +43,7 @@ const StoryCard = ({
                         priority
                     />
                 </div>
-                {/* <div className="p-6 border-l border-r border-b border-black rounded-b-lg"> */}
-                <div className="p-6 rounded-b-lg">
+                <div className="p-6 rounded-b-md border-l border-r border-b border-black dark:border-gray-700">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">
                             {storyData.title}

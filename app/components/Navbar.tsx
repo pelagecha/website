@@ -11,7 +11,7 @@ import Sidebar from "./Sidebar"; // Import the new Sidebar component
 import { IoSunny } from "react-icons/io5";
 import { Device } from "../context/Device";
 
-const sections = ["General", "Projects", "Blogs", "Experience"];
+const sections = ["General", "Projects", "Notes", "Experience"];
 
 const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);

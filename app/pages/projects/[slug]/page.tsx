@@ -63,46 +63,21 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
 
     return (
         <div className="container mx-auto my-16 p-4 max-w-4xl">
-            {/* Project Content */}
-            <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+            {/* Project Header */}
+            <header className="mb-8 text-center">
+                <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                    {project.title}
+                </h1>
+            </header>
+
+            {/* Project Image with Title Overlay */}
+            <div className="relative w-full h-64 mb-8 rounded-md overflow-hidden">
                 <Image
                     src={project.image}
                     alt={project.name}
                     layout="fill"
                     className="object-cover"
                 />
-
-                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-black bg-opacity-80 rounded-md p-4">
-                        <h1 className="text-4xl font-bold text-white">
-                            {project.title}
-                        </h1>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                className="prose dark:prose-invert max-w-none mb-8"
-                dangerouslySetInnerHTML={{
-                    __html: document || project.description,
-                }}
-            />
-
-            {/* Technologies */}
-            <div className="bg-gray-200 justify-items-center  dark:bg-gray-700 p-6 rounded-lg mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Technologies Used
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                    {project.tags?.map((lib, i) => (
-                        <span
-                            key={i}
-                            className="inline-block px-2 py-1 bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
-                        >
-                            {lib}
-                        </span>
-                    ))}
-                </div>
             </div>
 
             {/* Bottom Navigation */}
@@ -116,7 +91,7 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
                     />
                 ) : (
                     <PageNavigationButton
-                        title=<FaTimes />
+                        title={<FaTimes />}
                         href=""
                         pos="left"
                     />
@@ -140,11 +115,39 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
                     />
                 ) : (
                     <PageNavigationButton
-                        title=<FaTimes />
+                        title={<FaTimes />}
                         href=""
                         pos="right"
                     />
                 )}
+            </div>
+
+            {/* Project Content */}
+            <div
+                className="prose dark:prose-invert max-w-none mb-8"
+                dangerouslySetInnerHTML={{
+                    __html: document || project.description,
+                }}
+            />
+            {/* <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                {project.summary}
+            </p> */}
+
+            {/* Technologies */}
+            <div className="bg-gray-200 justify-items-center dark:bg-gray-700 p-6 rounded-md mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                    Technologies Used
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                    {project.tags?.map((lib, i) => (
+                        <span
+                            key={i}
+                            className="inline-block px-2 py-1 bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                        >
+                            {lib}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -172,8 +175,8 @@ const PageNavigationButton: React.FC<PageNavigationButtonProps> = ({
             colour = "bg-gray-500 dark:bg-gray-800";
             hoverColour = "bg-gray-700";
         } else {
-            colour = "bg-green-700 dark:bg-green-800";
-            hoverColour = "bg-green-900";
+            colour = "bg-blue-500 dark:bg-blue-700";
+            hoverColour = "bg-blue-900";
         }
         if (pos === "left") {
             rounded = "rounded-l-lg"; // Left rounded

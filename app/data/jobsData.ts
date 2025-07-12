@@ -9,6 +9,14 @@ export interface Job {
 
 export const jobs: Job[] = [
     {
+        title: "Software Engineer Intern",
+        company: "Vanguard",
+        date: "Jun 2025 - Ongoing",
+        description: "Developing Software",
+        details: "",
+        companyUrl: "https://www.vanguardinvestor.co.uk/",
+    },
+    {
         title: "ML Research Intern",
         company: "University of Warwick - DCS",
         date: "Jul 2024 - Sep 2024",

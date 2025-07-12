@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { projectsData } from "../data/projectsData";
 import { blogsData } from "../data/blogsData";
+import { notesData } from "../data/notesData";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import StoryCard from "./StoryCard";
 
@@ -18,6 +19,9 @@ const Story: React.FC<{ storyType: string }> = ({ storyType }) => {
             break;
         case "blogs":
             storyData = blogsData;
+            break;
+        case "notes":
+            storyData = notesData;
             break;
         default:
             storyData = projectsData;

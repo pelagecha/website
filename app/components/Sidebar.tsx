@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                                 scrollToSection(section);
                                                 setIsSidebarOpen(false);
                                             }}
-                                            className={`flex items-center w-full py-3 px-4 rounded-lg text-lg font-medium transition-colors duration-300 ${
+                                            className={`flex items-center w-full py-3 px-4 rounded-md text-lg font-medium transition-colors duration-300 ${
                                                 activeSection ===
                                                 section.toLowerCase()
                                                     ? "bg-blue-600 text-white"
@@ -119,7 +119,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                             onClick={() =>
                                                 setIsSidebarOpen(false)
                                             }
-                                            className="flex items-center w-full py-3 px-4 rounded-lg text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                                            className="flex items-center w-full py-3 px-4 rounded-md text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors duration-300"
                                         >
                                             <FaBoxOpen className="text-xl" />
                                             <span className="ml-3">
@@ -143,7 +143,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                             onClick={() =>
                                                 setIsSidebarOpen(false)
                                             }
-                                            className="flex items-center w-full py-3 px-4 rounded-lg text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                                            className="flex items-center w-full py-3 px-4 rounded-md text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors duration-300"
                                         >
                                             <FaInfoCircle className="text-xl" />
                                             <span className="ml-3">About</span>

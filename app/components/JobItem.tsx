@@ -42,10 +42,10 @@ const JobItem: React.FC<JobItemProps> = React.memo(
             >
                 {/* Job Card */}
                 <div
-                    // className={`bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 ${
+                    // className={`bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 ${
                     //     isExpanded ? "border-indigo-500" : "border-transparent"
                     // }`}
-                    className={`bg-gray-100 dark:bg-transparent dark:backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 border border-gray-200 dark:border-gray-700 ${
+                    className={`bg-gray-100 dark:bg-transparent dark:backdrop-blur-md p-4 sm:p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 border-l-4 border border-gray-200 dark:border-gray-700 ${
                         isExpanded ? "border-indigo-500" : "border-transparent"
                     }`}
                 >

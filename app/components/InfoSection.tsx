@@ -38,7 +38,7 @@ const InfoTile: React.FC<InfoTileProps> = ({
                         ? "bg-gray-800 text-white"
                         : "bg-white text-gray-800" // Changed from gradient to solid white
                 }
-                p-5 sm:p-6 rounded-lg ${
+                p-5 sm:p-6 rounded-md ${
                     theme === "dark" ? "shadow-lg" : "shadow-md" // Use a lighter shadow in light mode
                 }
                 ${size === "large" ? "col-span-1 sm:col-span-2" : ""}
@@ -104,7 +104,7 @@ const InfoSection: React.FC = () => {
                 theme === "dark"
                     ? "bg-gray-900 bg-opacity-10 text-white" // Semi-transparent dark background
                     : "bg-transparent text-gray-800" // Fully transparent in light mode
-            } p-4 sm:p-8 md:p-12 rounded-xl max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
+            } p-4 sm:p-8 md:p-12 rounded-md max-w-7xl w-full mx-auto backdrop-blur-sm transition-colors duration-500`}
         >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {/* Profile Image */}
@@ -121,7 +121,7 @@ const InfoSection: React.FC = () => {
                                 objectFit: "cover",
                                 pointerEvents: "none",
                             }}
-                            className={`rounded-lg border-4 ${
+                            className={`rounded-md border-4 ${
                                 theme === "dark"
                                     ? "border-gray-700"
                                     : "border-black"
@@ -154,15 +154,45 @@ const InfoSection: React.FC = () => {
                             <div className="text-left">
                                 <p>BSc Hons Computer Science</p>
                                 <p>
-                                    <strong>Y1:</strong> 1st Class
+                                    <strong>Grade:</strong> Predicted 1st Class
                                     <br />
-                                    <strong>Y2:</strong> Ongoing
+                                    {/* <strong>Y2:</strong> Ongoing */}
                                 </p>
                             </div>
                         </>
                     }
                 />
                 <InfoTile
+                    title="Latest Position"
+                    content={
+                        <div className="space-y-2">
+                            <div className="text-center">
+                                <p className="font-semibold">
+                                    SWE Intern @{" "}
+                                    <a
+                                        href="https://www.vanguardinvestor.co.uk/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`${
+                                            theme === "dark"
+                                                ? "text-indigo-400"
+                                                : "text-indigo-500"
+                                        } hover:underline font-bold`}
+                                    >
+                                        Vanguard
+                                    </a>
+                                </p>
+                            </div>
+                            <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
+                            <ul className="list-disc list-inside text-sm">
+                                Developing Software
+                            </ul>
+                        </div>
+                    }
+                    centerContent={false}
+                    size={deviceType === "tablet" ? "large" : "normal"} // Added size prop to make the tile larger
+                />
+                {/* <InfoTile
                     title="Latest Position"
                     content={
                         <div className="space-y-2">
@@ -205,7 +235,7 @@ const InfoSection: React.FC = () => {
                     }
                     centerContent={false}
                     size={deviceType === "tablet" ? "large" : "normal"} // Added size prop to make the tile larger
-                />
+                /> */}
                 <InfoTile
                     title="Competitions"
                     content={
@@ -261,7 +291,7 @@ const InfoSection: React.FC = () => {
                                 </a>
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <div className="text-sm text-center">
+                            <div className="text-sm text-left">
                                 <p>
                                     Achieved 36th place in UKIEPC, represented
                                     Warwick at NWERC and placed 7th in the
@@ -273,44 +303,7 @@ const InfoSection: React.FC = () => {
                     }
                     centerContent={false}
                 />
-                <InfoTile
-                    title="Technical Skills"
-                    size="large"
-                    content={
-                        <div className="space-y-2 text-xs sm:text-sm">
-                            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-7">
-                                <p className="font-semibold text-indigo-700 dark:text-indigo-300 self-start">
-                                    Proficient:
-                                </p>
-                                <p className="text-indigo-600 dark:text-indigo-200">
-                                    Python, Java, HTML/CSS/JS, Git, LaTeX
-                                </p>
-                            </div>
-                            <div className="bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-3">
-                                <p className="font-semibold text-teal-700 dark:text-teal-300 self-start">
-                                    Intermediate:
-                                </p>
-                                <p className="text-teal-600 dark:text-teal-200">
-                                    C, SQL, Haskell, Swift, TypeScript
-                                </p>
-                            </div>
-                            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-lg grid grid-cols-[auto,1fr] gap-x-9">
-                                <p className="font-semibold text-amber-700 dark:text-amber-300 self-start">
-                                    Familiar:
-                                </p>
-                                <p className="text-amber-600 dark:text-amber-200">
-                                    C++, Bash
-                                </p>
-                            </div>
-                        </div>
-                    }
-                    centerContent={false}
-                />
 
-                <InfoTile
-                    title="Languages"
-                    content="English, Ukrainian, Russian"
-                />
                 <InfoTile
                     title="Contact"
                     content={
@@ -385,6 +378,44 @@ const InfoSection: React.FC = () => {
                             </a>
                         </div>
                     }
+                />
+                <InfoTile
+                    title="Technical Skills"
+                    size="large"
+                    content={
+                        <div className="space-y-2 text-xs sm:text-sm">
+                            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-7">
+                                <p className="font-semibold text-indigo-700 dark:text-indigo-300 self-start">
+                                    Proficient:
+                                </p>
+                                <p className="text-indigo-600 dark:text-indigo-200">
+                                    Python, Java, HTML/CSS/JS, Git, LaTeX
+                                </p>
+                            </div>
+                            <div className="bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-3">
+                                <p className="font-semibold text-teal-700 dark:text-teal-300 self-start">
+                                    Intermediate:
+                                </p>
+                                <p className="text-teal-600 dark:text-teal-200">
+                                    C, SQL, Haskell, Swift, TypeScript
+                                </p>
+                            </div>
+                            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-9">
+                                <p className="font-semibold text-amber-700 dark:text-amber-300 self-start">
+                                    Familiar:
+                                </p>
+                                <p className="text-amber-600 dark:text-amber-200">
+                                    C++, Bash
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    centerContent={false}
+                />
+
+                <InfoTile
+                    title="Languages"
+                    content="English, Ukrainian, Russian"
                 />
             </div>
         </motion.div>
