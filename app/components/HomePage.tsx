@@ -50,7 +50,7 @@ const HomePage: React.FC = () => {
                                 className="cursor-pointer"
                                 onClick={handleScroll}
                             >
-                                <FaChevronDown className="text-3xl text-gray-600 dark:text-gray-400" />
+                                <FaChevronDown className="text-4xl text-gray-600 dark:text-gray-400" />
                             </motion.div>
                         </div>
                     </section>

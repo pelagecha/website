@@ -11,39 +11,46 @@ export const jobs: Job[] = [
     {
         title: "Software Engineer Intern",
         company: "Vanguard",
-        date: "Jun 2025 - Ongoing",
-        description: "Developing Software",
-        details: "",
+        date: "Jun 2025 - Aug 2025",
+        description: "Built a portfolio analytics tool with agentic LangGraph MCP, using Markowitz optimisation and Dirichlet stochastic process modelling.",
+        details: `• Cut CI/CD pipeline build times for an international website by 10-15%; automated non-prod deployment and CR closure in other repos.
+            • Integrated a cross-repo test profiling system to track code coverage/defects; raised test coverage in a core repo from 40% to 89%.
+            • Configured AWS Lambda functions, wrote Angular UI and Java backend for a full-stack B2B financial advisory platform.`,
         companyUrl: "https://www.vanguardinvestor.co.uk/",
+    },
+    {
+        title: "Deep Learning Research Team",
+        company: "University of Warwick - DCS",
+        date: "Jan 2024 - Jun 2024",
+        description: "Applied variational calculus and functional analysis via graphons to explore trainable network topology for DNN pruning.",
+        details: "• Researched the lottery ticket hypothesis with Prof. Long Tran-Thanh’s PhD team; analysed optimally performant DNN subnetworks.",
+        companyUrl: "https://warwick.ac.uk/fac/sci/dcs/",
     },
     {
         title: "ML Research Intern",
         company: "University of Warwick - DCS",
         date: "Jul 2024 - Sep 2024",
-        description:
-            "Developed custom multi-LLM-agent Retrieval-Augmented Generation architectures for Docker-hosted Unix Bash and SQL task execution.",
-        details:
-            "• Collaborated with Prof. Long Tran-Thanh and his research network at the UMD as part of the Undergraduate Research Support Scheme.\n• Employed HyDE, hybrid routing, self-query retrievers, RAPTOR, RRF, CRAG, and CoT prompting to optimise retrieval and reasoning.\n• Achieved a 12% performance improvement on programmatic and reasoning tasks compared to standard LLMs, validated through AgentBench.",
+        description: "Developed a multi-agent RAG architecture for Unix Bash and SQL task execution with Prof. Long Tran-Thanh and researchers from UMD.",
+        details: `• Trained on a Slurm cluster and deployed with Docker. Used HyDE, hybrid routing, self-query retrievers, RAPTOR, RRF, CRAG, and CoT.
+                • Achieved a 12% performance improvement on programmatic and reasoning tasks compared to non-RAG architectures (AgentBench).`,
         companyUrl: "https://warwick.ac.uk/fac/sci/dcs/",
     },
     {
-        title: "Software Engineer",
-        company: "",
+        title: "Software Engineer Intern",
+        company: "Cosina",
         date: "Jul 2024 - Oct 2024",
-        description:
-            "Designed, developed, and deployed a commercial WordPress website for a startup in MAMP, Elementor and PHP.",
-        details:
-            "• Integrated plugin-based payment gateways, security protocols, and configured SQL databases ensuring seamless backend communication.\n• Created an accessible, user-friendly UI/UX that attracted over 250 users on launch day.",
-        companyUrl: "",
+        description: "Developed and deployed the alpha version of a commercial food delivery website in WordPress, PHP, MAMP, Elementor, and pgAdmin.",
+        details: `• Integrated plugin-based payment gateways, security protocols, and configured SQL databases to optimise site performance.
+                • Worked closely with the founders, designers and marketing teams; attracted 550 users on launch day.`,
+        companyUrl: "https://cosina.es/",
     },
     {
         title: "CTO/Co-founder",
         company: "ParkApp",
         date: "Jan 2024 - Jul 2024",
-        description:
-            "Co-founded a parking app startup in a team of 4 students contributing to over 600 combined hours of market research and software development.",
-        details:
-            "• Designed and implemented a semi-functional prototype using Swift, incorporating user reporting features for real-time parking availability. \n • Secured mentorship from a Warwick Science Park representative, leveraging their expertise to refine business models and technical decisions.",
+        description: "Co-founded a parking app startup in an agile team of 4 (later 6), contributing to 500+ hours of market research and software development.",
+        details: `• Built a native iOS prototype with SwiftUI, MapKit, and CoreLocation, with support for real-time parking availability and navigation.
+            • Advised by Warwick Science Park; attracted a £15,000 external funding offer and interest from Entrepreneurs First.`,
         companyUrl: "",
     },
     {

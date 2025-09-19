@@ -4,9 +4,10 @@
 const nextConfig = {
     async rewrites() {
         return [
+            // Only rewrite specific paths that don't conflict with app directory
             {
-                source: "/:path*",
-                destination: "/pages/:path*",
+                source: "/api/:path*",
+                destination: "/pages/api/:path*",
             },
         ];
     },
@@ -19,7 +20,6 @@ const nextConfig = {
         ],
     },
     reactStrictMode: true,
-    // Add other configurations if necessary
 };
 
 module.exports = nextConfig;

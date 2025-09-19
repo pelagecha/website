@@ -7,6 +7,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image"; // Ensure this import is present
 import { SiLeetcode } from "react-icons/si";
 import { Device } from "../context/Device";
+import "devicon/devicon.min.css";
 
 // Interface for InfoTile props
 interface InfoTileProps {
@@ -14,6 +15,31 @@ interface InfoTileProps {
     content: string | React.ReactNode;
     size?: "normal" | "large";
     centerContent?: boolean;
+}
+
+interface LinkItemProps {
+    link: string;
+    name: string;
+    description: string;
+    theme: "light" | "dark";
+}
+
+function LinkItem({ link, name, description, theme }: LinkItemProps) {
+    return (
+        <div>
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${
+                    theme === "dark" ? "text-indigo-400" : "text-indigo-500"
+                } hover:underline font-bold`}
+            >
+                {name}
+            </a>
+            {description ? `: ${description}` : ""}
+        </div>
+    );
 }
 
 // InfoTile Component
@@ -148,12 +174,15 @@ const InfoSection: React.FC = () => {
                                 >
                                     University of Warwick
                                 </a>
+                                <a></a>
                                 <strong> '26</strong>{" "}
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-left">
                                 <p>BSc Hons Computer Science</p>
                                 <p>
+                                    <strong>Year:</strong> Third year (final)
+                                    <br />
                                     <strong>Grade:</strong> Predicted 1st Class
                                     <br />
                                     {/* <strong>Y2:</strong> Ongoing */}
@@ -184,8 +213,14 @@ const InfoSection: React.FC = () => {
                                 </p>
                             </div>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <ul className="list-disc list-inside text-sm">
-                                Developing Software
+                            <ul className="list-disc list-inside text-sm content-align">
+                                Worked in the Financial Advisory Services team
+                                to build analytics tools, optimise CI/CD, and
+                                enhance testing for a global B2B investment
+                                platform.
+                                {/* <div><b>Team:</b> Financial Advisory Services</div>
+                                <div><b>Location:</b> London</div>
+                                <div><b>Duration:</b> 10 weeks</div> */}
                             </ul>
                         </div>
                     }
@@ -240,31 +275,8 @@ const InfoSection: React.FC = () => {
                     title="Competitions"
                     content={
                         <div className="space-y-2">
-                            <p className="font-semibold text-center">
-                                <a
-                                    href="https://nwerc.eu/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`${
-                                        theme === "dark"
-                                            ? "text-indigo-400"
-                                            : "text-indigo-500"
-                                    } hover:underline font-bold`}
-                                >
-                                    NWERC,
-                                </a>{" "}
-                                <a
-                                    href="https://ukiepc.info/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`${
-                                        theme === "dark"
-                                            ? "text-indigo-400"
-                                            : "text-indigo-500"
-                                    } hover:underline font-bold`}
-                                >
-                                    UKIEPC(23', 24')
-                                </a>{" "}
+                            {/* <p className="font-semibold text-center">
+                              
                                 <a
                                     href="https://ichack.org/"
                                     target="_blank"
@@ -289,15 +301,52 @@ const InfoSection: React.FC = () => {
                                 >
                                     WHack
                                 </a>
-                            </p>
+                            </p> */}
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-sm text-left">
-                                <p>
+                                <LinkItem
+                                    link="https://ukiepc.info/2023/"
+                                    name="ICPC UKIEPC 2023"
+                                    description="3rd in UoW"
+                                    theme={theme}
+                                />
+                                <LinkItem
+                                    link="https://nwerc.eu/"
+                                    name="ICPC NWERC 2023"
+                                    description="TU Delft"
+                                    theme={theme}
+                                />
+                                <LinkItem
+                                    link="https://ichack.org/"
+                                    name="ICHack 2024"
+                                    description="Optiver Challenge"
+                                    theme={theme}
+                                />
+                                <LinkItem
+                                    link="https://ukiepc.info/2024/"
+                                    name="ICPC UKIEPC 2024"
+                                    description="2nd in UoW"
+                                    theme={theme}
+                                />
+                                <LinkItem
+                                    link="https://warwickhack.co.uk/"
+                                    name="Warwick Hack 2025"
+                                    description="Capital One"
+                                    theme={theme}
+                                />
+                                <LinkItem
+                                    link="https://ichack.org/"
+                                    name="ICHack 2025"
+                                    description="Anthropic Challenge"
+                                    theme={theme}
+                                />
+                                {/* <p>
+                                    
                                     Achieved 36th place in UKIEPC, represented
                                     Warwick at NWERC and placed 7th in the
                                     Optiver trading simulation challenge at
                                     ICHack.
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     }
@@ -337,8 +386,8 @@ const InfoSection: React.FC = () => {
                                     size={28}
                                     className={`${
                                         theme === "dark"
-                                            ? "text-blue-400 hover:text-blue-300"
-                                            : "text-blue-700 hover:text-blue-600"
+                                        // ? "text-blue-400 hover:text-blue-300"
+                                        // : "text-blue-700 hover:text-blue-600"
                                     } transition-colors duration-300`}
                                 />
                             </a>
@@ -389,7 +438,8 @@ const InfoSection: React.FC = () => {
                                     Proficient:
                                 </p>
                                 <p className="text-indigo-600 dark:text-indigo-200">
-                                    Python, Java, HTML/CSS/JS, Git, LaTeX
+                                    C++, Python, C, Java, HTML, CSS, JavaScript,
+                                    Git
                                 </p>
                             </div>
                             <div className="bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-3">
@@ -397,7 +447,7 @@ const InfoSection: React.FC = () => {
                                     Intermediate:
                                 </p>
                                 <p className="text-teal-600 dark:text-teal-200">
-                                    C, SQL, Haskell, Swift, TypeScript
+                                    SQL, Haskell, Swift, TypeScript, Bash
                                 </p>
                             </div>
                             <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-9">
@@ -405,7 +455,7 @@ const InfoSection: React.FC = () => {
                                     Familiar:
                                 </p>
                                 <p className="text-amber-600 dark:text-amber-200">
-                                    C++, Bash
+                                    Rust, Prolog, C#
                                 </p>
                             </div>
                         </div>
@@ -417,6 +467,50 @@ const InfoSection: React.FC = () => {
                     title="Languages"
                     content="English, Ukrainian, Russian"
                 />
+            </div>
+            <div className="overflow-hidden w-full py-8 relative background-white">
+                <div className="flex animate-scroll-left whitespace-nowrap">
+                    {Array.from({ length: 2 }).map((_, repeatIndex) => (
+                        <div key={repeatIndex} className="flex">
+                            {[
+                                "devicon-amazonwebservices-plain-wordmark",
+                                "devicon-anaconda-line colored",
+                                "devicon-angular-plain colored",
+                                "devicon-bitbucket-original-wordmark colored",
+                                "devicon-blender-original colored",
+                                "devicon-react-original colored",
+                                "devicon-docker-plain colored",
+                                "devicon-github-original colored",
+                                "devicon-graphql-plain colored",
+                                "devicon-homebrew-plain colored",
+                                "devicon-intellij-plain colored",
+                                "devicon-jest-plain colored",
+                                "devicon-jira-plain colored",
+                                "devicon-latex-original colored",
+                                "devicon-linux-plain colored",
+                                "devicon-matplotlib-plain colored",
+                                "devicon-mongodb-plain colored",
+                                "devicon-nextjs-plain colored",
+                                "devicon-npm-original-wordmark",
+                                "devicon-postgresql-plain colored",
+                                "devicon-pytorch-original colored",
+                                "devicon-sonarqube-original colored",
+                                "devicon-sqlite-plain colored",
+                                "devicon-wordpress-plain colored",
+                                "devicon-figma-plain colored",
+                                "devicon-flask-original colored",
+                                "devicon-git-plain colored",
+                                "devicon-kubernetes-plain colored",
+                                "devicon-mysql-plain colored",
+                            ].map((icon, i) => (
+                                <i
+                                    key={`${repeatIndex}-${i}`}
+                                    className={`${icon} colored text-3xl mx-4 icon-zoom`}
+                                />
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         </motion.div>
     );

@@ -10,6 +10,7 @@
     "dependencies": {
         "@next/third-parties": "^14.2.15",
         "@tailwindcss/typography": "^0.5.15",
+        "devicon": "^2.17.0",
         "framer-motion": "^11.5.5",
         "next": "^14.2.12",
         "next-sitemap": "^4.2.3",
