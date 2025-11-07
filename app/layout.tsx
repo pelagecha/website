@@ -1,12 +1,11 @@
+// app/layout.tsx
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
 import { Providers } from "./context/Providers";
 
-// app/layout.tsx
 export default function RootLayout({
     children,
 }: {
@@ -14,27 +13,24 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
+            {/* Inline script runs **before** React hydrates */}
             <head>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
-                            (function() {
-                                try {
-                                    var theme = localStorage.getItem('theme');
-                                    if (!theme) {
-                                        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                                    }
-                                    if (theme === 'dark') {
-                                        document.documentElement.classList.add('dark');
-                                    } else {
-                                        document.documentElement.classList.remove('dark');
-                                    }
-                                } catch (e) {}
-                            })();
-                        `,
+              (function() {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              })();
+            `,
                     }}
                 />
             </head>
+
             <body className="transition-colors duration-500">
                 <Providers>
                     <ThemeProvider>
@@ -46,7 +42,39 @@ export default function RootLayout({
                     </ThemeProvider>
                 </Providers>
             </body>
+
             <GoogleAnalytics gaId="G-QR8YZB5NC2" />
         </html>
     );
 }
+// import "./globals.css";
+// import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
+// import { ThemeProvider } from "./context/ThemeContext";
+// import { GoogleAnalytics } from "@next/third-parties/google";
+
+// import { Providers } from "./context/Providers";
+
+// // app/layout.tsx
+// export default function RootLayout({
+//     children,
+// }: {
+//     children: React.ReactNode;
+// }) {
+//     return (
+//         <html lang="en">
+//             <body className="transition-colors duration-500">
+//                 <Providers>
+//                     <ThemeProvider>
+//                         <div className="main-container bg-gray-100 dark:bg-gray-900 min-h-screen">
+//                             <Navbar />
+//                             <main className="content pt-16">{children}</main>
+//                             <Footer />
+//                         </div>
+//                     </ThemeProvider>
+//                 </Providers>
+//             </body>
+//             <GoogleAnalytics gaId="G-QR8YZB5NC2" />
+//         </html>
+//     );
+// }

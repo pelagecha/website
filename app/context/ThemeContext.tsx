@@ -1,7 +1,7 @@
 // app/context/ThemeContext.tsx
 "use client";
 
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 interface ThemeContextProps {
     theme: "light" | "dark";
@@ -16,29 +16,25 @@ export const ThemeContext = createContext<ThemeContextProps>({
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [theme, setTheme] = useState<"light" | "dark">(() => {
-        if (typeof window !== 'undefined') {
-            const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-            if (storedTheme) {
-                return storedTheme;
-            }
-            // Check system preference
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-        }
-        return "light"; // Default for SSR
-    });
+    // Start with *undefined* – we’ll read the real value on first mount
+    const [theme, setTheme] = useState<"light" | "dark" | undefined>(undefined);
 
+    // Hydrate the state **after** mount (no DOM change needed)
     useEffect(() => {
-        // Set initial theme class
-        document.documentElement.classList.toggle("dark", theme === "dark");
-        
-        // Store theme in localStorage
-        localStorage.setItem("theme", theme);
-    }, [theme]);
+        const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+        const resolved =
+            stored ??
+            (document.documentElement.classList.contains("dark")
+                ? "dark"
+                : "light");
+        setTheme(resolved);
+    }, []);
 
     const toggleTheme = () => {
         setTheme((prev) => {
             const newTheme = prev === "light" ? "dark" : "light";
+
+            // Sync the class instantly
             document.documentElement.classList.toggle(
                 "dark",
                 newTheme === "dark"
@@ -48,12 +44,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
         });
     };
 
-    if (theme === null) {
-        return null; // or a loading spinner
-    }
+    // Render nothing until we know the theme (prevents a flash of the wrong UI)
+    if (theme === undefined) return null;
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider
+            value={{ theme: theme as "light" | "dark", toggleTheme }}
+        >
             {children}
         </ThemeContext.Provider>
     );
