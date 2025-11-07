@@ -16,21 +16,25 @@ export const ThemeContext = createContext<ThemeContextProps>({
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<"light" | "dark">(() => {
+        if (typeof window !== 'undefined') {
+            const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+            if (storedTheme) {
+                return storedTheme;
+            }
+            // Check system preference
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+        }
+        return "light"; // Default for SSR
+    });
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme") as
-            | "light"
-            | "dark"
-            | null;
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
-        document.documentElement.classList.toggle(
-            "dark",
-            storedTheme === "dark" || storedTheme === null
-        );
-    }, []);
+        // Set initial theme class
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        
+        // Store theme in localStorage
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     const toggleTheme = () => {
         setTheme((prev) => {
