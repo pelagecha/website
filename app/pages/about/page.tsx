@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ParticlesBackground from "@/app/components/ParticlesBackground";

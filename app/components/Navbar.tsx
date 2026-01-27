@@ -3,7 +3,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { ThemeContext } from "../context/ThemeContext";
-import { FaSun, FaMoon, FaBars } from "react-icons/fa";
+import { FaMoon, FaBars } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated import
@@ -15,7 +15,7 @@ const sections = ["General", "Projects", "Notes", "Experience"];
 
 const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
-    const { particlesEnabled, toggleParticles } = useParticles();
+    const {} = useParticles();
     const [activeSection, setActiveSection] = useState<string>("general");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [progress, setProgress] = useState(0);

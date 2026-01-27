@@ -23,10 +23,6 @@ export function middleware(req: NextRequest) {
         return new NextResponse(null, { status: 404 });
     }
 
-    if (path.startsWith("/pdf/")) {
-        return new NextResponse(null, { status: 404 });
-    }
-
     return NextResponse.next();
 }
 

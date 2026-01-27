@@ -16,13 +16,12 @@ interface Job {
 
 interface JobItemProps {
     job: Job;
-    index: number;
     isExpanded: boolean;
     onToggle: () => void;
 }
 
 const JobItem: React.FC<JobItemProps> = React.memo(
-    ({ job, index, isExpanded, onToggle }) => {
+    ({ job, isExpanded, onToggle }) => {
         const [deviceType, setDeviceType] = useState(""); // get current client device
         useEffect(() => {
             const userAgent = navigator.userAgent;
@@ -139,5 +138,7 @@ const JobItem: React.FC<JobItemProps> = React.memo(
         );
     }
 );
+
+JobItem.displayName = "JobItem";
 
 export default JobItem;

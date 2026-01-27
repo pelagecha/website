@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
 import ParticlesBackground from "./ParticlesBackground";

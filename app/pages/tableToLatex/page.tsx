@@ -10,7 +10,7 @@ const SplashWindow: NextPage = () => {
                 <FaHammer className="mx-auto text-6xl mb-4" />
                 <h1 className="text-4xl font-bold">Under Construction</h1>
                 <p className="mt-2 text-lg">
-                    I'm working hard to bring you a great experience. Stay
+                    I&apos;m working hard to bring you a great experience. Stay
                     tuned!
                 </p>
             </div>

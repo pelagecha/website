@@ -175,7 +175,7 @@ const InfoSection: React.FC = () => {
                                     University of Warwick
                                 </a>
                                 <a></a>
-                                <strong> '26</strong>{" "}
+                                <strong> &apos;26</strong>{" "}
                             </p>
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
                             <div className="text-left">

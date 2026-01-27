@@ -1,17 +1,9 @@
 "use client";
 
 import React, { useContext } from "react";
-import {
-    FaGithub,
-    FaLinkedin,
-    FaTwitter,
-    FaEnvelope,
-    FaInstagram,
-    FaInfoCircle,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInfoCircle } from "react-icons/fa";
 import { useParticles } from "../context/ParticlesContext";
 import { ThemeContext } from "../context/ThemeContext";
-import Image from "next/image";
 import Link from "next/link";
 import { SiLeetcode } from "react-icons/si";
 

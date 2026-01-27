@@ -171,12 +171,12 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import type { ISourceOptions } from "tsparticles-engine";
+import type { ISourceOptions, Engine } from "tsparticles-engine";
 import { ThemeContext } from "../context/ThemeContext";
 import { useParticles } from "../context/ParticlesContext";
 
 const ParticlesBackground: React.FC = () => {
-    const particlesInit = useCallback(async (main: any) => {
+    const particlesInit = useCallback(async (main: Engine) => {
         await loadFull(main);
     }, []);
 

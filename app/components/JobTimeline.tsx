@@ -21,7 +21,6 @@ const JobTimeline: React.FC = () => {
                     <JobItem
                         key={index} // Using index as key since 'id' doesn't exist on Job type
                         job={job}
-                        index={index}
                         isExpanded={expandedJob === index}
                         onToggle={() => handleToggle(index)}
                     />
