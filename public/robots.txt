@@ -1,23 +1,70 @@
-# *
+# =====================================
+# Global rules (default)
+# =====================================
 User-agent: *
 Allow: /
 
-# Googlebot
+# Block common junk / scanners
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /.env
+Disallow: /config/
+Disallow: /server-status
+Disallow: /cgi-bin/
+
+# Block internal / non-content routes
+Disallow: /admin/
+Disallow: /private-page/
+Disallow: /test/
+Disallow: /tableToLatex/
+
+# Optional: block raw PDFs if you don’t want them indexed
+# (comment out if you DO want them indexed)
+Disallow: /pdf/
+
+# =====================================
+# Google
+# =====================================
 User-agent: Googlebot
 Allow: /
-Disallow: /private-page
-Disallow: /admin/**
+Disallow: /admin/
+Disallow: /private-page/
+Disallow: /test/
 
-# Bingbot
+# =====================================
+# Bing
+# =====================================
 User-agent: Bingbot
 Allow: /
-Disallow: /private-page
-Disallow: /admin/**
+Disallow: /admin/
+Disallow: /private-page/
+Disallow: /test/
 
-# Host
-Host: https://www.pelagecha.com
+# =====================================
+# Aggressive crawlers (optional but useful)
+# =====================================
+User-agent: SemrushBot
+Disallow: /
 
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# =====================================
+# Canonical host
+# =====================================
+Host: www.pelagecha.com
+
+# =====================================
 # Sitemaps
+# =====================================
 Sitemap: https://www.pelagecha.com/sitemap.xml
 Sitemap: https://www.pelagecha.com/sitemap-images.xml
-Sitemap: https://www.pelagecha.com/sitemap-videos.xml
