@@ -140,11 +140,12 @@ const InfoSection: React.FC = () => {
                 >
                     <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 relative">
                         <Image
-                            src="/images/me.jpeg"
+                            src="/images/avatar.jpg"
                             alt="Nikita Pelagecha"
                             fill
                             style={{
                                 objectFit: "cover",
+                                objectPosition: "30% 20%",
                                 pointerEvents: "none",
                             }}
                             className={`rounded-md border-4 ${
@@ -197,9 +198,9 @@ const InfoSection: React.FC = () => {
                         <div className="space-y-2">
                             <div className="text-center">
                                 <p className="font-semibold">
-                                    SWE Intern @{" "}
+                                    Incoming SWE @{" "}
                                     <a
-                                        href="https://www.vanguardinvestor.co.uk/"
+                                        href="https://professional.bloomberg.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={`${
@@ -208,25 +209,24 @@ const InfoSection: React.FC = () => {
                                                 : "text-indigo-500"
                                         } hover:underline font-bold`}
                                     >
-                                        Vanguard
+                                        Bloomberg
                                     </a>
                                 </p>
                             </div>
+
                             <hr className="my-2 border-t border-gray-300 dark:border-gray-600" />
-                            <ul className="list-disc list-inside text-sm content-align">
-                                Worked in the Financial Advisory Services team
-                                to build analytics tools, optimise CI/CD, and
-                                enhance testing for a global B2B investment
-                                platform.
-                                {/* <div><b>Team:</b> Financial Advisory Services</div>
-                                <div><b>Location:</b> London</div>
-                                <div><b>Duration:</b> 10 weeks</div> */}
+
+                            <ul className="list-disc list-inside text-sm space-y-1 text-left">
+                                Joining London in September (C++)
+                                <br/>
+                                {/* <em>Dissertation: Associative Memory Augmentation for Long-Context Transformer Inference</em> */}
                             </ul>
                         </div>
                     }
                     centerContent={false}
-                    size={deviceType === "tablet" ? "large" : "normal"} // Added size prop to make the tile larger
+                    size={deviceType === "tablet" ? "large" : "normal"}
                 />
+                
                 {/* <InfoTile
                     title="Latest Position"
                     content={
@@ -450,25 +450,32 @@ const InfoSection: React.FC = () => {
                                     SQL, Haskell, Swift, TypeScript, Bash
                                 </p>
                             </div>
-                            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-9">
+                            {/* <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-2 rounded-md grid grid-cols-[auto,1fr] gap-x-9">
                                 <p className="font-semibold text-amber-700 dark:text-amber-300 self-start">
                                     Familiar:
                                 </p>
                                 <p className="text-amber-600 dark:text-amber-200">
                                     Rust, Prolog, C#
                                 </p>
-                            </div>
+                            </div> */}
                         </div>
                     }
                     centerContent={false}
                 />
 
                 <InfoTile
-                    title="Languages"
-                    content="English, Ukrainian, Russian"
+                    title="Interests"
+                    centerContent={false}
+                    content={
+                        <div className="space-y-1">
+                            <div>Machine Learning</div>
+                            <div>Competitive Programming</div>
+                            <div>High-performance computing</div>
+                        </div>
+                    }
                 />
             </div>
-            <div className="overflow-hidden w-full py-8 relative background-white">
+            {/* <div className="overflow-hidden w-full py-8 relative background-white">
                 <div className="flex animate-scroll-left whitespace-nowrap">
                     {Array.from({ length: 2 }).map((_, repeatIndex) => (
                         <div key={repeatIndex} className="flex">
@@ -511,7 +518,7 @@ const InfoSection: React.FC = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </motion.div>
     );
 };

@@ -23,6 +23,17 @@ export const projectsData: Project[] = [
     //     document: "",
     // },
     {
+        slug: "dissertation",
+        name: "",
+        image: "/images/projects/dissertation/invert.png",
+        date: "",
+        tags: ["Attention", "Transformers", "Modern Hopfield Networks"],
+        title: "Associative Memory Augmentation",
+        summary: "for Long-Context Transformer Inference",
+        description: "",
+        document: "dissertation.html",
+    },
+    {
         slug: "genetic",
         name: "",
         image: "/images/projects/genAlg/background.jpg",

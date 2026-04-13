@@ -9,6 +9,14 @@ export interface Job {
 
 export const jobs: Job[] = [
     {
+        title: "Incoming Software Engineer",
+        company: "Bloomberg",
+        date: "Jun 2025 - Aug 2025",
+        description: "September start",
+        details: ``,
+        companyUrl: "https://professional.bloomberg.com/",
+    },
+    {
         title: "Software Engineer Intern",
         company: "Vanguard",
         date: "Jun 2025 - Aug 2025",
