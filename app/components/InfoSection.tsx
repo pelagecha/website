@@ -184,7 +184,7 @@ const InfoSection: React.FC = () => {
                                 <p>
                                     <strong>Year:</strong> Third year (final)
                                     <br />
-                                    <strong>Grade:</strong> Predicted 1st Class
+                                    <strong>Grade:</strong> 1st Class Hons
                                     <br />
                                     {/* <strong>Y2:</strong> Ongoing */}
                                 </p>
